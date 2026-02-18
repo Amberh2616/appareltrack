@@ -404,6 +404,7 @@ const { canEdit, isAdmin, hasPermission } = usePermissions();
 7. CORS_ALLOWED_ORIGINS 沒設 → 前端登入被 CORS 擋
 
 ### 待做
+- [ ] **FIX-0219**：Documents / BOM / Spec / Costing 頁面壞掉 → 排查修復
 - [ ] 決定域名 → 買 appareltrack.com（$6.79首年）
 - [ ] 準備 Demo 資料
 - [ ] 練習 Demo Pitch 流程
