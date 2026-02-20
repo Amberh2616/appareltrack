@@ -639,6 +639,23 @@ class StyleViewSet(viewsets.ViewSet):
         data = _compute_style_readiness(style)
         return api_success(data=data)
 
+    def destroy(self, request, pk=None):
+        """
+        DELETE /api/v2/styles/{id}/
+        Delete a style and all its related data.
+        """
+        org = self._get_organization(request)
+        if org is None:
+            return api_error(
+                code=ErrorCodes.UNAUTHORIZED,
+                message="Organization not found",
+                status_code=status.HTTP_403_FORBIDDEN
+            )
+
+        style = get_object_or_404(Style, pk=pk, organization=org)
+        style.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
     @action(detail=False, methods=['post'], url_path='bulk-create')
     def bulk_create(self, request):
         """
