@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "rest_framework_simplejwt",
     "corsheaders",
+    "storages",
     # "drf_spectacular",  # TODO: Add to requirements when needed
     # Local apps - v2.2.1 structure
     "apps.core",
@@ -155,8 +156,22 @@ CELERY_TASK_TIME_LIMIT = 30 * 60  # 30 minutes max per task
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY", "")
 OPENAI_ORG_ID = os.getenv("OPENAI_ORG_ID", "")
 
-# File Storage (will be overridden in production to use S3)
-DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
+# File Storage
+# 若有設定 AWS_STORAGE_BUCKET_NAME 就用 Cloudflare R2（production）
+# 否則用本地檔案系統（development）
+if os.getenv("AWS_STORAGE_BUCKET_NAME"):
+    DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+    AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+    AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+    AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+    AWS_S3_ENDPOINT_URL = os.getenv("AWS_S3_ENDPOINT_URL")
+    AWS_S3_CUSTOM_DOMAIN = os.getenv("AWS_S3_CUSTOM_DOMAIN")  # R2 public URL
+    AWS_DEFAULT_ACL = None  # R2 不用 ACL
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_QUERYSTRING_AUTH = False  # 用 public domain，不需要簽名 URL
+    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+else:
+    DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
 
 # API Documentation
 SPECTACULAR_SETTINGS = {
