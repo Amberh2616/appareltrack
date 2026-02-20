@@ -328,6 +328,7 @@ Rules:
 
         # 解析回應
         result_text = response.choices[0].message.content.strip()
+        print(f"[TRANSLATE DEBUG] model={model}, raw response (first 300 chars): {result_text[:300]}")
 
         # 清理 markdown 格式
         if "```json" in result_text:
@@ -336,19 +337,23 @@ Rules:
             result_text = result_text.split("```")[1].split("```")[0].strip()
 
         translations = json.loads(result_text)
+        print(f"[TRANSLATE DEBUG] parsed {len(translations)} translations, first={translations[0] if translations else '(none)'}")
 
         # 填充結果
         for i, idx in enumerate(indices_to_translate):
             if i < len(translations):
                 results[idx] = translations[i]
             else:
-                results[idx] = texts[idx]  # Fallback
+                results[idx] = ''  # 沒對應翻譯 → 空字串，讓 service 標 failed
 
         return results
 
     except Exception as e:
-        # 翻譯失敗，回傳原文
-        print(f"Batch translation failed: {e}")
+        # 翻譯失敗 — 回傳空字串（讓 translation_service 正確標為 failed，而非誤標 done）
+        import traceback
+        print(f"[TRANSLATE ERROR] Batch translation failed: {type(e).__name__}: {e}")
+        print(f"[TRANSLATE ERROR] model={get_translation_model()}, base_url={os.getenv('TRANSLATION_BASE_URL', '(default OpenAI)')}")
+        traceback.print_exc()
         for i in indices_to_translate:
-            results[i] = texts[i]
+            results[i] = ''
         return results
