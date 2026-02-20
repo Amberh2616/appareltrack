@@ -14,6 +14,43 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import { fabric } from 'fabric';
 import type { DraftBlock } from '@/lib/types/revision';
 
+/** Fetch image with JWT auth and return a blob URL (avoids <img> 401) */
+function useAuthImageUrl(url: string): string | null {
+  const [blobUrl, setBlobUrl] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!url) return;
+    let revoked = false;
+
+    const load = async () => {
+      try {
+        // Read token directly from storage (same approach as useDraft)
+        let token: string | null = null;
+        if (typeof window !== 'undefined') {
+          const raw = sessionStorage.getItem('auth-storage') || localStorage.getItem('auth-storage');
+          if (raw) token = JSON.parse(raw)?.state?.accessToken ?? null;
+        }
+        const res = await fetch(url, {
+          headers: token ? { Authorization: `Bearer ${token}` } : {},
+        });
+        if (!res.ok) return;
+        const blob = await res.blob();
+        if (!revoked) setBlobUrl(URL.createObjectURL(blob));
+      } catch {
+        // silently fail — canvas stays grey
+      }
+    };
+
+    load();
+    return () => {
+      revoked = true;
+      setBlobUrl(prev => { if (prev) URL.revokeObjectURL(prev); return null; });
+    };
+  }, [url]);
+
+  return blobUrl;
+}
+
 interface TechPackCanvasProps {
   pageImageUrl: string;
   pageNumber: number;
@@ -46,6 +83,9 @@ export function TechPackCanvas({
   const fabricRef = useRef<fabric.Canvas | null>(null);
   const objectsMapRef = useRef<Map<string, fabric.Group>>(new Map());
   const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch page image with auth (blob URL bypasses JWT restriction on <img>)
+  const authImageUrl = useAuthImageUrl(pageImageUrl);
   const [scale, setScale] = useState(1);
   const [canvasReady, setCanvasReady] = useState(false);
   const [deleteButtonPos, setDeleteButtonPos] = useState<{ x: number; y: number; blockId: string } | null>(null);
@@ -97,15 +137,15 @@ export function TechPackCanvas({
     };
   }, [scale, pageWidth, pageHeight, pageNumber]);
 
-  // 載入背景圖
+  // 載入背景圖（使用已認證的 blob URL）
   useEffect(() => {
-    if (!fabricRef.current || !pageImageUrl || !canvasReady) return;
+    if (!fabricRef.current || !authImageUrl || !canvasReady) return;
 
     setIsLoading(true);
     const canvas = fabricRef.current;
 
     fabric.Image.fromURL(
-      pageImageUrl,
+      authImageUrl,
       (img) => {
         if (!img || !fabricRef.current) {
           setIsLoading(false);
@@ -125,7 +165,7 @@ export function TechPackCanvas({
       },
       { crossOrigin: 'anonymous' }
     );
-  }, [pageImageUrl, canvasReady, scale, pageWidth, pageHeight]);
+  }, [authImageUrl, canvasReady, scale, pageWidth, pageHeight]);
 
   // 添加翻譯框
   useEffect(() => {
