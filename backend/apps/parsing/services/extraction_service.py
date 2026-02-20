@@ -190,6 +190,11 @@ def perform_extraction(doc: UploadedDocument, target_style_id: str = None) -> di
     doc.status = 'extracted'
     doc.save(update_fields=['style_revision', 'tech_pack_revision', 'status', 'extraction_errors', 'updated_at'])
 
+    # 7. Update Style.current_revision to the newly extracted StyleRevision
+    #    so BOM/Spec pages reflect the latest extracted data
+    style.current_revision = revision
+    style.save(update_fields=['current_revision'])
+
     logger.info(f"Extraction completed for {doc.id}: {extraction_stats}")
 
     return {
