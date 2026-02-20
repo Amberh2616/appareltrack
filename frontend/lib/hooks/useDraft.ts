@@ -4,22 +4,25 @@
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Revision, RevisionResponse } from '@/lib/types/revision';
-import { API_BASE_URL, getAccessToken } from '@/lib/api/client';
+import { API_BASE_URL } from '@/lib/api/client';
+import { useAuthStore } from '@/lib/stores/authStore';
 
 const API_BASE = API_BASE_URL;
 
-function authHeaders() {
-  const token = getAccessToken();
+function authHeaders(token: string | null): Record<string, string> {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
 // ===== Fetch Revision Data =====
 export function useDraft(revisionId: string) {
+  // Use reactive store state — waits for Zustand to hydrate from localStorage
+  const accessToken = useAuthStore(state => state.accessToken);
+
   return useQuery({
-    queryKey: ['draft', revisionId],
+    queryKey: ['draft', revisionId, !!accessToken],
     queryFn: async (): Promise<RevisionResponse> => {
       const res = await fetch(`${API_BASE}/revisions/${revisionId}/`, {
-        headers: authHeaders(),
+        headers: authHeaders(accessToken),
       });
       if (!res.ok) {
         throw new Error(`Failed to fetch revision: ${res.statusText}`);
@@ -27,9 +30,10 @@ export function useDraft(revisionId: string) {
       const data: Revision = await res.json();
       return { data };
     },
-    enabled: !!revisionId,
-    staleTime: 30000, // 30 seconds
-    retry: 2,
+    // Only run when both revisionId and token are ready
+    enabled: !!revisionId && !!accessToken,
+    staleTime: 30000,
+    retry: 1,
   });
 }
 
