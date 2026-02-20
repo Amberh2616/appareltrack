@@ -31,12 +31,17 @@ class TenantViewMixin:
     def get_organization(self):
         """
         Get the current user's organization.
-        Raises PermissionDenied if user has no organization.
+        Returns None for superusers (bypass org check).
+        Raises PermissionDenied if regular user has no organization.
         """
         user = self.request.user
 
         if not user.is_authenticated:
             raise PermissionDenied("Authentication required")
+
+        # Superusers bypass organization check
+        if user.is_superuser:
+            return None
 
         if not hasattr(user, 'organization') or user.organization is None:
             raise PermissionDenied("User is not associated with any organization")
@@ -46,11 +51,14 @@ class TenantViewMixin:
     def get_queryset(self):
         """
         Filter queryset by user's organization.
-
-        Uses the model's TenantManager.for_tenant() method.
+        Superusers see all data across all organizations.
         """
         queryset = super().get_queryset()
         org = self.get_organization()
+
+        # Superuser: return all data unfiltered
+        if org is None:
+            return queryset
 
         # Use TenantManager's for_tenant() if available
         if hasattr(queryset, 'for_tenant'):
@@ -65,12 +73,12 @@ class TenantViewMixin:
     def perform_create(self, serializer):
         """
         Automatically set organization on create.
+        Superusers create without org binding.
         """
         org = self.get_organization()
 
-        # Check if model has organization field
         model = serializer.Meta.model
-        if hasattr(model, 'organization'):
+        if org is not None and hasattr(model, 'organization'):
             serializer.save(organization=org)
         else:
             serializer.save()
@@ -83,11 +91,14 @@ class TenantQueryMixin:
     """
 
     def get_organization(self):
-        """Get the current user's organization."""
+        """Get the current user's organization. Superusers return None."""
         user = self.request.user
 
         if not user.is_authenticated:
             raise PermissionDenied("Authentication required")
+
+        if user.is_superuser:
+            return None
 
         if not hasattr(user, 'organization') or user.organization is None:
             raise PermissionDenied("User is not associated with any organization")
@@ -97,11 +108,12 @@ class TenantQueryMixin:
     def filter_by_tenant(self, queryset):
         """
         Helper to filter any queryset by current tenant.
-
-        Usage:
-            runs = self.filter_by_tenant(SampleRun.objects.all())
+        Superusers (org=None) see all data unfiltered.
         """
         org = self.get_organization()
+
+        if org is None:
+            return queryset
 
         if hasattr(queryset, 'for_tenant'):
             return queryset.for_tenant(org)
