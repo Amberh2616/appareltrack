@@ -15,12 +15,14 @@ import { fabric } from 'fabric';
 import type { DraftBlock } from '@/lib/types/revision';
 
 /** Fetch image with JWT auth and return a blob URL (avoids <img> 401) */
-function useAuthImageUrl(url: string): string | null {
+function useAuthImageUrl(url: string): { blobUrl: string | null; isDone: boolean } {
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
+  const [isDone, setIsDone] = useState(false);
 
   useEffect(() => {
-    if (!url) return;
+    if (!url) { setIsDone(true); return; }
     let revoked = false;
+    setIsDone(false);
 
     const load = async () => {
       try {
@@ -33,11 +35,17 @@ function useAuthImageUrl(url: string): string | null {
         const res = await fetch(url, {
           headers: token ? { Authorization: `Bearer ${token}` } : {},
         });
-        if (!res.ok) return;
+        if (!res.ok) {
+          if (!revoked) setIsDone(true); // Image unavailable — stop loading
+          return;
+        }
         const blob = await res.blob();
-        if (!revoked) setBlobUrl(URL.createObjectURL(blob));
+        if (!revoked) {
+          setBlobUrl(URL.createObjectURL(blob));
+          setIsDone(true);
+        }
       } catch {
-        // silently fail — canvas stays grey
+        if (!revoked) setIsDone(true); // silently fail — canvas stays grey
       }
     };
 
@@ -45,10 +53,11 @@ function useAuthImageUrl(url: string): string | null {
     return () => {
       revoked = true;
       setBlobUrl(prev => { if (prev) URL.revokeObjectURL(prev); return null; });
+      setIsDone(false);
     };
   }, [url]);
 
-  return blobUrl;
+  return { blobUrl, isDone };
 }
 
 interface TechPackCanvasProps {
@@ -85,7 +94,7 @@ export function TechPackCanvas({
   const [isLoading, setIsLoading] = useState(true);
 
   // Fetch page image with auth (blob URL bypasses JWT restriction on <img>)
-  const authImageUrl = useAuthImageUrl(pageImageUrl);
+  const { blobUrl: authImageUrl, isDone: imageLoadDone } = useAuthImageUrl(pageImageUrl);
   const [scale, setScale] = useState(1);
   const [canvasReady, setCanvasReady] = useState(false);
   const [deleteButtonPos, setDeleteButtonPos] = useState<{ x: number; y: number; blockId: string } | null>(null);
@@ -139,7 +148,13 @@ export function TechPackCanvas({
 
   // 載入背景圖（使用已認證的 blob URL）
   useEffect(() => {
-    if (!fabricRef.current || !authImageUrl || !canvasReady) return;
+    if (!fabricRef.current || !canvasReady || !imageLoadDone) return;
+
+    // Image failed to load (file missing / auth error) — show grey canvas + allow blocks to render
+    if (!authImageUrl) {
+      setIsLoading(false);
+      return;
+    }
 
     setIsLoading(true);
     const canvas = fabricRef.current;
@@ -165,7 +180,7 @@ export function TechPackCanvas({
       },
       { crossOrigin: 'anonymous' }
     );
-  }, [authImageUrl, canvasReady, scale, pageWidth, pageHeight]);
+  }, [authImageUrl, imageLoadDone, canvasReady, scale, pageWidth, pageHeight]);
 
   // 添加翻譯框
   useEffect(() => {
