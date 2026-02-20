@@ -14,6 +14,7 @@ import {
   type ColumnFiltersState,
 } from "@tanstack/react-table";
 import { useBOMItems, useTranslateBOMBatch, useDeleteBOMItem, useCreateBOMItem } from "@/lib/hooks/useBom";
+import { useBatchVerifyBOM } from "@/lib/hooks/useStyleDetail";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -21,7 +22,7 @@ import { BOMEditDrawer } from "@/components/bom/BOMEditDrawer";
 import { BOMTranslationDrawer } from "@/components/bom/BOMTranslationDrawer";
 import { EditableConsumptionCell } from "@/components/bom/EditableConsumptionCell";
 import type { BOMItem } from "@/lib/types/bom";
-import { ArrowUpDown, Languages, Sparkles, Package, ArrowLeft, Trash2, Plus, Ruler, DollarSign, LayoutDashboard } from "lucide-react";
+import { ArrowUpDown, Languages, Sparkles, Package, ArrowLeft, Trash2, Plus, Ruler, DollarSign, LayoutDashboard, CheckCircle } from "lucide-react";
 import {
   Dialog,
   DialogContent,
@@ -70,10 +71,11 @@ export default function BOMPage() {
     unit_price: "",
   });
 
-  const { data: bomData, isLoading, error } = useBOMItems(revisionId);
+  const { data: bomData, isLoading, error, refetch } = useBOMItems(revisionId);
   const translateBatchMutation = useTranslateBOMBatch(revisionId);
   const deleteMutation = useDeleteBOMItem(revisionId);
   const createMutation = useCreateBOMItem(revisionId);
+  const batchVerifyMutation = useBatchVerifyBOM(revisionId);
 
   const handleAddItem = async () => {
     if (!newItemData.material_name.trim()) {
@@ -408,6 +410,14 @@ export default function BOMPage() {
           >
             <Sparkles className="h-4 w-4 mr-2" />
             {translateBatchMutation.isPending ? "翻譯中..." : "AI 批量翻譯"}
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => batchVerifyMutation.mutate(undefined, { onSuccess: () => refetch() })}
+            disabled={batchVerifyMutation.isPending}
+          >
+            <CheckCircle className="h-4 w-4 mr-2" />
+            {batchVerifyMutation.isPending ? "確認中..." : "Verify All"}
           </Button>
           <Badge variant="secondary" className="text-base px-3 py-1">
             共 {items.length} 項
