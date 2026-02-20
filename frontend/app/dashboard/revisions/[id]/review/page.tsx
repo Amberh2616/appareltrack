@@ -252,7 +252,7 @@ export default function DraftReviewPage() {
       const response = await fetch(`${API_BASE}/revisions/${revisionId}/translate-batch/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...authHeaders() },
-        body: JSON.stringify({ force: false }),
+        body: JSON.stringify({ mode: 'all' }),
       });
 
       if (!response.ok) {
@@ -260,7 +260,7 @@ export default function DraftReviewPage() {
       }
 
       const result = await response.json();
-      alert(`Batch translation completed!\n\nTranslated: ${result.translated}\nSkipped: ${result.skipped}\nTotal: ${result.total}`);
+      alert(`Batch translation completed!\n\nSuccess: ${result.success}\nFailed: ${result.failed}\nTotal: ${result.total}`);
       refetch();
     } catch (error) {
       console.error('Failed to batch translate:', error);
