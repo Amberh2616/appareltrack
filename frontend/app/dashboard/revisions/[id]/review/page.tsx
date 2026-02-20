@@ -114,6 +114,7 @@ export default function DraftReviewPage() {
   const [isApproving, setIsApproving] = useState(false);
   const [isCreatingRequest, setIsCreatingRequest] = useState(false);
   const [isTranslating, setIsTranslating] = useState(false);
+  const [isRetrying, setIsRetrying] = useState(false);
   const [showMissingOnly, setShowMissingOnly] = useState(false);
   const [showOriginalPdf, setShowOriginalPdf] = useState(false);
   const [zoomLevel, setZoomLevel] = useState(1);
@@ -276,6 +277,24 @@ export default function DraftReviewPage() {
       alert(`Batch translation failed: ${(error as Error).message}`);
     } finally {
       setIsTranslating(false);
+    }
+  };
+
+  const handleRetryFailed = async () => {
+    setIsRetrying(true);
+    try {
+      const response = await fetch(`${API_BASE}/revisions/${revisionId}/retry-failed/`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
+      });
+      if (!response.ok) throw new Error('Retry request failed');
+      const result = await response.json();
+      alert(`Retry completed!\n\nSuccess: ${result.success}\nTotal: ${result.total}`);
+      refetch();
+    } catch (error) {
+      alert(`Retry failed: ${(error as Error).message}`);
+    } finally {
+      setIsRetrying(false);
     }
   };
 
@@ -624,6 +643,15 @@ export default function DraftReviewPage() {
               >
                 {isTranslating && <span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin"></span>}
                 {isTranslating ? 'Translating...' : 'AI Batch Translate'}
+              </button>
+              <button
+                onClick={handleRetryFailed}
+                disabled={isRetrying || revision.status === 'completed'}
+                className="px-3 py-1.5 bg-gray-100 text-gray-700 text-xs rounded hover:bg-gray-200 disabled:opacity-50 flex items-center gap-1"
+                title="Retry incomplete translations"
+              >
+                {isRetrying && <span className="w-3 h-3 border-2 border-gray-500 border-t-transparent rounded-full animate-spin"></span>}
+                Retry
               </button>
               <button
                 onClick={jumpNextMissing}
