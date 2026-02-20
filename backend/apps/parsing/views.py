@@ -539,9 +539,17 @@ class UploadedDocumentViewSet(viewsets.ModelViewSet):
         file_ext = '.' + filename.split('.')[-1].lower()
 
         try:
-            # Get organization (TODO: from request.user when auth is ready)
+            # Get organization from user, fallback to get_or_create default
             from apps.core.models import Organization
-            org = Organization.objects.first()  # Temporary: use first org
+            org = getattr(request.user, 'organization', None)
+            if org is None:
+                org = Organization.objects.first()
+                if org is None:
+                    org = Organization.objects.create(name="Default Organization")
+                # Bind org to superuser for future requests
+                if request.user.is_authenticated and request.user.is_superuser:
+                    request.user.organization = org
+                    request.user.save(update_fields=['organization'])
 
             # Create UploadedDocument record
             doc = UploadedDocument.objects.create(
@@ -551,7 +559,7 @@ class UploadedDocumentViewSet(viewsets.ModelViewSet):
                 file_type=file_ext[1:],  # Remove leading dot
                 file_size=uploaded_file.size,
                 status='uploaded',
-                created_by=None,  # TODO: request.user when auth is ready
+                created_by=request.user if request.user.is_authenticated else None,
             )
 
             logger.info(f"Document uploaded successfully: {doc.id} - {filename}")
