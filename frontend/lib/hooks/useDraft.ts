@@ -4,15 +4,49 @@
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Revision, RevisionResponse } from '@/lib/types/revision';
-import { apiClient } from '@/lib/api/client';
+import { API_BASE_URL } from '@/lib/api/client';
+
+const API_BASE = API_BASE_URL;
+
+/**
+ * Read JWT token directly from storage (bypasses Zustand hydration timing)
+ * Checks both sessionStorage and localStorage (matches authStore persist logic)
+ */
+function getTokenFromStorage(): string | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw =
+      sessionStorage.getItem('auth-storage') ||
+      localStorage.getItem('auth-storage');
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed?.state?.accessToken ?? null;
+  } catch {
+    return null;
+  }
+}
+
+async function fetchWithAuth(url: string, options: RequestInit = {}): Promise<Response> {
+  const token = getTokenFromStorage();
+  return fetch(url, {
+    ...options,
+    headers: {
+      ...options.headers,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+  });
+}
 
 // ===== Fetch Revision Data =====
 export function useDraft(revisionId: string) {
   return useQuery({
     queryKey: ['draft', revisionId],
     queryFn: async (): Promise<RevisionResponse> => {
-      // apiClient handles JWT injection + auto token refresh
-      const data = await apiClient<Revision>(`/revisions/${revisionId}/`);
+      const res = await fetchWithAuth(`${API_BASE}/revisions/${revisionId}/`);
+      if (!res.ok) {
+        throw new Error(`Failed to fetch revision: ${res.status} ${res.statusText}`);
+      }
+      const data: Revision = await res.json();
       return { data };
     },
     enabled: !!revisionId,
@@ -27,11 +61,16 @@ export function useUpdateDraftBlock(revisionId: string) {
 
   return useMutation({
     mutationFn: async ({ blockId, editedText }: { blockId: string; editedText: string }) => {
-      return apiClient(`/draft-blocks/${blockId}/`, {
+      const res = await fetchWithAuth(`${API_BASE}/draft-blocks/${blockId}/`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ edited_text: editedText }),
       });
+      if (!res.ok) {
+        const error = await res.json().catch(() => ({}));
+        throw new Error(error.detail || `Failed to update block: ${res.statusText}`);
+      }
+      return res.json();
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['draft', revisionId] });
@@ -45,10 +84,15 @@ export function useApproveRevision(revisionId: string) {
 
   return useMutation({
     mutationFn: async () => {
-      return apiClient(`/revisions/${revisionId}/approve/`, {
+      const res = await fetchWithAuth(`${API_BASE}/revisions/${revisionId}/approve/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
       });
+      if (!res.ok) {
+        const error = await res.json().catch(() => ({}));
+        throw new Error(error.errors?.[0]?.message || 'Failed to approve');
+      }
+      return res.json();
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['draft', revisionId] });
@@ -64,7 +108,9 @@ export function useExtractionRun(runId: string | null) {
     queryFn: async () => {
       if (!runId) return null;
       try {
-        return await apiClient(`/extraction-runs/${runId}/`);
+        const res = await fetchWithAuth(`${API_BASE}/extraction-runs/${runId}/`);
+        if (!res.ok) return null;
+        return res.json();
       } catch {
         return null;
       }
