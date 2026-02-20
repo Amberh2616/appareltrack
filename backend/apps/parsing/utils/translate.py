@@ -137,18 +137,25 @@ def is_chinese(text: str) -> bool:
 
 def get_translation_client():
     """
-    取得翻譯用的 OpenAI client
+    取得翻譯用的 client（OpenAI 相容介面）
 
-    支援：
-    - OpenAI API（預設）
-    - LM Studio（OPENAI_BASE_URL=http://localhost:1234/v1）
-    - Ollama（OPENAI_BASE_URL=http://localhost:11434/v1）
+    優先順序：
+    1. TRANSLATION_BASE_URL + TRANSLATION_API_KEY → Groq / 其他相容服務
+    2. OPENAI_BASE_URL + TRANSLATION_API_KEY → 自訂端點（LM Studio / Ollama）
+    3. 只有 OPENAI_BASE_URL → 用 OPENAI_API_KEY（向下相容）
+    4. 預設 → OpenAI 官方端點
+
+    推薦生產設定（省錢）：
+      TRANSLATION_BASE_URL = https://api.groq.com/openai/v1
+      TRANSLATION_API_KEY  = gsk_...
+      TRANSLATION_MODEL    = llama-3.3-70b-versatile
     """
     from openai import OpenAI
     import os
 
-    base_url = os.getenv('OPENAI_BASE_URL')
-    api_key = os.getenv('OPENAI_API_KEY')
+    base_url = os.getenv('TRANSLATION_BASE_URL') or os.getenv('OPENAI_BASE_URL')
+    # TRANSLATION_API_KEY 優先（Groq key），否則退回 OPENAI_API_KEY
+    api_key = os.getenv('TRANSLATION_API_KEY') or os.getenv('OPENAI_API_KEY')
 
     # 本地模型不需要真正的 API key
     if base_url and 'localhost' in base_url:
@@ -157,12 +164,11 @@ def get_translation_client():
     if base_url:
         return OpenAI(api_key=api_key, base_url=base_url)
     else:
-        # 使用 OpenAI 預設端點
         return OpenAI(api_key=api_key)
 
 
 def get_translation_model() -> str:
-    """取得翻譯模型名稱"""
+    """取得翻譯模型名稱（預設 gpt-4o-mini，Groq 建議 llama-3.3-70b-versatile）"""
     import os
     return os.getenv('TRANSLATION_MODEL', 'gpt-4o-mini')
 
