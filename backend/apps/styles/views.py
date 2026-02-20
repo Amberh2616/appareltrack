@@ -551,18 +551,18 @@ class StyleViewSet(viewsets.ViewSet):
     def _get_organization(self, request):
         """
         Get organization from request user.
-
-        SaaS-Ready: No fallback to first organization - user MUST have an organization.
-        In DEBUG mode, falls back to first org for development convenience.
+        Superusers get or create a default organization automatically.
         """
         org = getattr(request.user, 'organization', None)
         if org is None:
-            if settings.DEBUG:
-                # Development mode only: get first org for testing convenience
+            if request.user.is_superuser or settings.DEBUG:
                 from apps.core.models import Organization
                 org = Organization.objects.first()
-            # In production (DEBUG=False), org remains None
-            # ViewSet methods should handle None appropriately
+                if org is None:
+                    org = Organization.objects.create(name="Default Organization")
+                if request.user.is_superuser and request.user.organization is None:
+                    request.user.organization = org
+                    request.user.save(update_fields=['organization'])
         return org
 
     def list(self, request):
