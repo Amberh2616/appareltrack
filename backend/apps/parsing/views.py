@@ -346,18 +346,33 @@ class RevisionViewSet(viewsets.ReadOnlyModelViewSet):
         scale = max(0.5, min(3.0, scale))  # Clamp to 0.5-3.0
 
         try:
-            # Open PDF and render page
-            pdf_doc = fitz.open(revision.file.path)
-            page = pdf_doc.load_page(page_num - 1)  # 0-indexed
+            import os as _os, tempfile as _tempfile
 
-            # Render with scale
-            mat = fitz.Matrix(scale, scale)
-            pix = page.get_pixmap(matrix=mat)
+            def _get_local_path(f):
+                try:
+                    return f.path, None
+                except NotImplementedError:
+                    ext = _os.path.splitext(f.name)[1] or '.pdf'
+                    tmp = _tempfile.NamedTemporaryFile(delete=False, suffix=ext)
+                    f.seek(0)
+                    tmp.write(f.read())
+                    tmp.close()
+                    return tmp.name, tmp.name
 
-            # Convert to PNG
-            img_data = pix.tobytes("png")
-
-            pdf_doc.close()
+            local_path, temp_file = _get_local_path(revision.file)
+            try:
+                pdf_doc = fitz.open(local_path)
+                page = pdf_doc.load_page(page_num - 1)  # 0-indexed
+                mat = fitz.Matrix(scale, scale)
+                pix = page.get_pixmap(matrix=mat)
+                img_data = pix.tobytes("png")
+                pdf_doc.close()
+            finally:
+                if temp_file:
+                    try:
+                        _os.unlink(temp_file)
+                    except OSError:
+                        pass
 
             # Return as image response
             response = HttpResponse(img_data, content_type="image/png")
