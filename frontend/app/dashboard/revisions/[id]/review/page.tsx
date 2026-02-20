@@ -23,19 +23,26 @@ import { TechPackCanvas } from '@/components/review/TechPackCanvas';
 import { EditPopup } from '@/components/review/EditPopup';
 import { LayoutDashboard } from 'lucide-react';
 
-import { API_BASE_URL } from '@/lib/api/client';
+import { API_BASE_URL, getAccessToken } from '@/lib/api/client';
 import { ReadinessWarningBanner } from '@/components/styles/ReadinessWarningBanner';
 import { StyleBreadcrumb } from '@/components/styles/StyleBreadcrumb';
 
 const API_BASE = API_BASE_URL;
 
+function authHeaders(): Record<string, string> {
+  const token = getAccessToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
 // Resolve styleId from TechPackRevision via uploaded documents
 async function resolveStyleIdFromRevision(techPackRevisionId: string): Promise<string | null> {
   try {
-    const res = await fetch(`${API_BASE}/uploaded-documents/?tech_pack_revision=${techPackRevisionId}`);
+    const res = await fetch(`${API_BASE}/uploaded-documents/?tech_pack_revision=${techPackRevisionId}`, {
+      headers: authHeaders(),
+    });
     if (!res.ok) {
       // Fallback: try fetching all docs and filtering client-side
-      const allRes = await fetch(`${API_BASE}/uploaded-documents/`);
+      const allRes = await fetch(`${API_BASE}/uploaded-documents/`, { headers: authHeaders() });
       if (!allRes.ok) return null;
       const allData = await allRes.json();
       const docs = allData.results || allData;
@@ -43,7 +50,7 @@ async function resolveStyleIdFromRevision(techPackRevisionId: string): Promise<s
       if (!doc?.style_revision) return null;
       const styleRevId = typeof doc.style_revision === 'string' ? doc.style_revision : doc.style_revision_id;
       if (!styleRevId) return null;
-      const revRes = await fetch(`${API_BASE}/style-revisions/${styleRevId}/`);
+      const revRes = await fetch(`${API_BASE}/style-revisions/${styleRevId}/`, { headers: authHeaders() });
       if (!revRes.ok) return null;
       const revData = await revRes.json();
       return revData.data?.style || revData.style || null;
@@ -54,7 +61,7 @@ async function resolveStyleIdFromRevision(techPackRevisionId: string): Promise<s
     const doc = docs[0];
     const styleRevId = doc.style_revision_id || doc.style_revision;
     if (!styleRevId) return null;
-    const revRes = await fetch(`${API_BASE}/style-revisions/${styleRevId}/`);
+    const revRes = await fetch(`${API_BASE}/style-revisions/${styleRevId}/`, { headers: authHeaders() });
     if (!revRes.ok) return null;
     const revData = await revRes.json();
     return revData.data?.style || revData.style || null;
@@ -84,7 +91,7 @@ export default function DraftReviewPage() {
   const { data: styleData } = useQuery({
     queryKey: ['style-info-review', styleId],
     queryFn: async () => {
-      const res = await fetch(`${API_BASE}/styles/${styleId}/`);
+      const res = await fetch(`${API_BASE}/styles/${styleId}/`, { headers: authHeaders() });
       if (!res.ok) return null;
       const d = await res.json();
       return d.data || d;
@@ -244,7 +251,7 @@ export default function DraftReviewPage() {
     try {
       const response = await fetch(`${API_BASE}/revisions/${revisionId}/translate-batch/`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify({ force: false }),
       });
 
@@ -274,7 +281,7 @@ export default function DraftReviewPage() {
 
     setIsCreatingRequest(true);
     try {
-      const docResponse = await fetch(`${API_BASE}/uploaded-documents/`);
+      const docResponse = await fetch(`${API_BASE}/uploaded-documents/`, { headers: authHeaders() });
       if (!docResponse.ok) throw new Error('Failed to fetch documents');
 
       const docs = await docResponse.json();
@@ -291,7 +298,7 @@ export default function DraftReviewPage() {
 
       const response = await fetch(`${API_BASE}/sample-requests/`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders() },
         body: JSON.stringify({
           revision: document.style_revision,
           request_type: 'proto',

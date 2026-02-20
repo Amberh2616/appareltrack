@@ -214,7 +214,7 @@ def machine_translate(text: str, use_glossary: bool = True) -> str:
             relevant_terms = get_relevant_glossary_terms([text], limit=20)
 
         # 構建系統提示
-        system_prompt = "You are a fashion/garment industry translator. Translate English to Traditional Chinese. Keep technical terms accurate."
+        system_prompt = "You are a fashion/garment industry translator. Translate English to Traditional Chinese (繁體中文, used in Taiwan/Hong Kong). Output ONLY Chinese characters, NOT Korean, Japanese, or Simplified Chinese. Keep technical terms accurate."
 
         if relevant_terms:
             terms_str = "\n".join([f"- {t['english']} = {t['chinese']}" for t in relevant_terms])
@@ -294,14 +294,16 @@ def batch_translate(texts: list[str], use_glossary: bool = True) -> list[str]:
             relevant_terms = get_relevant_glossary_terms(texts_to_translate, limit=50)
 
         # 構建系統提示
-        system_prompt = "You are a fashion/garment industry translator. Translate English to Traditional Chinese."
+        system_prompt = "You are a fashion/garment industry translator. Translate English to Traditional Chinese (繁體中文, used in Taiwan/Hong Kong). Output ONLY Chinese characters, NOT Korean, Japanese, or Simplified Chinese."
 
         if relevant_terms:
             terms_str = "\n".join([f"- {t['english']} = {t['chinese']}" for t in relevant_terms])
             system_prompt += f"\n\nReference glossary (use these translations when applicable):\n{terms_str}"
 
         # 構建 JSON 格式提示
-        prompt = f"""Translate the following English texts to Traditional Chinese. Return a JSON array with the same number of items.
+        prompt = f"""Translate the following English texts to Traditional Chinese (繁體中文). Return a JSON array with the same number of items.
+
+IMPORTANT: Output ONLY Traditional Chinese (繁體中文). Do NOT output Korean, Japanese, or Simplified Chinese.
 
 Input:
 {json.dumps(texts_to_translate, ensure_ascii=False)}

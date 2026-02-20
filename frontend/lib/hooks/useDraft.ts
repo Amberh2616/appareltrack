@@ -4,16 +4,23 @@
 
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Revision, RevisionResponse } from '@/lib/types/revision';
-import { API_BASE_URL } from '@/lib/api/client';
+import { API_BASE_URL, getAccessToken } from '@/lib/api/client';
 
 const API_BASE = API_BASE_URL;
+
+function authHeaders() {
+  const token = getAccessToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
 
 // ===== Fetch Revision Data =====
 export function useDraft(revisionId: string) {
   return useQuery({
     queryKey: ['draft', revisionId],
     queryFn: async (): Promise<RevisionResponse> => {
-      const res = await fetch(`${API_BASE}/revisions/${revisionId}/`);
+      const res = await fetch(`${API_BASE}/revisions/${revisionId}/`, {
+        headers: authHeaders(),
+      });
       if (!res.ok) {
         throw new Error(`Failed to fetch revision: ${res.statusText}`);
       }
@@ -36,6 +43,7 @@ export function useUpdateDraftBlock(revisionId: string) {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
+          ...authHeaders(),
         },
         body: JSON.stringify({ edited_text: editedText }),
       });
@@ -64,6 +72,7 @@ export function useApproveRevision(revisionId: string) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          ...authHeaders(),
         },
       });
 
