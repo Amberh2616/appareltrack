@@ -47,19 +47,14 @@ interface Style {
   updated_at: string;
 }
 
-interface StylesResponse {
-  count: number;
-  results: Style[];
-}
-
 // 獲取文件列表
 async function fetchDocuments(): Promise<DocumentsResponse> {
   return apiClient<DocumentsResponse>('/uploaded-documents/');
 }
 
-// 獲取款式列表
-async function fetchStyles(): Promise<StylesResponse> {
-  return apiClient<StylesResponse>('/styles/');
+// 獲取款式列表（Styles API 使用自訂 envelope，apiClient 解包 data 陣列）
+async function fetchStyles(): Promise<Style[]> {
+  return apiClient<Style[]>('/styles/');
 }
 
 // 刪除文件
@@ -211,7 +206,7 @@ export default function DocumentsPage() {
   };
 
   // 款式列表
-  const stylesList = stylesData?.results || [];
+  const stylesList = Array.isArray(stylesData) ? stylesData : [];
 
   // 當前 Tab 的文件
   const currentDocs = groupedDocs[activeTab];
