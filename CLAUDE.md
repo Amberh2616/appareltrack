@@ -1,7 +1,7 @@
 # ApparelTrack - Claude Project Memory
 
-**Last Updated:** 2026-02-18
-**Status:** P0-P29 + SaaS + STYLE-CENTER (Stage 1-5) + TRACK-PROGRESS + FIX-0214 + FIX-0215 + DEPLOY-0218 全部完成
+**Last Updated:** 2026-02-20
+**Status:** P0-P29 + SaaS + STYLE-CENTER (Stage 1-5) + TRACK-PROGRESS + FIX-0214 + FIX-0215 + DEPLOY-0218 + FIX-0219 全部完成
 
 ---
 
@@ -354,6 +354,7 @@ const { canEdit, isAdmin, hasPermission } = usePermissions();
 | FIX-0214 | Decimal toFixed bug + 全站搜尋修復 + 300ms Debounce | 02-14 |
 | FIX-0215 | useMemo 修復全站無限 re-render + TopNav 移除無用搜尋框 | 02-15 |
 | DEPLOY-0218 | Railway + Vercel 正式部署完成 | 02-18 |
+| FIX-0219 | 部署後頁面修復（PageNumberPagination + Superuser org + JWT fetch）| 02-20 |
 
 **完整細節：** [docs/PROGRESS-CHANGELOG.md](docs/PROGRESS-CHANGELOG.md)
 
@@ -404,7 +405,7 @@ const { canEdit, isAdmin, hasPermission } = usePermissions();
 7. CORS_ALLOWED_ORIGINS 沒設 → 前端登入被 CORS 擋
 
 ### 待做
-- [ ] **FIX-0219**：Documents / BOM / Spec / Costing 頁面壞掉 → 排查修復
+- [x] **FIX-0219**：Documents / BOM / Spec / Costing 頁面壞掉 → 已修復（2026-02-20）
 - [ ] 決定域名 → 買 appareltrack.com（$6.79首年）
 - [ ] 準備 Demo 資料
 - [ ] 練習 Demo Pitch 流程
