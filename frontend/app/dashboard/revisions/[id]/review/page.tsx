@@ -30,6 +30,15 @@ import { StyleBreadcrumb } from '@/components/styles/StyleBreadcrumb';
 const API_BASE = API_BASE_URL;
 
 function authHeaders(): Record<string, string> {
+  // 直接讀 storage（比 Zustand in-memory 更可靠，避免 hydration timing 或 token 過期問題）
+  try {
+    const raw =
+      sessionStorage.getItem('auth-storage') ||
+      localStorage.getItem('auth-storage');
+    const token = raw ? JSON.parse(raw)?.state?.accessToken : null;
+    if (token) return { Authorization: `Bearer ${token}` };
+  } catch { /* ignore */ }
+  // fallback to Zustand
   const token = getAccessToken();
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
