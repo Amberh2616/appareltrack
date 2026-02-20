@@ -1,0 +1,15 @@
+# Include base requirements
+-r base.txt
+
+# Production server
+gunicorn==21.2.0
+
+# Railway DATABASE_URL parsing
+dj-database-url==2.1.0
+
+# Monitoring & Logging
+sentry-sdk==1.39.1
+
+# File storage (uncomment when using Cloudflare R2)
+# boto3==1.34.9
+# django-storages[s3]==1.14.2

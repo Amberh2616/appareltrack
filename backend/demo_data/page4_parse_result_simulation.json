@@ -1,0 +1,151 @@
+{
+  "page_number": 4,
+  "page_width": 595,
+  "page_height": 842,
+  "total_blocks": 9,
+  "blocks": [
+    {
+      "id": "p4_b1",
+      "block_type": "callout",
+      "bbox": {
+        "x": 90,
+        "y": 115,
+        "width": 280,
+        "height": 35
+      },
+      "source_text": "領圍/袖襬肩帶：-加包邊壓1/8\"三本雙針-加QQ帶",
+      "translated_text": "領圍/袖襬肩帶：-加包邊壓1/8\"三本雙針-加QQ帶",
+      "status": "auto",
+      "issues": [
+        "中文原文，無需翻譯"
+      ]
+    },
+    {
+      "id": "p4_b2",
+      "block_type": "callout",
+      "bbox": {
+        "x": 88,
+        "y": 255,
+        "width": 310,
+        "height": 38
+      },
+      "source_text": "binding with encased elastic + topstitch",
+      "translated_text": "包邊內包鬆緊帶並加上表面壓線",
+      "status": "auto",
+      "issues": []
+    },
+    {
+      "id": "p4_b3",
+      "block_type": "callout",
+      "bbox": {
+        "x": 85,
+        "y": 365,
+        "width": 350,
+        "height": 42
+      },
+      "source_text": "neckline binding with encased elastic + topstitch",
+      "translated_text": "領口包邊內包鬆緊帶並加上表面壓線",
+      "status": "auto",
+      "issues": []
+    },
+    {
+      "id": "p4_b4",
+      "block_type": "callout",
+      "bbox": {
+        "x": 92,
+        "y": 450,
+        "width": 320,
+        "height": 40
+      },
+      "source_text": "inner shelf bra layer (see details pg 5)",
+      "translated_text": "內層內建罩杯層（詳見第 5 頁）",
+      "status": "auto",
+      "issues": []
+    },
+    {
+      "id": "p4_b5",
+      "block_type": "callout",
+      "bbox": {
+        "x": 90,
+        "y": 158,
+        "width": 88,
+        "height": 28
+      },
+      "source_text": "內裡層見細節圖",
+      "translated_text": "內裡層見細節圖",
+      "status": "auto",
+      "issues": [
+        "中文原文，無需翻譯"
+      ]
+    },
+    {
+      "id": "p4_b6",
+      "block_type": "callout",
+      "bbox": {
+        "x": 95,
+        "y": 540,
+        "width": 180,
+        "height": 32
+      },
+      "source_text": "inner band level",
+      "translated_text": "內層下圍位置",
+      "status": "auto",
+      "issues": []
+    },
+    {
+      "id": "p4_b7",
+      "block_type": "callout",
+      "bbox": {
+        "x": 92,
+        "y": 720,
+        "width": 160,
+        "height": 30
+      },
+      "source_text": "self turn hem",
+      "translated_text": "布料反折下擺",
+      "status": "auto",
+      "issues": []
+    },
+    {
+      "id": "p4_b8",
+      "block_type": "section_title",
+      "bbox": {
+        "x": 385,
+        "y": 340,
+        "width": 170,
+        "height": 32
+      },
+      "source_text": "INSIDE BRA VIEW",
+      "translated_text": "內部胸罩結構視圖",
+      "status": "auto",
+      "issues": []
+    },
+    {
+      "id": "p4_b9",
+      "block_type": "callout",
+      "bbox": {
+        "x": 360,
+        "y": 510,
+        "width": 220,
+        "height": 85
+      },
+      "source_text": "bra elastic encased in L2\nunderband join seam lines up with wearer's left shelf bra side seam",
+      "translated_text": "胸罩鬆緊帶包覆於 L2 層\n下圍接縫線與穿著者左側內建胸罩側縫對齊",
+      "status": "auto",
+      "issues": [
+        "多行文字，需確認 UI 顯示"
+      ]
+    }
+  ],
+  "parsing_metadata": {
+    "extraction_method": "pdfplumber.extract_words()",
+    "filter_rules": [
+      "len(text) >= 3 and len(text) <= 120",
+      "not text.isupper()",
+      "width < page_width * 0.85",
+      "top >= 50 and bottom <= 780"
+    ],
+    "total_words_extracted": 47,
+    "callout_candidates": 9
+  }
+}

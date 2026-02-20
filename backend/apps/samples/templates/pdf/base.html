@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Document{% endblock %}</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 1.5cm;
+        }
+
+        body {
+            /* xhtml2pdf: 使用 reportlab 註冊的字體名稱
+               重要修復 (2026-01-07):
+               - 不要用 simsunb（只有罕用字）
+               - 改用 SimSun（宋體，包含常用漢字）
+            */
+            font-family: SimSun, MSYaHei, KaiU, "Microsoft YaHei", SimHei, Arial, sans-serif;
+            font-size: 9pt;
+            line-height: 1.3;
+            color: #333;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 18pt;
+            color: #2c3e50;
+            margin: 0 0 0.5em 0;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid #4472C4;
+        }
+
+        h2 {
+            font-size: 14pt;
+            color: #34495e;
+            margin: 1.5em 0 0.5em 0;
+            padding-bottom: 0.2em;
+            border-bottom: 1px solid #ddd;
+        }
+
+        h3 {
+            font-size: 12pt;
+            color: #555;
+            margin: 1em 0 0.5em 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1em 0;
+        }
+
+        table thead {
+            background-color: #4472C4;
+            color: white;
+        }
+
+        table th {
+            padding: 5px 4px;
+            text-align: left;
+            font-weight: bold;
+            font-size: 8pt;
+            border: 1px solid #3a5faa;
+        }
+
+        table td {
+            padding: 4px;
+            border: 1px solid #ddd;
+            font-size: 8pt;
+        }
+
+        .header-info {
+            margin-bottom: 2em;
+            padding: 1em;
+            background-color: #f8f9fa;
+            border-left: 4px solid #4472C4;
+        }
+
+        .header-info p {
+            margin: 0.3em 0;
+        }
+
+        .header-info strong {
+            color: #2c3e50;
+            display: inline-block;
+            min-width: 120px;
+        }
+
+        .footer {
+            margin-top: 2em;
+            padding-top: 1em;
+            border-top: 1px solid #ddd;
+            font-size: 8pt;
+            color: #666;
+            text-align: center;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #999;
+            font-style: italic;
+            padding: 2em;
+        }
+    </style>
+</head>
+<body>
+    {% block content %}{% endblock %}
+
+    <div class="footer">
+        Generated on {{ now|date:"Y-m-d H:i:s" }} | Fashion Production System
+    </div>
+</body>
+</html>

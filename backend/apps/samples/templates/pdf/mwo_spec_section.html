@@ -1,0 +1,98 @@
+{% extends "pdf/base.html" %}
+
+{% block title %}Spec Sheet - {{ mwo.mwo_no|default:"DRAFT" }}{% endblock %}
+
+{% block content %}
+<h1>Spec Sheet / Measurement</h1>
+<h2 style="border-bottom: none; margin-top: 0; font-size: 14pt; color: #666;">
+    Bilingual Measurement Specifications
+</h2>
+
+<div class="header-info">
+    <p>
+        <strong>Style:</strong> {{ style_revision.style.style_number|default:"N/A" }} - {{ style_revision.style.style_name|default:"" }}
+    </p>
+    <p>
+        <strong>MWO:</strong> {{ mwo.mwo_no|default:"DRAFT" }}
+    </p>
+    <p>
+        <strong>Translation Status:</strong>
+        <span style="color: {% if translated_count == total_count %}#28a745{% else %}#dc3545{% endif %};">
+            {{ translated_count }}/{{ total_count }} items translated
+        </span>
+    </p>
+</div>
+
+{% if spec_data %}
+<table>
+    <thead>
+        <tr style="background-color: #4472C4; color: white;">
+            <th style="width: 20%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">
+                Point Name (EN)
+            </th>
+            <th style="width: 15%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">
+                Point Name (ZH)
+            </th>
+            <th style="width: 6%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">
+                Code
+            </th>
+            {% for size in size_keys %}
+            <th style="width: auto; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa; text-align: center;">
+                {{ size }}
+            </th>
+            {% endfor %}
+            <th style="width: 8%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa; text-align: center;">
+                Tol +/-
+            </th>
+            <th style="width: 5%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa; text-align: center;">
+                Unit
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in spec_data %}
+        <tr{% if not item.point_name_zh %} style="background-color: #fff3cd;"{% endif %}>
+            <td style="vertical-align: middle;">
+                {{ item.point_name|truncatechars:35 }}
+            </td>
+            <td style="vertical-align: middle;">
+                {% if item.point_name_zh %}
+                <span style="color: #0066cc;">{{ item.point_name_zh|truncatechars:20 }}</span>
+                {% else %}
+                <span style="color: #999; font-style: italic;">-</span>
+                {% endif %}
+            </td>
+            <td style="text-align: center; vertical-align: middle; font-size: 7pt;">
+                {{ item.point_code|default:"-" }}
+            </td>
+            {% for value in item.size_values %}
+            <td style="text-align: center; vertical-align: middle; font-family: monospace;">
+                {{ value|default:"-" }}
+            </td>
+            {% endfor %}
+            <td style="text-align: center; vertical-align: middle; font-size: 8pt;">
+                +{{ item.tolerance_plus }}/-{{ item.tolerance_minus }}
+            </td>
+            <td style="text-align: center; vertical-align: middle;">
+                {{ item.unit }}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div style="margin-top: 20px; padding: 10px; background-color: #e3f2fd; border-radius: 4px;">
+    <p style="margin: 0; font-size: 9pt;">
+        <strong>Legend:</strong>
+        <span style="color: #0066cc; margin-left: 10px;">Blue text = Chinese translation</span>
+        <span style="background-color: #fff3cd; padding: 2px 6px; margin-left: 10px;">Yellow row = Missing translation</span>
+    </p>
+    <p style="margin: 5px 0 0 0; font-size: 9pt;">
+        <strong>Notes:</strong> All measurements in specified units. Tolerance values indicate acceptable deviation range.
+    </p>
+</div>
+
+{% else %}
+<div class="no-data">No measurement data available</div>
+{% endif %}
+{% endblock %}

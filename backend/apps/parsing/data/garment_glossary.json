@@ -1,0 +1,6427 @@
+{
+  "A.H. ARMHOLE": {
+    "english": "A.H. ARMHOLE",
+    "chinese": "夾圈",
+    "category": "縮寫"
+  },
+  "ABS AREA BOUNDED STAPLE FABRIC": {
+    "english": "ABS AREA BOUNDED STAPLE FABRIC",
+    "chinese": "面粘非織造布",
+    "category": "縮寫"
+  },
+  "ACCESS CONTROL": {
+    "english": "Access Control",
+    "chinese": "進入管制 (辦公室、廠房、車間)",
+    "category": "SR 安全 稽核項目"
+  },
+  "ACETONE": {
+    "english": "Acetone",
+    "chinese": "丙酮)",
+    "category": "SR 安全 稽核項目"
+  },
+  "ACID BLUE": {
+    "english": "Acid blue",
+    "chinese": "湖色",
+    "category": "顏色"
+  },
+  "ACRYLIC": {
+    "english": "Acrylic",
+    "chinese": "腈綸",
+    "category": "縮寫"
+  },
+  "ADL ACCEPTABLE DEFECT LEVEL": {
+    "english": "ADL ACCEPTABLE DEFECT LEVEL",
+    "chinese": "允許疵點標準",
+    "category": "縮寫"
+  },
+  "ALARM SYSTEMS AND VIDEO SURVEILLANCE CAMERAS": {
+    "english": "Alarm Systems and Video Surveillance Cameras",
+    "chinese": "警報系統及監視器",
+    "category": "SR 安全 稽核項目"
+  },
+  "ALLOVER EMBROIDERY": {
+    "english": "ALLOVER EMBROIDERY",
+    "chinese": "全身繡花",
+    "category": "其他常用"
+  },
+  "ALPACA": {
+    "english": "Alpaca",
+    "chinese": "羊駝毛",
+    "category": "縮寫"
+  },
+  "AMBER": {
+    "english": "Amber",
+    "chinese": "琥珀色",
+    "category": "顏色"
+  },
+  "AMETHYST": {
+    "english": "Amethyst",
+    "chinese": "紫水晶色",
+    "category": "顏色"
+  },
+  "AND SO FORTH": {
+    "english": "AND SO FORTH",
+    "chinese": "等等",
+    "category": "縮寫"
+  },
+  "ANGORA YARNS": {
+    "english": "Angora Yarns",
+    "chinese": "雪蘭毛線",
+    "category": "紗線"
+  },
+  "ANTIQUE": {
+    "english": "Antique",
+    "chinese": "古紫色",
+    "category": "顏色"
+  },
+  "ANTIQUE WASH / RETRO FINISHING": {
+    "english": "ANTIQUE WASH / RETRO FINISHING",
+    "chinese": "懷舊洗",
+    "category": "其他常用"
+  },
+  "AOP ALL OVER PRINTING": {
+    "english": "AOP all over printing",
+    "chinese": "全身印花",
+    "category": "其他常用"
+  },
+  "APPLE GREEN": {
+    "english": "Apple green",
+    "chinese": "蘋果綠",
+    "category": "顏色"
+  },
+  "APPLIQUE": {
+    "english": "APPLIQUE",
+    "chinese": "貼布繡",
+    "category": "常用單詞"
+  },
+  "APRICOT": {
+    "english": "Apricot",
+    "chinese": "杏黃",
+    "category": "顏色"
+  },
+  "AQL ACCEPTABLE QUALITY LEVEL": {
+    "english": "AQL ACCEPTABLE QUALITY LEVEL",
+    "chinese": "驗收合格標準",
+    "category": "縮寫"
+  },
+  "AQUA GREEN": {
+    "english": "Aqua green",
+    "chinese": "水綠色",
+    "category": "顏色"
+  },
+  "AQUAMARINE BLUE": {
+    "english": "Aquamarine blue",
+    "chinese": "藍綠色",
+    "category": "顏色"
+  },
+  "ARCHITECTURAL CONSIDERATIONS": {
+    "english": "Architectural Considerations",
+    "chinese": "建築安全考量",
+    "category": "SR 安全 稽核項目"
+  },
+  "ARCTIC BLUR": {
+    "english": "ARCTIC BLUR",
+    "chinese": "大西洋蘭",
+    "category": "水洗方法"
+  },
+  "ARMHOLE": {
+    "english": "ARMHOLE",
+    "chinese": "夾圈",
+    "category": "服裝部位"
+  },
+  "ARMHOLE FACING": {
+    "english": "ARMHOLE FACING",
+    "chinese": "夾圈貼",
+    "category": "服裝部位"
+  },
+  "ATTACH COLLAR": {
+    "english": "ATTACH COLLAR",
+    "chinese": "上領",
+    "category": "車缝裁床"
+  },
+  "ATTENTION CARD": {
+    "english": "Attention Card",
+    "chinese": "鐵扣",
+    "category": "包裝材料"
+  },
+  "ATTN. ATTENTION": {
+    "english": "ATTN. ATTENTION",
+    "chinese": "注意",
+    "category": "縮寫"
+  },
+  "AUBURN": {
+    "english": "Auburn",
+    "chinese": "赤褐色",
+    "category": "顏色"
+  },
+  "AUD. AUDIT": {
+    "english": "AUD. AUDIT",
+    "chinese": "稽查",
+    "category": "縮寫"
+  },
+  "AUTO CUFF TURNING M/C": {
+    "english": "AUTO CUFF TURNING M/C",
+    "chinese": "點領機",
+    "category": "製衣機器"
+  },
+  "AUTO-PRINTING M/C": {
+    "english": "AUTO-PRINTING M/C",
+    "chinese": "印花烘乾機",
+    "category": "製衣機器"
+  },
+  "AZURE GREEN": {
+    "english": "Azure green",
+    "chinese": "碧綠色",
+    "category": "顏色"
+  },
+  "B.H. BUTTON HOLE": {
+    "english": "B.H. BUTTON HOLE",
+    "chinese": "鈕門",
+    "category": "縮寫"
+  },
+  "B.L. BACK LENGTH": {
+    "english": "B.L. BACK LENGTH",
+    "chinese": "後長",
+    "category": "縮寫"
+  },
+  "B.P. BUST POINT": {
+    "english": "B.P. BUST POINT",
+    "chinese": "胸點",
+    "category": "縮寫"
+  },
+  "BABY BLUE": {
+    "english": "BABY BLUE",
+    "chinese": "淺藍",
+    "category": "顏色"
+  },
+  "BABY HEM": {
+    "english": "Baby hem",
+    "chinese": "就是很窄的雙折壓明線",
+    "category": "其他常用"
+  },
+  "BABY PINK": {
+    "english": "Baby pink",
+    "chinese": "淺粉紅色",
+    "category": "顏色"
+  },
+  "BACK": {
+    "english": "BACK",
+    "chinese": "後幅",
+    "category": "服裝部位"
+  },
+  "BACK CROSS": {
+    "english": "BACK CROSS",
+    "chinese": "後胸闊",
+    "category": "尺寸部位"
+  },
+  "BACK FACING": {
+    "english": "BACK FACING",
+    "chinese": "後貼",
+    "category": "服裝部位"
+  },
+  "BACK RISE": {
+    "english": "BACK RISE",
+    "chinese": "後浪",
+    "category": "服裝部位"
+  },
+  "BACK STITCH": {
+    "english": "BACK STITCH",
+    "chinese": "回針",
+    "category": "車缝裁床"
+  },
+  "BADGE": {
+    "english": "BADGE",
+    "chinese": "徽章",
+    "category": "常用單詞"
+  },
+  "BAGGY PATCH POCKE": {
+    "english": "BAGGY PATCH POCKE",
+    "chinese": "立體貼袋",
+    "category": "其他常用"
+  },
+  "BARCODE": {
+    "english": "BARCODE",
+    "chinese": "條碼",
+    "category": "常用單詞"
+  },
+  "BARTACK": {
+    "english": "BARTACK",
+    "chinese": "打結車",
+    "category": "車缝裁床"
+  },
+  "BARTACK M/C": {
+    "english": "BARTACK M/C",
+    "chinese": "埋夾車",
+    "category": "製衣機器"
+  },
+  "BARTACKER": {
+    "english": "BARTACKER",
+    "chinese": "打棗車",
+    "category": "車缝裁床"
+  },
+  "BASTING": {
+    "english": "BASTING",
+    "chinese": "挑縫",
+    "category": "車缝裁床"
+  },
+  "BAY": {
+    "english": "Bay",
+    "chinese": "棗色",
+    "category": "顏色"
+  },
+  "BEADING": {
+    "english": "BEADING",
+    "chinese": "釘珠",
+    "category": "其他常用"
+  },
+  "BEIGE": {
+    "english": "Beige",
+    "chinese": "灰棕色",
+    "category": "顏色"
+  },
+  "BELTLOOP": {
+    "english": "BELTLOOP",
+    "chinese": "褲耳",
+    "category": "服裝部位"
+  },
+  "BEND KNIFE": {
+    "english": "BEND KNIFE",
+    "chinese": "萬能式電剪",
+    "category": "車缝裁床"
+  },
+  "BENZO BLUE": {
+    "english": "Benzo blue",
+    "chinese": "靛藍色",
+    "category": "顏色"
+  },
+  "BIAS CUT": {
+    "english": "BIAS CUT",
+    "chinese": "斜紋裁",
+    "category": "車缝裁床"
+  },
+  "BINDER": {
+    "english": "BINDER",
+    "chinese": "滾邊蝴蝶",
+    "category": "車缝裁床"
+  },
+  "BINDING": {
+    "english": "BINDING",
+    "chinese": "包邊",
+    "category": "車缝裁床"
+  },
+  "BK. BLACK": {
+    "english": "BK. BLACK",
+    "chinese": "黑色",
+    "category": "縮寫"
+  },
+  "BL BUST LINE": {
+    "english": "BL BUST LINE",
+    "chinese": "胸圍線",
+    "category": "縮寫"
+  },
+  "BLACK": {
+    "english": "BLACK",
+    "chinese": "黑色洗",
+    "category": "水洗方法"
+  },
+  "BLIND STITCH": {
+    "english": "BLIND STITCH",
+    "chinese": "暗線",
+    "category": "車缝裁床"
+  },
+  "BLIND STITCH MACHINE": {
+    "english": "BLIND STITCH MACHINE",
+    "chinese": "盲縫車",
+    "category": "車缝裁床"
+  },
+  "BLIND-STITCH": {
+    "english": "BLIND-STITCH",
+    "chinese": "折挑",
+    "category": "英文辭典"
+  },
+  "BLINDING": {
+    "english": "BLINDING",
+    "chinese": "挑腳",
+    "category": "車缝裁床"
+  },
+  "BLUE": {
+    "english": "Blue",
+    "chinese": "藍色",
+    "category": "顏色"
+  },
+  "BLUE GREEN": {
+    "english": "Blue green",
+    "chinese": "竹青色",
+    "category": "顏色"
+  },
+  "BLUE GREY": {
+    "english": "Blue grey",
+    "chinese": "藍灰色",
+    "category": "顏色"
+  },
+  "BLUE MOON": {
+    "english": "BLUE MOON",
+    "chinese": "蘭月洗",
+    "category": "水洗方法"
+  },
+  "BLUE PRINT MACHINE": {
+    "english": "BLUE PRINT MACHINE",
+    "chinese": "乾網機",
+    "category": "製衣機器"
+  },
+  "BLUISH WHITE": {
+    "english": "Bluish white",
+    "chinese": "青白色",
+    "category": "顏色"
+  },
+  "BLUISH YELLOW": {
+    "english": "Bluish yellow",
+    "chinese": "青黃色",
+    "category": "顏色"
+  },
+  "BMT BASIC MOTION TIME": {
+    "english": "BMT BASIC MOTION TIME",
+    "chinese": "基本動作時間",
+    "category": "縮寫"
+  },
+  "BNL BACK NECKLINE": {
+    "english": "BNL BACK NECKLINE",
+    "chinese": "後領圈線",
+    "category": "縮寫"
+  },
+  "BNP/BNPT BACK NECK POINT": {
+    "english": "BNP/BNPT BACK NECK POINT",
+    "chinese": "後領點",
+    "category": "縮寫"
+  },
+  "BODY FABRIC": {
+    "english": "BODY FABRIC",
+    "chinese": "大身布",
+    "category": "主料"
+  },
+  "BODY RISE": {
+    "english": "BODY RISE",
+    "chinese": "直浪",
+    "category": "英文辭典"
+  },
+  "BOTTOM": {
+    "english": "BOTTOM",
+    "chinese": "褲腳",
+    "category": "服裝部位"
+  },
+  "BOTTOMS": {
+    "english": "BOTTOMS",
+    "chinese": "下裝",
+    "category": "英文辭典"
+  },
+  "BOXES": {
+    "english": "Boxes",
+    "chinese": "外箱",
+    "category": "包裝材料"
+  },
+  "BR BACK RISE": {
+    "english": "BR BACK RISE",
+    "chinese": "後浪",
+    "category": "縮寫"
+  },
+  "BRAID": {
+    "english": "BRAID",
+    "chinese": "織錦",
+    "category": "英文辭典"
+  },
+  "BRANCH": {
+    "english": "BRANCH",
+    "chinese": "分公司",
+    "category": "英文辭典"
+  },
+  "BREAK STITCH": {
+    "english": "BREAK STITCH",
+    "chinese": "斷線",
+    "category": "車缝裁床"
+  },
+  "BRICK RED": {
+    "english": "Brick red",
+    "chinese": "青蓮色",
+    "category": "顏色"
+  },
+  "BROKEN FIGURES": {
+    "english": "Broken figures",
+    "chinese": "錯花",
+    "category": "布疵"
+  },
+  "BRONZE BLACK": {
+    "english": "Bronze black",
+    "chinese": "射光黑色",
+    "category": "顏色"
+  },
+  "BRONZE BLUE": {
+    "english": "Bronze blue",
+    "chinese": "射光紺藍",
+    "category": "顏色"
+  },
+  "BRONZE VIOLET": {
+    "english": "Bronze violet",
+    "chinese": "射光紫藍",
+    "category": "顏色"
+  },
+  "BROWN": {
+    "english": "Brown",
+    "chinese": "棕色",
+    "category": "顏色"
+  },
+  "BSP BACK SHOULDER POINT": {
+    "english": "BSP BACK SHOULDER POINT",
+    "chinese": "後肩頸點",
+    "category": "縮寫"
+  },
+  "BTM. BOTTOM": {
+    "english": "BTM. BOTTOM",
+    "chinese": "衫腳",
+    "category": "縮寫"
+  },
+  "BTN. BUTTON": {
+    "english": "BTN. BUTTON",
+    "chinese": "鈕扣",
+    "category": "縮寫"
+  },
+  "BUCKLE": {
+    "english": "Buckle",
+    "chinese": "膠蝴蝶",
+    "category": "包裝材料"
+  },
+  "BUFF": {
+    "english": "Buff",
+    "chinese": "淺黃色",
+    "category": "顏色"
+  },
+  "BUILDING STRUCTURE": {
+    "english": "Building Structure",
+    "chinese": "建築結構",
+    "category": "SR 安全 稽核項目"
+  },
+  "BUNDLE SYSTEM": {
+    "english": "BUNDLE SYSTEM",
+    "chinese": "執紮系統",
+    "category": "車缝裁床"
+  },
+  "BUNDLING": {
+    "english": "BUNDLING",
+    "chinese": "執紮",
+    "category": "車缝裁床"
+  },
+  "BUST WIDTH": {
+    "english": "BUST WIDTH",
+    "chinese": "胸闊",
+    "category": "尺寸部位"
+  },
+  "BUTTON": {
+    "english": "BUTTON",
+    "chinese": "鈕扣",
+    "category": "常用單詞"
+  },
+  "BUTTON HOLE": {
+    "english": "BUTTON HOLE",
+    "chinese": "鈕門",
+    "category": "服裝部位"
+  },
+  "BUTTON HOLING": {
+    "english": "BUTTON HOLING",
+    "chinese": "開鈕門",
+    "category": "車缝裁床"
+  },
+  "BUTTON HOLING MACHINE": {
+    "english": "BUTTON HOLING MACHINE",
+    "chinese": "鈕門車",
+    "category": "車缝裁床"
+  },
+  "BUTTON MOULD": {
+    "english": "Button Mould",
+    "chinese": "內箱",
+    "category": "包裝材料"
+  },
+  "BUTTON STAND": {
+    "english": "BUTTON STAND",
+    "chinese": "鈕子",
+    "category": "服裝部位"
+  },
+  "BUTTON STAY": {
+    "english": "Button stay",
+    "chinese": "釘鈕扣的部位",
+    "category": "服裝部位"
+  },
+  "BUTTONHOLE M/C": {
+    "english": "BUTTONHOLE M/C",
+    "chinese": "釘鈕車",
+    "category": "製衣機器"
+  },
+  "BUTTONING": {
+    "english": "BUTTONING",
+    "chinese": "釘鈕",
+    "category": "車缝裁床"
+  },
+  "BUTTONING MACHINE": {
+    "english": "BUTTONING MACHINE",
+    "chinese": "釘鈕車",
+    "category": "車缝裁床"
+  },
+  "C.V.C. CHIEF VALUE OF COTTON": {
+    "english": "C.V.C. CHIEF VALUE OF COTTON",
+    "chinese": "棉為主的混紡物",
+    "category": "縮寫"
+  },
+  "C/B LENGTH": {
+    "english": "C/B LENGTH",
+    "chinese": "後中長",
+    "category": "尺寸部位"
+  },
+  "CABANA SET": {
+    "english": "Cabana set",
+    "chinese": "沙灘式泳衣",
+    "category": "英文辭典"
+  },
+  "CAD COMPUTER AIDED DESIGN": {
+    "english": "CAD COMPUTER AIDED DESIGN",
+    "chinese": "電腦輔助設計",
+    "category": "縮寫"
+  },
+  "CAE COMPUTER AIDED ENGINEERING": {
+    "english": "CAE COMPUTER AIDED ENGINEERING",
+    "chinese": "電腦輔助工程",
+    "category": "縮寫"
+  },
+  "CAL COMPUTER AIDED LAYOUT": {
+    "english": "CAL COMPUTER AIDED LAYOUT",
+    "chinese": "電腦輔助排料",
+    "category": "縮寫"
+  },
+  "CALAMINE BLUE": {
+    "english": "Calamine blue",
+    "chinese": "淡藍色",
+    "category": "顏色"
+  },
+  "CAM COMPUTER AIDED MANUFACTURE": {
+    "english": "CAM COMPUTER AIDED MANUFACTURE",
+    "chinese": "電腦輔助製造",
+    "category": "縮寫"
+  },
+  "CAMEL HAIR": {
+    "english": "Camel hair",
+    "chinese": "駝毛",
+    "category": "縮寫"
+  },
+  "CANDY PINK": {
+    "english": "CANDY PINK",
+    "chinese": "粉紅",
+    "category": "顏色"
+  },
+  "CAP COMPUTER AIDED PATTERN": {
+    "english": "CAP COMPUTER AIDED PATTERN",
+    "chinese": "電腦輔助畫樣",
+    "category": "縮寫"
+  },
+  "CAP SLEEVE": {
+    "english": "Cap sleeve",
+    "chinese": "沉肩袖",
+    "category": "英文辭典"
+  },
+  "CARAMEL": {
+    "english": "Caramel",
+    "chinese": "醬色",
+    "category": "顏色"
+  },
+  "CARDINAL": {
+    "english": "Cardinal",
+    "chinese": "深紅色",
+    "category": "顏色"
+  },
+  "CARE INSTRUCTION": {
+    "english": "CARE INSTRUCTION",
+    "chinese": "洗滌方式",
+    "category": "洗標內容"
+  },
+  "CARE INSTRUCTIONS": {
+    "english": "CARE INSTRUCTIONS",
+    "chinese": "洗滌方式",
+    "category": "洗標內容"
+  },
+  "CARE LABEL": {
+    "english": "CARE LABEL",
+    "chinese": "洗標/洗水嘜",
+    "category": "洗標內容"
+  },
+  "CARGO DISCREPANCIES": {
+    "english": "Cargo Discrepancies",
+    "chinese": "貨物差異",
+    "category": "SR 安全 稽核項目"
+  },
+  "CARGO POCKET": {
+    "english": "cargo pocket",
+    "chinese": "有袋蓋",
+    "category": "其他"
+  },
+  "CARMINE": {
+    "english": "Carmine",
+    "chinese": "紫紅色",
+    "category": "顏色"
+  },
+  "CARNATION": {
+    "english": "Carnation",
+    "chinese": "肉色",
+    "category": "顏色"
+  },
+  "CARTON": {
+    "english": "CARTON",
+    "chinese": "紙箱",
+    "category": "常用單詞"
+  },
+  "CARTON STICKER": {
+    "english": "Carton Sticker",
+    "chinese": "雜物",
+    "category": "包裝材料"
+  },
+  "CARTON TAG": {
+    "english": "Carton Tag",
+    "chinese": "膠夾",
+    "category": "包裝材料"
+  },
+  "CARTRIDGE PLEATS": {
+    "english": "Cartridge pleats",
+    "chinese": "彈帶形褶襇,管形褶襇",
+    "category": "服裝部位"
+  },
+  "CASH POCKET": {
+    "english": "CASH POCKET",
+    "chinese": "表袋",
+    "category": "英文辭典"
+  },
+  "CASHMERE": {
+    "english": "Cashmere",
+    "chinese": "羊絨",
+    "category": "縮寫"
+  },
+  "CASHMERE-LIKE ACRYLIC YARNS": {
+    "english": "Cashmere-like Acrylic Yarns",
+    "chinese": "仿兔毛",
+    "category": "紗線"
+  },
+  "CASING": {
+    "english": "CASING",
+    "chinese": "容位",
+    "category": "車缝裁床"
+  },
+  "CBF CENTER BACK FOLD": {
+    "english": "CBF CENTER BACK FOLD",
+    "chinese": "後中對折",
+    "category": "縮寫"
+  },
+  "CBL CENTER BACK LINE": {
+    "english": "CBL CENTER BACK LINE",
+    "chinese": "後中線",
+    "category": "縮寫"
+  },
+  "CBN-W CENTER BACK NECK POINT TO WAIST": {
+    "english": "CBN-W CENTER BACK NECK POINT TO WAIST",
+    "chinese": "後頸點至腰",
+    "category": "縮寫"
+  },
+  "CELESTE": {
+    "english": "Celeste",
+    "chinese": "天青色",
+    "category": "顏色"
+  },
+  "CELL. CELLULAR PHONE": {
+    "english": "CELL. cellular phone",
+    "chinese": "手機",
+    "category": "縮寫"
+  },
+  "CENTER BACK": {
+    "english": "CENTER BACK",
+    "chinese": "後中",
+    "category": "英文辭典"
+  },
+  "CENTER FRONT": {
+    "english": "CENTER FRONT",
+    "chinese": "前中",
+    "category": "英文辭典"
+  },
+  "CFL CENTER FRONT FOLD": {
+    "english": "CFL CENTER FRONT FOLD",
+    "chinese": "前中對折",
+    "category": "縮寫"
+  },
+  "CFS CONTAINER FREIGHT STATION": {
+    "english": "CFS CONTAINER FREIGHT STATION",
+    "chinese": "走拼箱",
+    "category": "縮寫"
+  },
+  "CHAIN STITCH": {
+    "english": "CHAIN STITCH",
+    "chinese": "鎖鏈線步",
+    "category": "車缝裁床"
+  },
+  "CHAIN STITCH MACHINE": {
+    "english": "CHAIN STITCH MACHINE",
+    "chinese": "鎖鏈車",
+    "category": "車缝裁床"
+  },
+  "CHAIN-BLINDSTITCH M/C": {
+    "english": "CHAIN-BLINDSTITCH M/C",
+    "chinese": "鳳眼(雞眼)車",
+    "category": "製衣機器"
+  },
+  "CHALKY": {
+    "english": "Chalky",
+    "chinese": "白堊",
+    "category": "顏色"
+  },
+  "CHALLENGING AND REMOVING UNAUTHORIZED PERSONS": {
+    "english": "Challenging and Removing Unauthorized Persons",
+    "chinese": "質詢及驅離未許進入人員",
+    "category": "SR 安全 稽核項目"
+  },
+  "CHARCOAL GREY": {
+    "english": "Charcoal grey",
+    "chinese": "炭灰色",
+    "category": "顏色"
+  },
+  "CHEMICAL SAFETY MANAGEMENT": {
+    "english": "Chemical Safety Management",
+    "chinese": "化學品管理",
+    "category": "SR 安全 稽核項目"
+  },
+  "CHENILLE YARNS": {
+    "english": "Chenille Yarns",
+    "chinese": "大肚紗",
+    "category": "紗線"
+  },
+  "CHEQUERS": {
+    "english": "Chequers",
+    "chinese": "方格",
+    "category": "英文辭典"
+  },
+  "CHERRY": {
+    "english": "Cherry",
+    "chinese": "櫻桃紅",
+    "category": "顏色"
+  },
+  "CHEST": {
+    "english": "CHEST",
+    "chinese": "胸",
+    "category": "服裝部位"
+  },
+  "CHESTNUT": {
+    "english": "Chestnut",
+    "chinese": "栗褐色",
+    "category": "顏色"
+  },
+  "CI CORPORATE IDENTIFY": {
+    "english": "CI CORPORATE IDENTIFY",
+    "chinese": "企業標識",
+    "category": "縮寫"
+  },
+  "CIRE": {
+    "english": "Cire",
+    "chinese": "壓光",
+    "category": "英文辭典"
+  },
+  "CITRINE": {
+    "english": "Citrine",
+    "chinese": "檸檬黃",
+    "category": "顏色"
+  },
+  "CLEAN FINISH": {
+    "english": "CLEAN FINISH",
+    "chinese": "還口",
+    "category": "車缝裁床"
+  },
+  "CLEAN FINISHED": {
+    "english": "Clean finished",
+    "chinese": "包光",
+    "category": "英文辭典"
+  },
+  "CLEAN RHINESTONE": {
+    "english": "Clean rhinestone",
+    "chinese": "透明燙石",
+    "category": "英文辭典"
+  },
+  "CLOSURE": {
+    "english": "CLOSURE",
+    "chinese": "門襟",
+    "category": "其他常用"
+  },
+  "CLOUD": {
+    "english": "CLOUD",
+    "chinese": "雲朵洗",
+    "category": "水洗方法"
+  },
+  "CLR. COLOR": {
+    "english": "CLR. COLOR",
+    "chinese": "顏色",
+    "category": "縮寫"
+  },
+  "CM PRICE": {
+    "english": "CM price",
+    "chinese": "加工費",
+    "category": "英文辭典"
+  },
+  "COBALT BLUE": {
+    "english": "Cobalt blue",
+    "chinese": "鈷藍色",
+    "category": "顏色"
+  },
+  "COCHINEAL": {
+    "english": "Cochineal",
+    "chinese": "胭脂紅",
+    "category": "顏色"
+  },
+  "COCO": {
+    "english": "Coco",
+    "chinese": "黃棕色",
+    "category": "顏色"
+  },
+  "COL. COLOR": {
+    "english": "COL. COLOR",
+    "chinese": "顏色",
+    "category": "縮寫"
+  },
+  "COLLAR": {
+    "english": "COLLAR",
+    "chinese": "領子",
+    "category": "服裝部位"
+  },
+  "COLLAR BAND HEIGHT": {
+    "english": "COLLAR BAND HEIGHT",
+    "chinese": "下級領高",
+    "category": "尺寸部位"
+  },
+  "COLLAR BUTTERFLIES": {
+    "english": "Collar Butterflies",
+    "chinese": "領膠條",
+    "category": "包裝材料"
+  },
+  "COLLAR CUTTING M/C": {
+    "english": "COLLAR CUTTING M/C",
+    "chinese": "切筒車",
+    "category": "製衣機器"
+  },
+  "COLLAR FALL": {
+    "english": "COLLAR FALL",
+    "chinese": "上級領",
+    "category": "服裝部位"
+  },
+  "COLLAR INTERFACING": {
+    "english": "COLLAR INTERFACING",
+    "chinese": "領襯",
+    "category": "副料"
+  },
+  "COLLAR LENGTH": {
+    "english": "COLLAR LENGTH",
+    "chinese": "領長",
+    "category": "尺寸部位"
+  },
+  "COLLAR NOTCH": {
+    "english": "COLLAR NOTCH",
+    "chinese": "領扼位",
+    "category": "服裝部位"
+  },
+  "COLLAR POINT": {
+    "english": "COLLAR POINT",
+    "chinese": "領尖",
+    "category": "服裝部位"
+  },
+  "COLLAR POINT SPREAD": {
+    "english": "COLLAR POINT SPREAD",
+    "chinese": "領尖距",
+    "category": "尺寸部位"
+  },
+  "COLLAR STAND": {
+    "english": "Collar stand",
+    "chinese": "領座",
+    "category": "英文辭典"
+  },
+  "COLLAR STAY": {
+    "english": "Collar Stay",
+    "chinese": "棉繩",
+    "category": "包裝材料"
+  },
+  "COLLARTRIMMING M/C": {
+    "english": "COLLARTRIMMING M/C",
+    "chinese": "切筒機",
+    "category": "製衣機器"
+  },
+  "CONCEAL ZIPPER": {
+    "english": "CONCEAL ZIPPER",
+    "chinese": "隱形拉鏈",
+    "category": "其他常用"
+  },
+  "CONTAINER SECURITY": {
+    "english": "Container Security",
+    "chinese": "貨櫃安全",
+    "category": "SR 安全 稽核項目"
+  },
+  "CONTRACTOR SAFETY": {
+    "english": "Contractor Safety",
+    "chinese": "包商安全",
+    "category": "SR 安全 稽核項目"
+  },
+  "CONTRAST COLOR STITCHING": {
+    "english": "CONTRAST COLOR STITCHING",
+    "chinese": "撞色線步",
+    "category": "其他常用"
+  },
+  "CONTRAST COLOT": {
+    "english": "Contrast colot",
+    "chinese": "襯色",
+    "category": "顏色"
+  },
+  "CONTRAST FABRIC": {
+    "english": "Contrast fabric",
+    "chinese": "撞色布",
+    "category": "英文辭典"
+  },
+  "COPPER": {
+    "english": "COPPER",
+    "chinese": "古銅洗",
+    "category": "水洗方法"
+  },
+  "COPPER RED": {
+    "english": "Copper red",
+    "chinese": "銅色",
+    "category": "顏色"
+  },
+  "CORAL": {
+    "english": "Coral",
+    "chinese": "珊瑚色",
+    "category": "顏色"
+  },
+  "CORD": {
+    "english": "CORD",
+    "chinese": "繩",
+    "category": "常用單詞"
+  },
+  "CORD. CORDUROY": {
+    "english": "CORD. CORDUROY",
+    "chinese": "燈心絨",
+    "category": "縮寫"
+  },
+  "CORKSCREW TWIST": {
+    "english": "Corkscrew twist",
+    "chinese": "螺旋疵（撚絲疵點）",
+    "category": "布疵"
+  },
+  "CORKSCREWS": {
+    "english": "Corkscrews",
+    "chinese": "螺旋類（生絲疵點）",
+    "category": "布疵"
+  },
+  "CORKSCREWS YARN": {
+    "english": "Corkscrews yarn",
+    "chinese": "螺旋線（並線疵點）",
+    "category": "布疵"
+  },
+  "COTTON": {
+    "english": "Cotton",
+    "chinese": "棉",
+    "category": "縮寫"
+  },
+  "COTTON STRING": {
+    "english": "COTTON STRING",
+    "chinese": "棉繩",
+    "category": "其他常用"
+  },
+  "COTTON YARNS": {
+    "english": "Cotton Yarns",
+    "chinese": "滌棉紗",
+    "category": "紗線"
+  },
+  "COTTON/RAYON YARNS": {
+    "english": "Cotton/Rayon Yarns",
+    "chinese": "棉晴紗",
+    "category": "紗線"
+  },
+  "COTTON/SPANDEX YARNS": {
+    "english": "Cotton/Spandex Yarns",
+    "chinese": "棉與其他混紡紗",
+    "category": "紗線"
+  },
+  "COURIER": {
+    "english": "Courier",
+    "chinese": "快遞員",
+    "category": "英文辭典"
+  },
+  "COVERING STITCH": {
+    "english": "COVERING STITCH",
+    "chinese": "拉覆線步",
+    "category": "車缝裁床"
+  },
+  "COVERSEAM": {
+    "english": "Coverseam",
+    "chinese": "包縫",
+    "category": "英文辭典"
+  },
+  "CRACK": {
+    "english": "Crack",
+    "chinese": "稀弄",
+    "category": "布疵"
+  },
+  "CRACKED ENDS": {
+    "english": "Cracked ends",
+    "chinese": "筘痕",
+    "category": "布疵"
+  },
+  "CREAM": {
+    "english": "Cream",
+    "chinese": "米色",
+    "category": "顏色"
+  },
+  "CREASE LINE": {
+    "english": "CREASE LINE",
+    "chinese": "褲中骨",
+    "category": "車缝裁床"
+  },
+  "CROSS CROTCH": {
+    "english": "CROSS CROTCH",
+    "chinese": "十字骨",
+    "category": "車缝裁床"
+  },
+  "CROSS CUT": {
+    "english": "CROSS CUT",
+    "chinese": "橫紋裁",
+    "category": "英文辭典"
+  },
+  "CROSSED BACK VENT": {
+    "english": "CROSSED BACK VENT",
+    "chinese": "背叉攪",
+    "category": "英文辭典"
+  },
+  "CROSSING THREAD M/C": {
+    "english": "CROSSING THREAD M/C",
+    "chinese": "反領機",
+    "category": "製衣機器"
+  },
+  "CROTCH": {
+    "english": "CROTCH",
+    "chinese": "小浪",
+    "category": "服裝部位"
+  },
+  "CROTCH POINT": {
+    "english": "CROTCH POINT",
+    "chinese": "浪頂點",
+    "category": "英文辭典"
+  },
+  "CRYSTAL CREAM": {
+    "english": "Crystal cream",
+    "chinese": "奶油白",
+    "category": "顏色"
+  },
+  "CRYSTAL WASH": {
+    "english": "CRYSTAL WASH",
+    "chinese": "水晶洗",
+    "category": "水洗方法"
+  },
+  "CS COMMERCIAL STANDARDS": {
+    "english": "CS COMMERCIAL STANDARDS",
+    "chinese": "商業標準",
+    "category": "縮寫"
+  },
+  "CUFF": {
+    "english": "CUFF",
+    "chinese": "克夫(介英)",
+    "category": "服裝部位"
+  },
+  "CUFF INTERFACING": {
+    "english": "CUFF INTERFACING",
+    "chinese": "袖口襯",
+    "category": "副料"
+  },
+  "CUFF VENT/CUFF OPENING": {
+    "english": "CUFF VENT/CUFF OPENING",
+    "chinese": "袖側",
+    "category": "英文辭典"
+  },
+  "CUFF WIDTH": {
+    "english": "CUFF WIDTH",
+    "chinese": "袖口(介英)寬",
+    "category": "尺寸部位"
+  },
+  "CUFFLESS BOTTOM": {
+    "english": "CUFFLESS BOTTOM",
+    "chinese": "平腳",
+    "category": "英文辭典"
+  },
+  "CUP SEAMING": {
+    "english": "CUP SEAMING",
+    "chinese": "縫盆",
+    "category": "英文辭典"
+  },
+  "CURVED PLEAT": {
+    "english": "Curved pleat",
+    "chinese": "曲形形褶襇",
+    "category": "服裝部位"
+  },
+  "CURVED POCKET": {
+    "english": "CURVED POCKET",
+    "chinese": "彎袋",
+    "category": "英文辭典"
+  },
+  "CUT ENDS": {
+    "english": "Cut ends",
+    "chinese": "切絲",
+    "category": "布疵"
+  },
+  "CUTTING BED": {
+    "english": "CUTTING BED",
+    "chinese": "拉布機",
+    "category": "製衣機器"
+  },
+  "CUTTING PIECE": {
+    "english": "CUTTING PIECE",
+    "chinese": "裁片",
+    "category": "英文辭典"
+  },
+  "CUTTING ROOM": {
+    "english": "CUTTING ROOM",
+    "chinese": "裁床",
+    "category": "車缝裁床"
+  },
+  "CUTTING TABLE": {
+    "english": "CUTTING TABLE",
+    "chinese": "裁床",
+    "category": "車缝裁床"
+  },
+  "CY CONTAINER YARD": {
+    "english": "CY CONTAINER YARD",
+    "chinese": "走整櫃",
+    "category": "縮寫"
+  },
+  "D.B. DOUBLE-BREASTED": {
+    "english": "D.B. DOUBLE-BREASTED",
+    "chinese": "雙襟",
+    "category": "縮寫"
+  },
+  "D.K. JACQUARD": {
+    "english": "D.K. JACQUARD",
+    "chinese": "雙面提花（針織）",
+    "category": "英文辭典"
+  },
+  "D/MELANGE": {
+    "english": "D/melange",
+    "chinese": "米黃色",
+    "category": "顏色"
+  },
+  "D/Y DELIVERY": {
+    "english": "D/Y DELIVERY",
+    "chinese": "出貨, 交付",
+    "category": "縮寫"
+  },
+  "DARK": {
+    "english": "DARK",
+    "chinese": "深色洗",
+    "category": "水洗方法"
+  },
+  "DARK GREEN": {
+    "english": "Dark green",
+    "chinese": "深綠色",
+    "category": "顏色"
+  },
+  "DARK GREY": {
+    "english": "Dark grey",
+    "chinese": "深灰色",
+    "category": "顏色"
+  },
+  "DART": {
+    "english": "DART",
+    "chinese": "死摺",
+    "category": "服裝部位"
+  },
+  "DARTS AND STEELS": {
+    "english": "Darts and steels",
+    "chinese": "刀線",
+    "category": "布疵"
+  },
+  "DBL NDL DOUBLE NEEDLE": {
+    "english": "DBL NDL DOUBLE NEEDLE",
+    "chinese": "雙針",
+    "category": "縮寫"
+  },
+  "DECATING MARK": {
+    "english": "Decating mark",
+    "chinese": "布頭緯向皺橫",
+    "category": "布疵"
+  },
+  "DECOLABEL": {
+    "english": "Decolabel",
+    "chinese": "裝飾標",
+    "category": "英文辭典"
+  },
+  "DEEP GREEN": {
+    "english": "Deep green",
+    "chinese": "墨綠色",
+    "category": "顏色"
+  },
+  "DEEP YELLOW": {
+    "english": "Deep yellow",
+    "chinese": "深黃色",
+    "category": "顏色"
+  },
+  "DEFECTIVE LIFT": {
+    "english": "Defective lift",
+    "chinese": "夾起",
+    "category": "布疵"
+  },
+  "DELICATE COLOR": {
+    "english": "Delicate color",
+    "chinese": "嬌色",
+    "category": "顏色"
+  },
+  "DENIER": {
+    "english": "DENIER",
+    "chinese": "旦尼爾",
+    "category": "英文辭典"
+  },
+  "DENIM": {
+    "english": "DENIM",
+    "chinese": "牛仔",
+    "category": "英文辭典"
+  },
+  "DENSITY": {
+    "english": "DENSITY",
+    "chinese": "密度",
+    "category": "英文辭典"
+  },
+  "DEPT. DEPARTMENT": {
+    "english": "DEPT. DEPARTMENT",
+    "chinese": "部門",
+    "category": "縮寫"
+  },
+  "DESIGN SKETCH": {
+    "english": "DESIGN SKETCH",
+    "chinese": "設計圖",
+    "category": "英文辭典"
+  },
+  "DIE": {
+    "english": "DIE",
+    "chinese": "刀模",
+    "category": "車缝裁床"
+  },
+  "DIE CUTTING MACHINE": {
+    "english": "DIE CUTTING MACHINE",
+    "chinese": "衝床",
+    "category": "車缝裁床"
+  },
+  "DIMENSION": {
+    "english": "DIMENSION",
+    "chinese": "尺寸、尺碼",
+    "category": "英文辭典"
+  },
+  "DINNER JACKET": {
+    "english": "DINNER JACKET",
+    "chinese": "晚禮服",
+    "category": "英文辭典"
+  },
+  "DIRTY WASH": {
+    "english": "DIRTY WASH",
+    "chinese": "中藍洗",
+    "category": "水洗方法"
+  },
+  "DISCOUNT / SALES OFF": {
+    "english": "DISCOUNT / SALES OFF",
+    "chinese": "打折",
+    "category": "英文辭典"
+  },
+  "DISCREPANCY": {
+    "english": "Discrepancy",
+    "chinese": "不符點",
+    "category": "英文辭典"
+  },
+  "DK. DARK": {
+    "english": "DK. DARK",
+    "chinese": "深色",
+    "category": "縮寫"
+  },
+  "DO NOT BLEACH": {
+    "english": "DO NOT BLEACH",
+    "chinese": "不可漂白",
+    "category": "洗標內容"
+  },
+  "DO NOT DRY CLEAN": {
+    "english": "DO NOT DRY CLEAN",
+    "chinese": "不可乾洗",
+    "category": "洗標內容"
+  },
+  "DO NOT IRON": {
+    "english": "DO NOT IRON",
+    "chinese": "不可熨燙",
+    "category": "洗標內容"
+  },
+  "DO NOT TUMBLE DRY": {
+    "english": "DO NOT TUMBLE DRY",
+    "chinese": "不可烘乾",
+    "category": "洗標內容"
+  },
+  "DOBBY": {
+    "english": "DOBBY",
+    "chinese": "織花布",
+    "category": "英文辭典"
+  },
+  "DOCUMENTATION PROCESSING": {
+    "english": "Documentation Processing",
+    "chinese": "文件流程",
+    "category": "SR 安全 稽核項目"
+  },
+  "DORMITORY FACILITIES": {
+    "english": "Dormitory Facilities",
+    "chinese": "宿舍設施",
+    "category": "SR 安全 稽核項目"
+  },
+  "DOUBLE END": {
+    "english": "DOUBLE END",
+    "chinese": "雙經",
+    "category": "英文辭典"
+  },
+  "DOUBLE FLAT": {
+    "english": "Double flat",
+    "chinese": "雙經",
+    "category": "布疵"
+  },
+  "DOUBLE JETTED POCKET": {
+    "english": "DOUBLE JETTED POCKET",
+    "chinese": "雙唇袋",
+    "category": "英文辭典"
+  },
+  "DOUBLE LAYER CUFF": {
+    "english": "DOUBLE LAYER CUFF",
+    "chinese": "雙層克夫",
+    "category": "服裝部位"
+  },
+  "DOUBLE LAYERED FLY": {
+    "english": "DOUBLE LAYERED FLY",
+    "chinese": "雙層鈕牌",
+    "category": "服裝部位"
+  },
+  "DOUBLE NEEDLE FELL SEAM": {
+    "english": "DOUBLE NEEDLE FELL SEAM",
+    "chinese": "雙針埋夾",
+    "category": "車缝裁床"
+  },
+  "DOUBLE NEEDLE LOCKSTITCH MACHINE": {
+    "english": "DOUBLE NEEDLE LOCKSTITCH MACHINE",
+    "chinese": "雙針平車",
+    "category": "車缝裁床"
+  },
+  "DOUBLE PICK": {
+    "english": "DOUBLE PICK",
+    "chinese": "雙緯",
+    "category": "英文辭典"
+  },
+  "DOUBLE PLEAT": {
+    "english": "Double pleat",
+    "chinese": "疊褶",
+    "category": "服裝部位"
+  },
+  "DOUBLE SKEINS": {
+    "english": "Double skeins",
+    "chinese": "雙片絲（生絲疵點）",
+    "category": "布疵"
+  },
+  "DOUBLING": {
+    "english": "DOUBLING",
+    "chinese": "並線",
+    "category": "英文辭典"
+  },
+  "DRAFTING": {
+    "english": "DRAFTING",
+    "chinese": "繪圖",
+    "category": "車缝裁床"
+  },
+  "DRAWCORD": {
+    "english": "DRAWCORD",
+    "chinese": "拉繩",
+    "category": "常用單詞"
+  },
+  "DRESS COAT": {
+    "english": "DRESS COAT",
+    "chinese": "禮服",
+    "category": "英文辭典"
+  },
+  "DRESSING ROOM": {
+    "english": "DRESSING ROOM",
+    "chinese": "試衣間",
+    "category": "英文辭典"
+  },
+  "DRILL": {
+    "english": "DRILL",
+    "chinese": "錐子",
+    "category": "車缝裁床"
+  },
+  "DRILLING": {
+    "english": "DRILLING",
+    "chinese": "鑽孔位",
+    "category": "英文辭典"
+  },
+  "DRY CLEAN ONLY": {
+    "english": "DRY CLEAN ONLY",
+    "chinese": "只可乾洗",
+    "category": "洗標內容"
+  },
+  "DRY RUB": {
+    "english": "DRY RUB",
+    "chinese": "幹擦",
+    "category": "英文辭典"
+  },
+  "DRY-CLEANED": {
+    "english": "DRY-CLEANED",
+    "chinese": "乾洗",
+    "category": "英文辭典"
+  },
+  "DUCK": {
+    "english": "DUCK",
+    "chinese": "帆布",
+    "category": "英文辭典"
+  },
+  "DULL": {
+    "english": "DULL",
+    "chinese": "鈍色洗",
+    "category": "水洗方法"
+  },
+  "DUN": {
+    "english": "Dun",
+    "chinese": "焦茶色",
+    "category": "顏色"
+  },
+  "DUPPION SILK YARNS": {
+    "english": "Duppion Silk Yarns",
+    "chinese": "柞蠶絲",
+    "category": "紗線"
+  },
+  "DUVET": {
+    "english": "Duvet",
+    "chinese": "小環結",
+    "category": "布疵"
+  },
+  "DYELOT": {
+    "english": "DYELOT",
+    "chinese": "缸號",
+    "category": "英文辭典"
+  },
+  "DYING": {
+    "english": "DYING",
+    "chinese": "染色",
+    "category": "英文辭典"
+  },
+  "E.G. EXAMPLI GRATIA / FOR EXAMPLE": {
+    "english": "E.G. EXAMPLI GRATIA / FOR EXAMPLE",
+    "chinese": "例如",
+    "category": "縮寫"
+  },
+  "ECRU": {
+    "english": "Ecru",
+    "chinese": "米白色",
+    "category": "英文辭典"
+  },
+  "EDGE STITCHING": {
+    "english": "EDGE STITCHING",
+    "chinese": "間邊線",
+    "category": "車缝裁床"
+  },
+  "EDGE TRIMMER": {
+    "english": "EDGE TRIMMER",
+    "chinese": "修邊器",
+    "category": "英文辭典"
+  },
+  "EDGE-FINISHING": {
+    "english": "EDGE-FINISHING",
+    "chinese": "邊腳處理",
+    "category": "英文辭典"
+  },
+  "EDGE-STITCH DART": {
+    "english": "EDGE-STITCH DART",
+    "chinese": "邊線褶",
+    "category": "英文辭典"
+  },
+  "EL ELBOW LINE": {
+    "english": "EL ELBOW LINE",
+    "chinese": "手肘線",
+    "category": "縮寫"
+  },
+  "ELASTANE YARNS": {
+    "english": "Elastane Yarns",
+    "chinese": "滌粘紗",
+    "category": "紗線"
+  },
+  "ELASTIC": {
+    "english": "ELASTIC",
+    "chinese": "橡筋",
+    "category": "英文辭典"
+  },
+  "ELASTIC BAND": {
+    "english": "Elastic Band",
+    "chinese": "繡花章",
+    "category": "包裝材料"
+  },
+  "ELASTIC WAISTBAND": {
+    "english": "ELASTIC WAISTBAND",
+    "chinese": "橡筋褲頭",
+    "category": "車缝裁床"
+  },
+  "ELBOW WIDTH": {
+    "english": "ELBOW WIDTH",
+    "chinese": "肘寬",
+    "category": "英文辭典"
+  },
+  "EMB. EMBROIDERY": {
+    "english": "EMB. EMBROIDERY",
+    "chinese": "繡花, 車花",
+    "category": "縮寫"
+  },
+  "EMBARGOES": {
+    "english": "Embargoes",
+    "chinese": "禁運",
+    "category": "英文辭典"
+  },
+  "EMBELLISHMENT": {
+    "english": "Embellishment",
+    "chinese": "裝飾",
+    "category": "英文辭典"
+  },
+  "EMBORIDERY LABEL": {
+    "english": "Emboridery label",
+    "chinese": "繡花標",
+    "category": "英文辭典"
+  },
+  "EMBROIDERY": {
+    "english": "EMBROIDERY",
+    "chinese": "繡花",
+    "category": "車缝裁床"
+  },
+  "EMBROIDERY PATCH": {
+    "english": "EMBROIDERY PATCH",
+    "chinese": "繡花章",
+    "category": "英文辭典"
+  },
+  "EMERALD GREEN": {
+    "english": "Emerald green",
+    "chinese": "鮮綠色",
+    "category": "顏色"
+  },
+  "EMPLOYEES": {
+    "english": "Employees",
+    "chinese": "員工",
+    "category": "SR 安全 稽核項目"
+  },
+  "ENBORIDERY PATCH": {
+    "english": "Enboridery patch",
+    "chinese": "繡花章",
+    "category": "英文辭典"
+  },
+  "ENTERPRISE RESOURCE PLANNING": {
+    "english": "Enterprise resource planning",
+    "chinese": "企業資源計畫系統",
+    "category": "英文辭典"
+  },
+  "ENZYME WASH": {
+    "english": "ENZYME WASH",
+    "chinese": "酵素洗",
+    "category": "水洗方法"
+  },
+  "EPAULET": {
+    "english": "EPAULET",
+    "chinese": "肩章",
+    "category": "英文辭典"
+  },
+  "EQUAULET": {
+    "english": "EQUAULET",
+    "chinese": "肩袢",
+    "category": "其他常用"
+  },
+  "ETA ESTIMATED TIME OF ARRIVAL": {
+    "english": "ETA Estimated Time of Arrival",
+    "chinese": "估計到達時間",
+    "category": "縮寫"
+  },
+  "EVENING GOWN SET": {
+    "english": "EVENING GOWN SET",
+    "chinese": "晚睡袍",
+    "category": "英文辭典"
+  },
+  "EVER PLEAT": {
+    "english": "Ever pleat",
+    "chinese": "耐久不變的褶襇",
+    "category": "服裝部位"
+  },
+  "EXCELLENT STYLE": {
+    "english": "EXCELLENT STYLE",
+    "chinese": "漂亮的款式",
+    "category": "英文辭典"
+  },
+  "EXCESSIVE THREAD ENDS": {
+    "english": "EXCESSIVE THREAD ENDS",
+    "chinese": "多餘的線頭",
+    "category": "英文辭典"
+  },
+  "EXECUTIVE WEAR": {
+    "english": "EXECUTIVE WEAR",
+    "chinese": "行政裝",
+    "category": "英文辭典"
+  },
+  "EXP. EXPORT": {
+    "english": "EXP. EXPORT",
+    "chinese": "出口",
+    "category": "縮寫"
+  },
+  "EXPORT CARTON": {
+    "english": "EXPORT CARTON",
+    "chinese": "出口箱",
+    "category": "英文辭典"
+  },
+  "EYELET": {
+    "english": "EYELET",
+    "chinese": "雞眼",
+    "category": "其他常用"
+  },
+  "EYELET TRIM": {
+    "english": "Eyelet trim",
+    "chinese": "孔眼邊",
+    "category": "英文辭典"
+  },
+  "F.O.A. FEED OFF ARM": {
+    "english": "F.O.A. feed off arm",
+    "chinese": "埋夾",
+    "category": "縮寫"
+  },
+  "FAB. FABRIC": {
+    "english": "FAB. FABRIC",
+    "chinese": "布料",
+    "category": "縮寫"
+  },
+  "FABRIC": {
+    "english": "FABRIC",
+    "chinese": "布料",
+    "category": "英文辭典"
+  },
+  "FABRIC COATING": {
+    "english": "Fabric coating",
+    "chinese": "的主要目的是用成膜的塗層劑塗覆在織物表面",
+    "category": "其他"
+  },
+  "FABRIC SWATCH": {
+    "english": "FABRIC SWATCH",
+    "chinese": "布辦",
+    "category": "英文辭典"
+  },
+  "FABRIC WIDTH": {
+    "english": "FABRIC WIDTH",
+    "chinese": "布封",
+    "category": "英文辭典"
+  },
+  "FACING": {
+    "english": "Facing",
+    "chinese": "拖漿、罩色（印花疵點）",
+    "category": "布疵"
+  },
+  "FACING TO OUT-SIDE": {
+    "english": "FACING TO OUT-SIDE",
+    "chinese": "折向側骨",
+    "category": "英文辭典"
+  },
+  "FAG": {
+    "english": "Fag",
+    "chinese": "粗粒",
+    "category": "布疵"
+  },
+  "FALSE FLY": {
+    "english": "FALSE FLY",
+    "chinese": "暗鈕牌",
+    "category": "英文辭典"
+  },
+  "FALSE PLACKET": {
+    "english": "FALSE PLACKET",
+    "chinese": "假明筒",
+    "category": "英文辭典"
+  },
+  "FANCY LABEL": {
+    "english": "Fancy label",
+    "chinese": "裝飾標",
+    "category": "英文辭典"
+  },
+  "FAQ FAIR AVERAGE QUALITY": {
+    "english": "FAQ FAIR AVERAGE QUALITY",
+    "chinese": "中等品",
+    "category": "縮寫"
+  },
+  "FASHION": {
+    "english": "FASHION",
+    "chinese": "時裝",
+    "category": "英文辭典"
+  },
+  "FB FREIGHT BILL": {
+    "english": "FB FREIGHT BILL",
+    "chinese": "裝貨清單",
+    "category": "縮寫"
+  },
+  "FCL FULL CONTAINER LOAD": {
+    "english": "FCL full container load",
+    "chinese": "走整櫃",
+    "category": "縮寫"
+  },
+  "FEATHER YARNS": {
+    "english": "Feather Yarns",
+    "chinese": "蜈蚣紗",
+    "category": "紗線"
+  },
+  "FELL SEAM": {
+    "english": "FELL SEAM",
+    "chinese": "埋夾",
+    "category": "英文辭典"
+  },
+  "FELTER": {
+    "english": "Felter",
+    "chinese": "跳花、跳紗",
+    "category": "布疵"
+  },
+  "FENCING": {
+    "english": "Fencing",
+    "chinese": "圍牆",
+    "category": "SR 安全 稽核項目"
+  },
+  "FILAMENT": {
+    "english": "FILAMENT",
+    "chinese": "長纖絲",
+    "category": "英文辭典"
+  },
+  "FINAL APPEARANCE": {
+    "english": "FINAL APPEARANCE",
+    "chinese": "最終外觀",
+    "category": "英文辭典"
+  },
+  "FINAL INSPECTION": {
+    "english": "FINAL INSPECTION",
+    "chinese": "尾期檢查",
+    "category": "車缝裁床"
+  },
+  "FINISH SEWING": {
+    "english": "Finish sewing",
+    "chinese": "止口藏起",
+    "category": "英文辭典"
+  },
+  "FINISHED GOODS": {
+    "english": "Finished goods",
+    "chinese": "成品",
+    "category": "英文辭典"
+  },
+  "FIRE SAFETY": {
+    "english": "Fire Safety",
+    "chinese": "消防安全",
+    "category": "SR 安全 稽核項目"
+  },
+  "FIRST AID": {
+    "english": "First Aid",
+    "chinese": "急救",
+    "category": "SR 安全 稽核項目"
+  },
+  "FITTING": {
+    "english": "FITTING",
+    "chinese": "試身",
+    "category": "英文辭典"
+  },
+  "FITTING SAMPLE": {
+    "english": "FITTING SAMPLE",
+    "chinese": "通常是指試身辦",
+    "category": "SAMPLE"
+  },
+  "FLAMEPROOF FABRIC": {
+    "english": "FLAMEPROOF FABRIC",
+    "chinese": "防火布",
+    "category": "英文辭典"
+  },
+  "FLANNEL": {
+    "english": "FLANNEL",
+    "chinese": "法蘭絨",
+    "category": "英文辭典"
+  },
+  "FLARE SKIRT": {
+    "english": "FLARE SKIRT",
+    "chinese": "喇叭裙",
+    "category": "英文辭典"
+  },
+  "FLAT DRY": {
+    "english": "FLAT DRY",
+    "chinese": "平攤晾乾",
+    "category": "洗標內容"
+  },
+  "FLAT MACHINE": {
+    "english": "FLAT MACHINE",
+    "chinese": "平車",
+    "category": "英文辭典"
+  },
+  "FLAT SEAM": {
+    "english": "FLAT SEAM",
+    "chinese": "平縫",
+    "category": "英文辭典"
+  },
+  "FLAX": {
+    "english": "FLAX",
+    "chinese": "亞麻",
+    "category": "英文辭典"
+  },
+  "FLEECE": {
+    "english": "FLEECE",
+    "chinese": "抓毛布,磨毛布（針織）",
+    "category": "其他常用"
+  },
+  "FLORID": {
+    "english": "Florid",
+    "chinese": "鮮紅",
+    "category": "顏色"
+  },
+  "FLOW CHART": {
+    "english": "FLOW CHART",
+    "chinese": "流程表",
+    "category": "車缝裁床"
+  },
+  "FLOW CONTROL": {
+    "english": "FLOW CONTROL",
+    "chinese": "流程控制",
+    "category": "車缝裁床"
+  },
+  "FLUORESCENCE": {
+    "english": "FLUORESCENCE",
+    "chinese": "螢光",
+    "category": "英文辭典"
+  },
+  "FLY": {
+    "english": "FLY",
+    "chinese": "門襟",
+    "category": "英文辭典"
+  },
+  "FLY LENGTH": {
+    "english": "FLY LENGTH",
+    "chinese": "鈕牌長",
+    "category": "尺寸部位"
+  },
+  "FLY WIDTH": {
+    "english": "FLY WIDTH",
+    "chinese": "鈕牌闊",
+    "category": "尺寸部位"
+  },
+  "FLYING UP": {
+    "english": "FLYING UP",
+    "chinese": "飛起",
+    "category": "英文辭典"
+  },
+  "FNP FRONT NECK POINT": {
+    "english": "FNP FRONT NECK POINT",
+    "chinese": "前頸點",
+    "category": "縮寫"
+  },
+  "FOB FREE ON BOARD": {
+    "english": "FOB FREE ON BOARD",
+    "chinese": "離岸價",
+    "category": "縮寫"
+  },
+  "FOLD AND PACK": {
+    "english": "FOLD AND PACK",
+    "chinese": "折疊包裝",
+    "category": "英文辭典"
+  },
+  "FOLD BACK FACING": {
+    "english": "FOLD BACK FACING",
+    "chinese": "原身出貼",
+    "category": "英文辭典"
+  },
+  "FOLD FRONT EDGE": {
+    "english": "FOLD FRONT EDGE",
+    "chinese": "折前幅邊",
+    "category": "英文辭典"
+  },
+  "FOLD LINE": {
+    "english": "FOLD LINE",
+    "chinese": "折線",
+    "category": "英文辭典"
+  },
+  "FOLD PANTS": {
+    "english": "FOLD PANTS",
+    "chinese": "折褲子",
+    "category": "英文辭典"
+  },
+  "FOLD POCKET MOUTH": {
+    "english": "FOLD POCKET MOUTH",
+    "chinese": "折反袋口",
+    "category": "英文辭典"
+  },
+  "FOLDER": {
+    "english": "FOLDER",
+    "chinese": "拉筒蝴蝶",
+    "category": "車缝裁床"
+  },
+  "FQC FIELD QUALITY CONTROL": {
+    "english": "FQC FIELD QUALITY CONTROL",
+    "chinese": "現場品質控制",
+    "category": "縮寫"
+  },
+  "FREIGHT": {
+    "english": "FREIGHT",
+    "chinese": "到岸價",
+    "category": "縮寫"
+  },
+  "FRENCH ROSE": {
+    "english": "French rose",
+    "chinese": "法國紅",
+    "category": "顏色"
+  },
+  "FRILLS": {
+    "english": "FRILLS",
+    "chinese": "荷葉邊",
+    "category": "其他常用"
+  },
+  "FROCKS": {
+    "english": "FROCKS",
+    "chinese": "禮服",
+    "category": "英文辭典"
+  },
+  "FRONT": {
+    "english": "FRONT",
+    "chinese": "前幅",
+    "category": "服裝部位"
+  },
+  "FRONT CROSS": {
+    "english": "FRONT CROSS",
+    "chinese": "前胸闊",
+    "category": "尺寸部位"
+  },
+  "FRONT EDGE": {
+    "english": "FRONT EDGE",
+    "chinese": "前幅邊",
+    "category": "英文辭典"
+  },
+  "FRONT FACING": {
+    "english": "FRONT FACING",
+    "chinese": "前貼",
+    "category": "服裝部位"
+  },
+  "FRONT MID-ARMHOLE": {
+    "english": "FRONT MID-ARMHOLE",
+    "chinese": "前胸寬",
+    "category": "英文辭典"
+  },
+  "FRONT NECK DROP": {
+    "english": "FRONT NECK DROP",
+    "chinese": "前領深",
+    "category": "尺寸部位"
+  },
+  "FRONT OPENING": {
+    "english": "FRONT OPENING",
+    "chinese": "前開口",
+    "category": "英文辭典"
+  },
+  "FRONT PANEL": {
+    "english": "FRONT PANEL",
+    "chinese": "前幅",
+    "category": "英文辭典"
+  },
+  "FRONT PART": {
+    "english": "FRONT PART",
+    "chinese": "前幅",
+    "category": "其他常用"
+  },
+  "FRONT PLEAT": {
+    "english": "FRONT PLEAT",
+    "chinese": "前褶",
+    "category": "服裝部位"
+  },
+  "FRONT RISE": {
+    "english": "Front rise",
+    "chinese": "前浪",
+    "category": "英文辭典"
+  },
+  "FRONT SHIRT": {
+    "english": "Front shirt",
+    "chinese": "前片",
+    "category": "英文辭典"
+  },
+  "FTY. FACTORY": {
+    "english": "FTY. FACTORY",
+    "chinese": "工廠",
+    "category": "縮寫"
+  },
+  "FTY.STICKER": {
+    "english": "FTY.STICKER",
+    "chinese": "工廠的貼紙",
+    "category": "英文辭典"
+  },
+  "FULLNESS": {
+    "english": "FULLNESS",
+    "chinese": "寬鬆位",
+    "category": "車缝裁床"
+  },
+  "FULLY OPENING": {
+    "english": "FULLY OPENING",
+    "chinese": "全開口",
+    "category": "英文辭典"
+  },
+  "FUR": {
+    "english": "FUR",
+    "chinese": "皮草",
+    "category": "英文辭典"
+  },
+  "FUR GARMENT": {
+    "english": "FUR GARMENT",
+    "chinese": "裘皮服裝",
+    "category": "英文辭典"
+  },
+  "FURRY": {
+    "english": "FURRY",
+    "chinese": "毛皮製品",
+    "category": "英文辭典"
+  },
+  "FUSE INTERLINING": {
+    "english": "FUSE INTERLINING",
+    "chinese": "粘襯",
+    "category": "英文辭典"
+  },
+  "FUSIBLE": {
+    "english": "FUSIBLE",
+    "chinese": "粘襯",
+    "category": "常用單詞"
+  },
+  "FUSIBLE INTERFACING": {
+    "english": "FUSIBLE INTERFACING",
+    "chinese": "粘襯/熱熔襯",
+    "category": "副料"
+  },
+  "FUSIBLE INTERLINING": {
+    "english": "FUSIBLE INTERLINING",
+    "chinese": "粘樸",
+    "category": "英文辭典"
+  },
+  "FUSING INTERLINING": {
+    "english": "FUSING INTERLINING",
+    "chinese": "粘樸",
+    "category": "車缝裁床"
+  },
+  "FUSING M/C": {
+    "english": "FUSING M/C",
+    "chinese": "啤鈕機",
+    "category": "製衣機器"
+  },
+  "FUZZ BALLS": {
+    "english": "FUZZ BALLS",
+    "chinese": "起球",
+    "category": "英文辭典"
+  },
+  "G. GREEN": {
+    "english": "G. GREEN",
+    "chinese": "綠色",
+    "category": "縮寫"
+  },
+  "G.W. GROSS WEIGHT": {
+    "english": "G.W. GROSS WEIGHT",
+    "chinese": "毛重",
+    "category": "縮寫"
+  },
+  "GABARDINE": {
+    "english": "GABARDINE",
+    "chinese": "斜紋呢",
+    "category": "英文辭典"
+  },
+  "GARMENT": {
+    "english": "GARMENT",
+    "chinese": "成衣",
+    "category": "英文辭典"
+  },
+  "GARMENT WASH": {
+    "english": "GARMENT WASH",
+    "chinese": "成衣洗水",
+    "category": "英文辭典"
+  },
+  "GARNET": {
+    "english": "Garnet",
+    "chinese": "暗紅",
+    "category": "顏色"
+  },
+  "GATES AND GATE HOUSES": {
+    "english": "Gates and Gate Houses",
+    "chinese": "大門及守衛亭",
+    "category": "SR 安全 稽核項目"
+  },
+  "GAUGE": {
+    "english": "Gauge",
+    "chinese": "針數",
+    "category": "英文辭典"
+  },
+  "GBP GREAT BRITAIN POUND": {
+    "english": "GBP Great Britain Pound",
+    "chinese": "英鎊",
+    "category": "其他常用"
+  },
+  "GERANIUM": {
+    "english": "Geranium",
+    "chinese": "原色紅",
+    "category": "顏色"
+  },
+  "GIRTH": {
+    "english": "Girth",
+    "chinese": "周長",
+    "category": "英文辭典"
+  },
+  "GL GRAIN LINE": {
+    "english": "GL GRAIN LINE",
+    "chinese": "布紋",
+    "category": "縮寫"
+  },
+  "GLACED FINISH": {
+    "english": "GLACED FINISH",
+    "chinese": "壓光加工",
+    "category": "英文辭典"
+  },
+  "GLEE": {
+    "english": "Glee",
+    "chinese": "緞帶",
+    "category": "包裝材料"
+  },
+  "GLITTER PRINTING": {
+    "english": "Glitter printing",
+    "chinese": "閃光印花",
+    "category": "英文辭典"
+  },
+  "GODET": {
+    "english": "GODET",
+    "chinese": "三角形布",
+    "category": "其他常用"
+  },
+  "GOH GARMENT ON HANGER": {
+    "english": "GOH Garment On Hanger",
+    "chinese": "走掛裝",
+    "category": "縮寫"
+  },
+  "GOLD": {
+    "english": "Gold",
+    "chinese": "金",
+    "category": "顏色"
+  },
+  "GOLDEN YELLOW": {
+    "english": "Golden yellow",
+    "chinese": "金黃色",
+    "category": "顏色"
+  },
+  "GOOD TASTE": {
+    "english": "GOOD TASTE",
+    "chinese": "高品味",
+    "category": "英文辭典"
+  },
+  "GOUT": {
+    "english": "Gout",
+    "chinese": "飛花織入",
+    "category": "布疵"
+  },
+  "GRADING": {
+    "english": "GRADING",
+    "chinese": "放碼",
+    "category": "英文辭典"
+  },
+  "GRAIN": {
+    "english": "GRAIN",
+    "chinese": "布紋",
+    "category": "英文辭典"
+  },
+  "GRAY CLOTH": {
+    "english": "GRAY CLOTH",
+    "chinese": "胚布",
+    "category": "英文辭典"
+  },
+  "GREEN": {
+    "english": "Green",
+    "chinese": "綠色",
+    "category": "顏色"
+  },
+  "GREIGE CLOTH": {
+    "english": "Greige cloth",
+    "chinese": "本色坯布",
+    "category": "其他常用"
+  },
+  "GREY": {
+    "english": "Grey",
+    "chinese": "灰",
+    "category": "顏色"
+  },
+  "GRINDING": {
+    "english": "GRINDING",
+    "chinese": "吊色",
+    "category": "水洗方法"
+  },
+  "GROMMET": {
+    "english": "GROMMET",
+    "chinese": "鳳眼",
+    "category": "英文辭典"
+  },
+  "GROSS WEIGHT": {
+    "english": "GROSS WEIGHT",
+    "chinese": "毛重",
+    "category": "英文辭典"
+  },
+  "GROWN-ON SLEEVE": {
+    "english": "GROWN-ON SLEEVE",
+    "chinese": "原身出袖",
+    "category": "英文辭典"
+  },
+  "GUM KNOTS": {
+    "english": "Gum knots",
+    "chinese": "膠著類（生絲疵點）",
+    "category": "布疵"
+  },
+  "GUMMED BOOKS": {
+    "english": "Gummed books",
+    "chinese": "絲把發硬",
+    "category": "布疵"
+  },
+  "GUMMED SKEINS": {
+    "english": "Gummed skeins",
+    "chinese": "絲膠發硬",
+    "category": "布疵"
+  },
+  "GUSSET": {
+    "english": "GUSSET",
+    "chinese": "三角形插布",
+    "category": "其他常用"
+  },
+  "GUT": {
+    "english": "Gut",
+    "chinese": "環保安全地毯",
+    "category": "英文辭典"
+  },
+  "GWS GARMENT WASH SAMPLE": {
+    "english": "GWS garment wash sample",
+    "chinese": "成衣洗水樣板",
+    "category": "縮寫"
+  },
+  "H. HIPS": {
+    "english": "H. HIPS",
+    "chinese": "坐圍",
+    "category": "縮寫"
+  },
+  "H/S": {
+    "english": "H/S",
+    "chinese": "手擦",
+    "category": "縮寫"
+  },
+  "HAIRINESS": {
+    "english": "Hairiness",
+    "chinese": "毛羽類",
+    "category": "布疵"
+  },
+  "HALP MOON PATCH": {
+    "english": "HALP MOON PATCH",
+    "chinese": "半月形龜背",
+    "category": "其他常用"
+  },
+  "HAND LOOP": {
+    "english": "Hand loop",
+    "chinese": "手版樣",
+    "category": "英文辭典"
+  },
+  "HAND SHEAR": {
+    "english": "HAND SHEAR",
+    "chinese": "剪刀",
+    "category": "車缝裁床"
+  },
+  "HAND WASH": {
+    "english": "HAND WASH",
+    "chinese": "手洗",
+    "category": "洗標內容"
+  },
+  "HANDBAG": {
+    "english": "HANDBAG",
+    "chinese": "手袋",
+    "category": "英文辭典"
+  },
+  "HANDFEEL": {
+    "english": "HANDFEEL",
+    "chinese": "手感",
+    "category": "英文辭典"
+  },
+  "HANDLING": {
+    "english": "HANDLING",
+    "chinese": "執手",
+    "category": "英文辭典"
+  },
+  "HANG TAG STICKER": {
+    "english": "Hang tag Sticker",
+    "chinese": "膠領條",
+    "category": "包裝材料"
+  },
+  "HANGDLING TIME": {
+    "english": "HANGDLING TIME",
+    "chinese": "執手時間",
+    "category": "英文辭典"
+  },
+  "HANGER": {
+    "english": "HANGER",
+    "chinese": "衣架",
+    "category": "英文辭典"
+  },
+  "HANGING LOOP": {
+    "english": "HANGING LOOP",
+    "chinese": "吊袢",
+    "category": "其他常用"
+  },
+  "HANK DYED": {
+    "english": "HANK DYED",
+    "chinese": "絞染",
+    "category": "其他"
+  },
+  "HARD SIZE": {
+    "english": "Hard size",
+    "chinese": "漿斑",
+    "category": "布疵"
+  },
+  "HAZEL": {
+    "english": "Hazel",
+    "chinese": "赤褐色",
+    "category": "顏色"
+  },
+  "HEATHER GREY": {
+    "english": "Heather grey",
+    "chinese": "麻灰",
+    "category": "英文辭典"
+  },
+  "HEAVY END": {
+    "english": "Heavy end",
+    "chinese": "粗經",
+    "category": "布疵"
+  },
+  "HEAVY FABRIC": {
+    "english": "HEAVY FABRIC",
+    "chinese": "厚重面料",
+    "category": "英文辭典"
+  },
+  "HEAVY FILLING/PICK": {
+    "english": "Heavy filling/pick",
+    "chinese": "粗緯",
+    "category": "布疵"
+  },
+  "HEAVY JERSEY": {
+    "english": "Heavy Jersey",
+    "chinese": "雙紗汗布",
+    "category": "其他常用"
+  },
+  "HEM": {
+    "english": "HEM",
+    "chinese": "衫腳",
+    "category": "英文辭典"
+  },
+  "HEM CUFF": {
+    "english": "HEM CUFF",
+    "chinese": "反腳",
+    "category": "英文辭典"
+  },
+  "HEM/BOTTOM": {
+    "english": "HEM/BOTTOM",
+    "chinese": "衫腳",
+    "category": "服裝部位"
+  },
+  "HEMMER": {
+    "english": "HEMMER",
+    "chinese": "卷邊靴",
+    "category": "車缝裁床"
+  },
+  "HEMMING": {
+    "english": "HEMMING",
+    "chinese": "卷邊",
+    "category": "英文辭典"
+  },
+  "HEMP": {
+    "english": "Hemp",
+    "chinese": "大麻",
+    "category": "縮寫"
+  },
+  "HEMP YARN SERIES": {
+    "english": "Hemp Yarn Series",
+    "chinese": "亞麻系列紗線",
+    "category": "紗線"
+  },
+  "HEPATIC": {
+    "english": "Hepatic",
+    "chinese": "豬肝色",
+    "category": "顏色"
+  },
+  "HERRING BONE": {
+    "english": "Herring bone",
+    "chinese": "人字紋",
+    "category": "英文辭典"
+  },
+  "HERRINGBONE TAPE": {
+    "english": "Herringbone Tape",
+    "chinese": "膠衣架",
+    "category": "包裝材料"
+  },
+  "HEXAGONAL POCKET": {
+    "english": "HEXAGONAL POCKET",
+    "chinese": "六角袋",
+    "category": "英文辭典"
+  },
+  "HI-LOW": {
+    "english": "Hi-low",
+    "chinese": "子母條",
+    "category": "英文辭典"
+  },
+  "HIDDEN BARTACK": {
+    "english": "HIDDEN BARTACK",
+    "chinese": "隱形棗",
+    "category": "英文辭典"
+  },
+  "HIDDEN PLACKET": {
+    "english": "HIDDEN PLACKET",
+    "chinese": "雙層鈕筒",
+    "category": "英文辭典"
+  },
+  "HIGH HIP": {
+    "english": "HIGH HIP",
+    "chinese": "上坐圍",
+    "category": "尺寸部位"
+  },
+  "HIGH-WAISTED SKIRT": {
+    "english": "HIGH-WAISTED SKIRT",
+    "chinese": "高腰裙",
+    "category": "英文辭典"
+  },
+  "HIP": {
+    "english": "HIP",
+    "chinese": "坐圍",
+    "category": "英文辭典"
+  },
+  "HIP POCKET": {
+    "english": "HIP POCKET",
+    "chinese": "後袋",
+    "category": "英文辭典"
+  },
+  "HL HIPS LINE": {
+    "english": "HL HIPS LINE",
+    "chinese": "坐圍線",
+    "category": "縮寫"
+  },
+  "HOLER M/C": {
+    "english": "HOLER M/C",
+    "chinese": "自動裁切機",
+    "category": "製衣機器"
+  },
+  "HOOD HEIGHT": {
+    "english": "HOOD HEIGHT",
+    "chinese": "帽高",
+    "category": "英文辭典"
+  },
+  "HOOK": {
+    "english": "HOOK",
+    "chinese": "鉤",
+    "category": "常用單詞"
+  },
+  "HOOKS": {
+    "english": "HOOKS",
+    "chinese": "烏蠅扣（鉤棒扣）",
+    "category": "其他常用"
+  },
+  "HORIZONTAL PLAID": {
+    "english": "HORIZONTAL PLAID",
+    "chinese": "水平準格",
+    "category": "英文辭典"
+  },
+  "HYACINTH": {
+    "english": "Hyacinth",
+    "chinese": "紫藍色",
+    "category": "顏色"
+  },
+  "HYGIENE": {
+    "english": "Hygiene",
+    "chinese": "衛生",
+    "category": "SR 安全 稽核項目"
+  },
+  "IMAG.LINE IMAGINARY LINE": {
+    "english": "IMAG.LINE imaginary line",
+    "chinese": "参考线",
+    "category": "經營管理"
+  },
+  "IMPROPER MAKING OF BOOK": {
+    "english": "Improper making of book",
+    "chinese": "打把不正",
+    "category": "布疵"
+  },
+  "IMPROPER SKEIN LACKING": {
+    "english": "Improper skein lacking",
+    "chinese": "扣絲失當",
+    "category": "布疵"
+  },
+  "IMPROPER SKEIN TWISTING": {
+    "english": "Improper skein twisting",
+    "chinese": "打絞不正",
+    "category": "布疵"
+  },
+  "IN SEAM": {
+    "english": "IN SEAM",
+    "chinese": "內缝柱 (內浪骨)",
+    "category": "服裝部位"
+  },
+  "IN-PROCESS INSPECTION": {
+    "english": "IN-PROCESS INSPECTION",
+    "chinese": "中期檢查",
+    "category": "車缝裁床"
+  },
+  "IN-SEAM": {
+    "english": "IN-SEAM",
+    "chinese": "內骨",
+    "category": "英文辭典"
+  },
+  "IN. INCH": {
+    "english": "IN. INCH",
+    "chinese": "英寸",
+    "category": "縮寫"
+  },
+  "INCORRECT LINKING": {
+    "english": "INCORRECT LINKING",
+    "chinese": "錯誤的連接",
+    "category": "英文辭典"
+  },
+  "INDIGO": {
+    "english": "Indigo",
+    "chinese": "靛青色",
+    "category": "顏色"
+  },
+  "INDUSTRY COLORING M/C": {
+    "english": "INDUSTRY COLORING M/C",
+    "chinese": "震動機",
+    "category": "製衣機器"
+  },
+  "INDUSTRY WASHER": {
+    "english": "INDUSTRY WASHER",
+    "chinese": "工業脫水機",
+    "category": "製衣機器"
+  },
+  "INFORMATION TECHNOLOGY SECURITY": {
+    "english": "Information Technology Security",
+    "chinese": "資訊安全",
+    "category": "SR 安全 稽核項目"
+  },
+  "INITIAL SPL": {
+    "english": "INITIAL SPL",
+    "chinese": "主要是指原辦",
+    "category": "SAMPLE"
+  },
+  "INNER CARTON / INNER BOXES": {
+    "english": "Inner Carton / inner boxes",
+    "chinese": "內插筒",
+    "category": "包裝材料"
+  },
+  "INSEAM": {
+    "english": "Inseam",
+    "chinese": "內長",
+    "category": "英文辭典"
+  },
+  "INSEAM LENGTH": {
+    "english": "INSEAM LENGTH",
+    "chinese": "內長",
+    "category": "尺寸部位"
+  },
+  "INSPECTION": {
+    "english": "INSPECTION",
+    "chinese": "檢查",
+    "category": "英文辭典"
+  },
+  "INSPIRATION": {
+    "english": "INSPIRATION",
+    "chinese": "靈感",
+    "category": "英文辭典"
+  },
+  "INTERFACING": {
+    "english": "INTERFACING",
+    "chinese": "襯布/朴",
+    "category": "副料"
+  },
+  "INTERLACING": {
+    "english": "INTERLACING",
+    "chinese": "交織",
+    "category": "英文辭典"
+  },
+  "INTERLINING": {
+    "english": "INTERLINING",
+    "chinese": "襯布/朴",
+    "category": "常用單詞"
+  },
+  "INTERLINNING CUTTING M/C": {
+    "english": "INTERLINNING CUTTING M/C",
+    "chinese": "卷樸機",
+    "category": "製衣機器"
+  },
+  "INTERLOOP": {
+    "english": "INTERLOOP",
+    "chinese": "衛衣布",
+    "category": "其他常用"
+  },
+  "INTERWEAVE": {
+    "english": "Interweave",
+    "chinese": "交織",
+    "category": "英文辭典"
+  },
+  "INVERTED PLEAT": {
+    "english": "Inverted pleat",
+    "chinese": "暗褶",
+    "category": "英文辭典"
+  },
+  "INVOICE": {
+    "english": "INVOICE",
+    "chinese": "發票",
+    "category": "英文辭典"
+  },
+  "IRON LOW": {
+    "english": "IRON LOW",
+    "chinese": "低溫熨燙",
+    "category": "洗標內容"
+  },
+  "IRON SPOT": {
+    "english": "IRON SPOT",
+    "chinese": "燙痕",
+    "category": "英文辭典"
+  },
+  "IRON-SHINE": {
+    "english": "IRON-SHINE",
+    "chinese": "燙起鏡",
+    "category": "車缝裁床"
+  },
+  "IRONING": {
+    "english": "IRONING",
+    "chinese": "熨燙",
+    "category": "車缝裁床"
+  },
+  "IRRE.L/C IRREVOCABLE L/C": {
+    "english": "IRRE.L/C irrevocable L/C",
+    "chinese": "不可撤销信用证",
+    "category": "經營管理"
+  },
+  "IRREGULAR PICK": {
+    "english": "Irregular pick",
+    "chinese": "緯疵",
+    "category": "布疵"
+  },
+  "IRREGULAR PILE BAR": {
+    "english": "Irregular pile bar",
+    "chinese": "長短絨檔",
+    "category": "布疵"
+  },
+  "IRREGULAR SKEINS": {
+    "english": "Irregular skeins",
+    "chinese": "絲絞不正",
+    "category": "布疵"
+  },
+  "IRREGULAR TRAVERSE": {
+    "english": "Irregular traverse",
+    "chinese": "絡交不正",
+    "category": "布疵"
+  },
+  "IRREGULAR TWIST STREAK": {
+    "english": "Irregular twist streak",
+    "chinese": "鬆緊撚檔",
+    "category": "布疵"
+  },
+  "IVORY": {
+    "english": "Ivory",
+    "chinese": "象牙黃",
+    "category": "顏色"
+  },
+  "JACKET": {
+    "english": "Jacket",
+    "chinese": "短上衣",
+    "category": "英文辭典"
+  },
+  "JACQUARD": {
+    "english": "JACQUARD",
+    "chinese": "提花",
+    "category": "英文辭典"
+  },
+  "JADE GREEN": {
+    "english": "Jade green",
+    "chinese": "翠綠色",
+    "category": "顏色"
+  },
+  "JAFFA ORANGE": {
+    "english": "JAFFA ORANGE",
+    "chinese": "橘黃",
+    "category": "顏色"
+  },
+  "JAVA": {
+    "english": "Java",
+    "chinese": "咖啡色",
+    "category": "英文辭典"
+  },
+  "JERSEY": {
+    "english": "Jersey",
+    "chinese": "汗布",
+    "category": "英文辭典"
+  },
+  "JESTER RED": {
+    "english": "JESTER RED",
+    "chinese": "大紅",
+    "category": "顏色"
+  },
+  "JETTED POCKET": {
+    "english": "JETTED POCKET",
+    "chinese": "唇袋",
+    "category": "服裝部位"
+  },
+  "JIG DYEING": {
+    "english": "Jig dyeing",
+    "chinese": "卷染",
+    "category": "英文辭典"
+  },
+  "JKT. JACKET": {
+    "english": "JKT. JACKET",
+    "chinese": "夾克",
+    "category": "縮寫"
+  },
+  "JOIN CROTCH": {
+    "english": "JOIN CROTCH",
+    "chinese": "埋小浪",
+    "category": "車缝裁床"
+  },
+  "JOINING STENCIL MARK": {
+    "english": "Joining stencil mark",
+    "chinese": "搭頭印（手工印花疵點）",
+    "category": "布疵"
+  },
+  "JUTE": {
+    "english": "JUTE",
+    "chinese": "黃麻",
+    "category": "英文辭典"
+  },
+  "K KNIT": {
+    "english": "K KNIT",
+    "chinese": "針織",
+    "category": "縮寫"
+  },
+  "KEEL": {
+    "english": "Keel",
+    "chinese": "紅印色",
+    "category": "布疵"
+  },
+  "KEPT": {
+    "english": "KEPT",
+    "chinese": "染廠對疵布的認賠",
+    "category": "縮寫"
+  },
+  "KEY HOLE": {
+    "english": "Key hole",
+    "chinese": "鎖眼",
+    "category": "英文辭典"
+  },
+  "KHAKI": {
+    "english": "KHAKI",
+    "chinese": "卡其",
+    "category": "英文辭典"
+  },
+  "KNEE": {
+    "english": "KNEE",
+    "chinese": "膝圍",
+    "category": "尺寸部位"
+  },
+  "KNIT": {
+    "english": "KNIT",
+    "chinese": "針織",
+    "category": "英文辭典"
+  },
+  "KNIT INTERFACING": {
+    "english": "KNIT INTERFACING",
+    "chinese": "針織襯",
+    "category": "副料"
+  },
+  "KNITTED RIB COLLAR": {
+    "english": "KNITTED RIB COLLAR",
+    "chinese": "針織羅紋領",
+    "category": "英文辭典"
+  },
+  "KNOTS": {
+    "english": "Knots",
+    "chinese": "長結",
+    "category": "布疵"
+  },
+  "KNOWLEDGE OF MATERIAL": {
+    "english": "KNOWLEDGE OF MATERIAL",
+    "chinese": "材料學",
+    "category": "英文辭典"
+  },
+  "KNUB": {
+    "english": "Knub",
+    "chinese": "繅絲下腳",
+    "category": "布疵"
+  },
+  "L. LARGE": {
+    "english": "L. LARGE",
+    "chinese": "大號",
+    "category": "縮寫"
+  },
+  "L. LENGTH": {
+    "english": "L. LENGTH",
+    "chinese": "長度",
+    "category": "縮寫"
+  },
+  "L. LINE": {
+    "english": "L. LINE",
+    "chinese": "萊尼",
+    "category": "縮寫"
+  },
+  "L.G. LENGTH GRAIN": {
+    "english": "L.G. LENGTH GRAIN",
+    "chinese": "經向, 直紋",
+    "category": "縮寫"
+  },
+  "L/S LONG SLEEVE": {
+    "english": "L/S LONG SLEEVE",
+    "chinese": "長袖",
+    "category": "縮寫"
+  },
+  "LA BLUE": {
+    "english": "LA BLUE",
+    "chinese": "拉藍洗",
+    "category": "水洗方法"
+  },
+  "LAB DIPS": {
+    "english": "LAB DIPS",
+    "chinese": "色樣",
+    "category": "其他常用"
+  },
+  "LABEL": {
+    "english": "LABEL",
+    "chinese": "標籤",
+    "category": "常用單詞"
+  },
+  "LABOUR COST": {
+    "english": "LABOUR COST",
+    "chinese": "勞工成本",
+    "category": "英文辭典"
+  },
+  "LACE": {
+    "english": "Lace",
+    "chinese": "內盒貼紙",
+    "category": "包裝材料"
+  },
+  "LACOSTE": {
+    "english": "LACOSTE",
+    "chinese": "雙珠地",
+    "category": "英文辭典"
+  },
+  "LADDER YARNS": {
+    "english": "Ladder Yarns",
+    "chinese": "圈圈紗",
+    "category": "紗線"
+  },
+  "LAKESIDE TEAL": {
+    "english": "Lakeside teal",
+    "chinese": "湖藍",
+    "category": "英文辭典"
+  },
+  "LAMBSWOOL": {
+    "english": "Lambswool",
+    "chinese": "羊羔毛",
+    "category": "縮寫"
+  },
+  "LAPEL": {
+    "english": "LAPEL",
+    "chinese": "襟貼",
+    "category": "英文辭典"
+  },
+  "LASER LIGHT": {
+    "english": "LASER LIGHT",
+    "chinese": "十字定位燈",
+    "category": "製衣機器"
+  },
+  "LAUNDRY": {
+    "english": "LAUNDRY",
+    "chinese": "乾洗",
+    "category": "英文辭典"
+  },
+  "LAVENDER": {
+    "english": "Lavender",
+    "chinese": "藕色",
+    "category": "顏色"
+  },
+  "LAYOUT": {
+    "english": "LAYOUT",
+    "chinese": "排料",
+    "category": "車缝裁床"
+  },
+  "LBL LABEL": {
+    "english": "LBL LABEL",
+    "chinese": "嘜頭, 商標",
+    "category": "縮寫"
+  },
+  "LCL LESS CONTAINER LOADED": {
+    "english": "LCL LESS CONTAINER LOADED",
+    "chinese": "拼櫃",
+    "category": "縮寫"
+  },
+  "LEATHER": {
+    "english": "LEATHER",
+    "chinese": "皮革",
+    "category": "英文辭典"
+  },
+  "LEATHER DISC": {
+    "english": "Leather Disc",
+    "chinese": "叉字鐵夾",
+    "category": "包裝材料"
+  },
+  "LEG OPENGING": {
+    "english": "Leg openging",
+    "chinese": "褲口",
+    "category": "英文辭典"
+  },
+  "LEG OPENING": {
+    "english": "LEG OPENING",
+    "chinese": "褲腳圍",
+    "category": "尺寸部位"
+  },
+  "LETTER OF CREDIT": {
+    "english": "LETTER OF CREDIT",
+    "chinese": "信用證",
+    "category": "經營管理"
+  },
+  "LETTER OF GUARANTEE": {
+    "english": "LETTER OF GUARANTEE",
+    "chinese": "擔保證",
+    "category": "經營管理"
+  },
+  "LIAS": {
+    "english": "Lias",
+    "chinese": "淡紫色",
+    "category": "顏色"
+  },
+  "LICENSE": {
+    "english": "LICENSE",
+    "chinese": "許可證",
+    "category": "英文辭典"
+  },
+  "LIGHT CURVED POCKET": {
+    "english": "LIGHT CURVED POCKET",
+    "chinese": "微彎袋",
+    "category": "英文辭典"
+  },
+  "LIGHT GREY": {
+    "english": "Light grey",
+    "chinese": "淡灰色",
+    "category": "顏色"
+  },
+  "LIGHTING": {
+    "english": "Lighting",
+    "chinese": "照明",
+    "category": "SR 安全 稽核項目"
+  },
+  "LIGNE": {
+    "english": "LIGNE",
+    "chinese": "號（紐扣大小單位）",
+    "category": "其他常用"
+  },
+  "LILAC": {
+    "english": "Lilac",
+    "chinese": "淺紫",
+    "category": "英文辭典"
+  },
+  "LINE DRY": {
+    "english": "LINE DRY",
+    "chinese": "懸掛晾乾",
+    "category": "洗標內容"
+  },
+  "LINEN": {
+    "english": "LINEN",
+    "chinese": "亞麻",
+    "category": "英文辭典"
+  },
+  "LINING": {
+    "english": "LINING",
+    "chinese": "裏布",
+    "category": "英文辭典"
+  },
+  "LINING FABRIC": {
+    "english": "LINING FABRIC",
+    "chinese": "裡布",
+    "category": "主料"
+  },
+  "LOA LENGTH OVER ALL": {
+    "english": "LOA LENGTH OVER ALL",
+    "chinese": "全長",
+    "category": "縮寫"
+  },
+  "LOCK STITCH": {
+    "english": "LOCK STITCH",
+    "chinese": "平車線步",
+    "category": "英文辭典"
+  },
+  "LOCKING DEVICES AND KEY CONTROL": {
+    "english": "Locking Devices and Key Control",
+    "chinese": "鎖具及鑰匙管控",
+    "category": "SR 安全 稽核項目"
+  },
+  "LOCKSTITCH TRIMMING M/C": {
+    "english": "LOCKSTITCH TRIMMING M/C",
+    "chinese": "五線及骨車",
+    "category": "製衣機器"
+  },
+  "LOOPED FABRIC": {
+    "english": "LOOPED FABRIC",
+    "chinese": "毛圈布",
+    "category": "英文辭典"
+  },
+  "LOOPER SEWING M/C": {
+    "english": "LOOPER SEWING M/C",
+    "chinese": "轆腳車",
+    "category": "製衣機器"
+  },
+  "LOOPING": {
+    "english": "LOOPING",
+    "chinese": "起耳仔（疵點）",
+    "category": "英文辭典"
+  },
+  "LOOPS": {
+    "english": "Loops",
+    "chinese": "環結",
+    "category": "布疵"
+  },
+  "LOOSE BUTTON": {
+    "english": "LOOSE BUTTON",
+    "chinese": "鈕扣鬆散",
+    "category": "英文辭典"
+  },
+  "LT.BLUE": {
+    "english": "LT.BLUE",
+    "chinese": "中漂洗",
+    "category": "水洗方法"
+  },
+  "LUSTROUS": {
+    "english": "LUSTROUS",
+    "chinese": "光澤",
+    "category": "英文辭典"
+  },
+  "LYCRA": {
+    "english": "LYCRA",
+    "chinese": "萊卡",
+    "category": "常用單詞"
+  },
+  "LYONS BLUE": {
+    "english": "Lyons blue",
+    "chinese": "藍紫色",
+    "category": "顏色"
+  },
+  "M MEDIUM": {
+    "english": "M MEDIUM",
+    "chinese": "中碼",
+    "category": "縮寫"
+  },
+  "M/B MUST BE": {
+    "english": "M/B MUST BE",
+    "chinese": "必須",
+    "category": "縮寫"
+  },
+  "M/C MACHINE": {
+    "english": "M/C MACHINE",
+    "chinese": "機械",
+    "category": "縮寫"
+  },
+  "MACHINE WASH": {
+    "english": "MACHINE WASH",
+    "chinese": "機洗",
+    "category": "洗標內容"
+  },
+  "MAGIC STICKER": {
+    "english": "Magic Sticker",
+    "chinese": "尼龍捆條",
+    "category": "包裝材料"
+  },
+  "MAIN BODY FABRIC": {
+    "english": "MAIN BODY FABRIC",
+    "chinese": "大身布",
+    "category": "主料"
+  },
+  "MAJOR DEFECT": {
+    "english": "MAJOR DEFECT",
+    "chinese": "大疵",
+    "category": "英文辭典"
+  },
+  "MAN-MADE FIBRE": {
+    "english": "MAN-MADE FIBRE",
+    "chinese": "人造纖維",
+    "category": "英文辭典"
+  },
+  "MANAGEMENT": {
+    "english": "Management",
+    "chinese": "管理階層是否重視",
+    "category": "SR 安全 稽核項目"
+  },
+  "MANDARIN BLUE": {
+    "english": "Mandarin blue",
+    "chinese": "深藍",
+    "category": "顏色"
+  },
+  "MANIFESTING PROCEDURES": {
+    "english": "Manifesting Procedures",
+    "chinese": "船貨清單流程",
+    "category": "SR 安全 稽核項目"
+  },
+  "MANUAL PRINTING M/C": {
+    "english": "MANUAL PRINTING M/C",
+    "chinese": "洗網機",
+    "category": "製衣機器"
+  },
+  "MANUFACTURER": {
+    "english": "MANUFACTURER",
+    "chinese": "製造商",
+    "category": "英文辭典"
+  },
+  "MARINE GREEN": {
+    "english": "Marine green",
+    "chinese": "海水綠",
+    "category": "顏色"
+  },
+  "MARKER": {
+    "english": "MARKER",
+    "chinese": "嘜架  馬克",
+    "category": "英文辭典"
+  },
+  "MARKER COPIER": {
+    "english": "MARKER COPIER",
+    "chinese": "嘜架影印機",
+    "category": "車缝裁床"
+  },
+  "MARKING OFF": {
+    "english": "Marking off",
+    "chinese": "搭色",
+    "category": "布疵"
+  },
+  "MAROON": {
+    "english": "Maroon",
+    "chinese": "棗紅;茶色",
+    "category": "顏色"
+  },
+  "MARRIAGES": {
+    "english": "Marriages",
+    "chinese": "雙絲",
+    "category": "布疵"
+  },
+  "MAT. MATERIAL": {
+    "english": "MAT. MATERIAL",
+    "chinese": "物料",
+    "category": "縮寫"
+  },
+  "MATCH COLOR": {
+    "english": "MATCH COLOR",
+    "chinese": "配色",
+    "category": "英文辭典"
+  },
+  "MATERIAL": {
+    "english": "MATERIAL",
+    "chinese": "物料",
+    "category": "英文辭典"
+  },
+  "MEAS. MEASUREMENT": {
+    "english": "MEAS. MEASUREMENT",
+    "chinese": "尺寸",
+    "category": "縮寫"
+  },
+  "MEASUREMENT": {
+    "english": "MEASUREMENT",
+    "chinese": "尺寸",
+    "category": "英文辭典"
+  },
+  "MEDIUM BLUE": {
+    "english": "Medium blue",
+    "chinese": "中藍色",
+    "category": "顏色"
+  },
+  "MEDIUM YELLOW": {
+    "english": "Medium yellow",
+    "chinese": "中黃色",
+    "category": "顏色"
+  },
+  "MELTON": {
+    "english": "MELTON",
+    "chinese": "領底絨",
+    "category": "英文辭典"
+  },
+  "MERCERIZED": {
+    "english": "Mercerized",
+    "chinese": "絲光",
+    "category": "英文辭典"
+  },
+  "MESH": {
+    "english": "Mesh",
+    "chinese": "網眼",
+    "category": "英文辭典"
+  },
+  "MHL MIDDLE HIPS LINE": {
+    "english": "MHL MIDDLE HIPS LINE",
+    "chinese": "中臀圍線",
+    "category": "縮寫"
+  },
+  "MIAN LABEL/BRAND LABEL": {
+    "english": "MIAN LABEL/BRAND LABEL",
+    "chinese": "主嘜",
+    "category": "其他常用"
+  },
+  "MID.BLEACH": {
+    "english": "MID.BLEACH",
+    "chinese": "中磨洗",
+    "category": "水洗方法"
+  },
+  "MID.BLUE": {
+    "english": "MID.BLUE",
+    "chinese": "深藍洗",
+    "category": "水洗方法"
+  },
+  "MILDEW": {
+    "english": "Mildew",
+    "chinese": "黴、生黴",
+    "category": "布疵"
+  },
+  "MILK WHITE": {
+    "english": "Milk white",
+    "chinese": "乳白色",
+    "category": "顏色"
+  },
+  "MING BLUE": {
+    "english": "Ming blue",
+    "chinese": "藏青色",
+    "category": "顏色"
+  },
+  "MINOR DEFECTS": {
+    "english": "Minor defects",
+    "chinese": "普通瑕疵、中類",
+    "category": "布疵"
+  },
+  "MISCELLANEOUS": {
+    "english": "Miscellaneous",
+    "chinese": "混色",
+    "category": "英文辭典"
+  },
+  "MISPICK": {
+    "english": "Mispick",
+    "chinese": "錯緯",
+    "category": "布疵"
+  },
+  "MISSED STITCH": {
+    "english": "MISSED STITCH",
+    "chinese": "漏針",
+    "category": "車缝裁床"
+  },
+  "MISSING PARTS": {
+    "english": "MISSING PARTS",
+    "chinese": "漏裁片",
+    "category": "英文辭典"
+  },
+  "MIXTURE YARN": {
+    "english": "Mixture yarn",
+    "chinese": "混紡",
+    "category": "英文辭典"
+  },
+  "MKT. MARKET": {
+    "english": "MKT. MARKET",
+    "chinese": "市場",
+    "category": "縮寫"
+  },
+  "MMTS. MEASUREMENTS": {
+    "english": "MMTS. MEASUREMENTS",
+    "chinese": "尺寸",
+    "category": "縮寫"
+  },
+  "MODEL": {
+    "english": "Model",
+    "chinese": "莫代爾",
+    "category": "縮寫"
+  },
+  "MOHAIR": {
+    "english": "Mohair",
+    "chinese": "馬海毛",
+    "category": "縮寫"
+  },
+  "MOP MOTHER OF PERAL": {
+    "english": "MOP mother of peral",
+    "chinese": "仿珍珠鈕",
+    "category": "縮寫"
+  },
+  "MOSS GREEN": {
+    "english": "Moss green",
+    "chinese": "苔綠色",
+    "category": "顏色"
+  },
+  "MOTH RESISTANT FINISH": {
+    "english": "MOTH RESISTANT FINISH",
+    "chinese": "防蟲處理",
+    "category": "英文辭典"
+  },
+  "MULBERRY SILK": {
+    "english": "Mulberry silk",
+    "chinese": "桑蠶絲",
+    "category": "縮寫"
+  },
+  "MUSCLE": {
+    "english": "Muscle",
+    "chinese": "袖寬",
+    "category": "英文辭典"
+  },
+  "N.P. NECK POINT": {
+    "english": "N.P. NECK POINT",
+    "chinese": "肩頸點",
+    "category": "縮寫"
+  },
+  "N/A NOT ACCEPTABLE": {
+    "english": "N/A NOT ACCEPTABLE",
+    "chinese": "不接受",
+    "category": "其他常用"
+  },
+  "NAIL-BUTTON": {
+    "english": "NAIL-BUTTON",
+    "chinese": "釘腳鈕扣",
+    "category": "英文辭典"
+  },
+  "NAP": {
+    "english": "Nap",
+    "chinese": "絨毛、拉絨",
+    "category": "布疵"
+  },
+  "NAPE TO WAIST": {
+    "english": "NAPE TO WAIST",
+    "chinese": "腰直",
+    "category": "縮寫"
+  },
+  "NARROW NOTCH LAPEL": {
+    "english": "Narrow notch lapel",
+    "chinese": "小方領",
+    "category": "英文辭典"
+  },
+  "NATURAL FIBRE": {
+    "english": "NATURAL FIBRE",
+    "chinese": "天然纖維",
+    "category": "英文辭典"
+  },
+  "NAVY BLUE": {
+    "english": "Navy blue",
+    "chinese": "海水藍",
+    "category": "顏色"
+  },
+  "NECK": {
+    "english": "Neck",
+    "chinese": "領口",
+    "category": "英文辭典"
+  },
+  "NECK DROP": {
+    "english": "NECK DROP",
+    "chinese": "領深",
+    "category": "英文辭典"
+  },
+  "NECK FACING": {
+    "english": "NECK FACING",
+    "chinese": "領貼",
+    "category": "服裝部位"
+  },
+  "NECK SEAM": {
+    "english": "NECK SEAM",
+    "chinese": "頸圈",
+    "category": "英文辭典"
+  },
+  "NECK WIDTH": {
+    "english": "NECK WIDTH",
+    "chinese": "頸闊",
+    "category": "尺寸部位"
+  },
+  "NECKLINE YARNS": {
+    "english": "Neckline Yarns",
+    "chinese": "辮子紗",
+    "category": "紗線"
+  },
+  "NEEDLE INTERLOCK M/C": {
+    "english": "NEEDLE INTERLOCK M/C",
+    "chinese": "四針蝦蘇網車",
+    "category": "製衣機器"
+  },
+  "NEEDLE LOCKSTITCH M/C": {
+    "english": "NEEDLE LOCKSTITCH M/C",
+    "chinese": "單針鏈縫平車",
+    "category": "製衣機器"
+  },
+  "NIMBUS GREY": {
+    "english": "Nimbus grey",
+    "chinese": "雨雲灰色",
+    "category": "顏色"
+  },
+  "NK. NECK": {
+    "english": "NK. NECK",
+    "chinese": "頸圈",
+    "category": "縮寫"
+  },
+  "NON-FUSIBLE INTERFACING": {
+    "english": "NON-FUSIBLE INTERFACING",
+    "chinese": "非粘襯/縫襯",
+    "category": "副料"
+  },
+  "NON-FUSIBLE INTERLINING": {
+    "english": "NON-FUSIBLE INTERLINING",
+    "chinese": "非粘朴（生樸）",
+    "category": "其他常用"
+  },
+  "NORMAL MATCHINE": {
+    "english": "NORMAL MATCHINE",
+    "chinese": "平車線步",
+    "category": "其他常用"
+  },
+  "NOTCH": {
+    "english": "NOTCH",
+    "chinese": "扼位",
+    "category": "英文辭典"
+  },
+  "NYLON": {
+    "english": "Nylon",
+    "chinese": "錦綸（尼龍）",
+    "category": "縮寫"
+  },
+  "NYLON FABRIC": {
+    "english": "Nylon fabric",
+    "chinese": "尼絲紡",
+    "category": "英文辭典"
+  },
+  "NYLON LOOP": {
+    "english": "Nylon Loop",
+    "chinese": "尼龍繩",
+    "category": "包裝材料"
+  },
+  "O/L OVERLOCK": {
+    "english": "O/L OVERLOCK",
+    "chinese": "拷邊",
+    "category": "其他常用"
+  },
+  "OCEAN": {
+    "english": "OCEAN",
+    "chinese": "海洋洗",
+    "category": "水洗方法"
+  },
+  "OCHER": {
+    "english": "Ocher",
+    "chinese": "赭色",
+    "category": "顏色"
+  },
+  "OEKO TEX CERTIFICATE": {
+    "english": "OEKO TEX CERTIFICATE",
+    "chinese": "生態紡織品認證標誌",
+    "category": "英文辭典"
+  },
+  "OFF PRESSING": {
+    "english": "OFF PRESSING",
+    "chinese": "終燙",
+    "category": "英文辭典"
+  },
+  "OFF WHITE": {
+    "english": "Off white",
+    "chinese": "灰白",
+    "category": "顏色"
+  },
+  "OIL STAIN": {
+    "english": "OIL STAIN",
+    "chinese": "油污",
+    "category": "英文辭典"
+  },
+  "OJT ON-THE-JOB TRAINING": {
+    "english": "OJT ON-THE-JOB TRAINING",
+    "chinese": "在職培訓",
+    "category": "縮寫"
+  },
+  "OLIVE": {
+    "english": "Olive",
+    "chinese": "橄欖色",
+    "category": "顏色"
+  },
+  "OLIVE GREEN": {
+    "english": "Olive green",
+    "chinese": "草綠色;橄欖綠",
+    "category": "顏色"
+  },
+  "ON SALE": {
+    "english": "On Sale",
+    "chinese": "當季的",
+    "category": "其他常用"
+  },
+  "ONE LAYER YOKE": {
+    "english": "ONE LAYER YOKE",
+    "chinese": "一片擔幹",
+    "category": "車缝裁床"
+  },
+  "ONE-PIECE DRESS": {
+    "english": "ONE-PIECE DRESS",
+    "chinese": "連衣裙",
+    "category": "英文辭典"
+  },
+  "OPAQUE": {
+    "english": "Opaque",
+    "chinese": "不透明",
+    "category": "顏色"
+  },
+  "OPEN SEAM": {
+    "english": "OPEN SEAM",
+    "chinese": "開骨",
+    "category": "英文辭典"
+  },
+  "OPENING": {
+    "english": "OPENING",
+    "chinese": "開口",
+    "category": "服裝部位"
+  },
+  "OPERATION BREAK DOWN": {
+    "english": "OPERATION BREAK DOWN",
+    "chinese": "分科",
+    "category": "車缝裁床"
+  },
+  "OQC": {
+    "english": "OQC",
+    "chinese": "檢查報告  (",
+    "category": "OQC 出貨前品管 (Pre Final Inspection"
+  },
+  "ORANGE": {
+    "english": "Orange",
+    "chinese": "橘黃色",
+    "category": "顏色"
+  },
+  "ORIENTAL TED": {
+    "english": "Oriental ted",
+    "chinese": "大紅",
+    "category": "顏色"
+  },
+  "OS OVER SIZE": {
+    "english": "OS OVER SIZE",
+    "chinese": "超大號",
+    "category": "縮寫"
+  },
+  "OTHER FANCY YARNS": {
+    "english": "Other Fancy Yarns",
+    "chinese": "金屬紗線",
+    "category": "紗線"
+  },
+  "OTHER PLANT YARNS": {
+    "english": "Other Plant Yarns",
+    "chinese": "劍麻系列紗線",
+    "category": "紗線"
+  },
+  "OUT SHELL": {
+    "english": "Out shell",
+    "chinese": "面料",
+    "category": "英文辭典"
+  },
+  "OUT-SEAM": {
+    "english": "OUT-SEAM",
+    "chinese": "外骨",
+    "category": "英文辭典"
+  },
+  "OUTSEAM LENGTH": {
+    "english": "OUTSEAM LENGTH",
+    "chinese": "外長",
+    "category": "尺寸部位"
+  },
+  "OVER SLEEVE": {
+    "english": "Over sleeve",
+    "chinese": "袖套",
+    "category": "英文辭典"
+  },
+  "OVERALL": {
+    "english": "OVERALL",
+    "chinese": "工作服",
+    "category": "英文辭典"
+  },
+  "OVERALLS": {
+    "english": "OVERALLS",
+    "chinese": "吊帶褲",
+    "category": "英文辭典"
+  },
+  "OVERDYED": {
+    "english": "OVERDYED",
+    "chinese": "套色洗",
+    "category": "水洗方法"
+  },
+  "OVERHEAD": {
+    "english": "OVERHEAD",
+    "chinese": "廠皮（企業一般管理費）",
+    "category": "車缝裁床"
+  },
+  "OVERLAP": {
+    "english": "OVERLAP",
+    "chinese": "重疊",
+    "category": "車缝裁床"
+  },
+  "OVERLOCKED": {
+    "english": "OVERLOCKED",
+    "chinese": "鎖邊",
+    "category": "車缝裁床"
+  },
+  "OVERLOCKED WITH 5 THREADS": {
+    "english": "OVERLOCKED WITH 5 THREADS",
+    "chinese": "五線及骨",
+    "category": "車缝裁床"
+  },
+  "OVERTIME WORKING": {
+    "english": "OVERTIME WORKING",
+    "chinese": "加班工作",
+    "category": "英文辭典"
+  },
+  "OVRLK. OVERLOCK": {
+    "english": "OVRLK. OVERLOCK",
+    "chinese": "及骨, 包縫",
+    "category": "縮寫"
+  },
+  "OYSTER GREY": {
+    "english": "OYSTER GREY",
+    "chinese": "米灰",
+    "category": "顏色"
+  },
+  "P-O-R PRODUCT-O-RIAL SYSTEM": {
+    "english": "P-O-R PRODUCT-O-RIAL SYSTEM",
+    "chinese": "吊掛系統",
+    "category": "縮寫"
+  },
+  "P. PURPLE": {
+    "english": "P. PURPLE",
+    "chinese": "紫色",
+    "category": "縮寫"
+  },
+  "P.O.B. POST OFFICE BOX": {
+    "english": "P.O.B. POST OFFICE BOX",
+    "chinese": "郵箱",
+    "category": "縮寫"
+  },
+  "P.P. PAPER PATTERN": {
+    "english": "P.P. PAPER PATTERN",
+    "chinese": "紙樣",
+    "category": "縮寫"
+  },
+  "P.S.I. PER SQUARE INCH": {
+    "english": "P.S.I. PER SQUARE INCH",
+    "chinese": "每平方英寸",
+    "category": "縮寫"
+  },
+  "P/C POLYESTER/COTTON": {
+    "english": "P/C POLYESTER/COTTON",
+    "chinese": "滌棉混紡織物",
+    "category": "縮寫"
+  },
+  "PA POLYAMIDE": {
+    "english": "PA POLYAMIDE",
+    "chinese": "聚醯胺",
+    "category": "縮寫"
+  },
+  "PACKING LIST": {
+    "english": "PACKING LIST",
+    "chinese": "包裝單",
+    "category": "英文辭典"
+  },
+  "PACKING METHOD": {
+    "english": "PACKING METHOD",
+    "chinese": "包裝方法",
+    "category": "英文辭典"
+  },
+  "PAD-ROLL DYED": {
+    "english": "Pad-roll dyed",
+    "chinese": "紮染",
+    "category": "英文辭典"
+  },
+  "PADDING": {
+    "english": "PADDING",
+    "chinese": "棉/填充物",
+    "category": "常用單詞"
+  },
+  "PANEL KNITTING": {
+    "english": "PANEL KNITTING",
+    "chinese": "針織裁片",
+    "category": "英文辭典"
+  },
+  "PANORAMA": {
+    "english": "Panorama",
+    "chinese": "全景",
+    "category": "英文辭典"
+  },
+  "PAP POSTERIOR ARMPIT POINT": {
+    "english": "PAP POSTERIOR ARMPIT POINT",
+    "chinese": "腋窩後點",
+    "category": "縮寫"
+  },
+  "PAPER BELT": {
+    "english": "Paper Belt",
+    "chinese": "牛皮紙",
+    "category": "包裝材料"
+  },
+  "PAPER CARTON": {
+    "english": "Paper Carton",
+    "chinese": "貼紙",
+    "category": "包裝材料"
+  },
+  "PAPER COLLAR STRIPE": {
+    "english": "Paper Collar Stripe",
+    "chinese": "插竹",
+    "category": "包裝材料"
+  },
+  "PARCHMENT": {
+    "english": "Parchment",
+    "chinese": "米白色",
+    "category": "英文辭典"
+  },
+  "PARKING": {
+    "english": "Parking",
+    "chinese": "停車",
+    "category": "SR 安全 稽核項目"
+  },
+  "PASTEL": {
+    "english": "PASTEL",
+    "chinese": "顏料",
+    "category": "英文辭典"
+  },
+  "PATCH": {
+    "english": "PATCH",
+    "chinese": "貼片",
+    "category": "常用單詞"
+  },
+  "PATCH POCKET": {
+    "english": "PATCH POCKET",
+    "chinese": "貼袋",
+    "category": "英文辭典"
+  },
+  "PATTERN": {
+    "english": "PATTERN",
+    "chinese": "紙樣",
+    "category": "英文辭典"
+  },
+  "PAYMENT": {
+    "english": "PAYMENT",
+    "chinese": "付款",
+    "category": "英文辭典"
+  },
+  "PB PRIVATE BRAND": {
+    "english": "PB PRIVATE BRAND",
+    "chinese": "個人商標",
+    "category": "縮寫"
+  },
+  "PC. PRICE": {
+    "english": "PC. PRICE",
+    "chinese": "價格",
+    "category": "縮寫"
+  },
+  "PCS. PIECES": {
+    "english": "PCS. PIECES",
+    "chinese": "件, 個",
+    "category": "縮寫"
+  },
+  "PEA GREEN": {
+    "english": "Pea green",
+    "chinese": "豆綠色",
+    "category": "顏色"
+  },
+  "PEACH": {
+    "english": "Peach",
+    "chinese": "桃紅色",
+    "category": "顏色"
+  },
+  "PEACH POCKET": {
+    "english": "PEACH POCKET",
+    "chinese": "杏形袋",
+    "category": "英文辭典"
+  },
+  "PEACH SKIN": {
+    "english": "Peach skin",
+    "chinese": "桃皮絨",
+    "category": "英文辭典"
+  },
+  "PEACOCK BLUE": {
+    "english": "Peacock blue",
+    "chinese": "孔雀藍",
+    "category": "顏色"
+  },
+  "PEARL STITCH": {
+    "english": "PEARL STITCH",
+    "chinese": "密鈒骨",
+    "category": "其他常用"
+  },
+  "PERSONAL PROTECTIVE EQUIPMENT": {
+    "english": "Personal Protective Equipment",
+    "chinese": "個人防護設備 ）",
+    "category": "SR 安全 稽核項目"
+  },
+  "PERSONNEL SECURITY": {
+    "english": "Personnel security",
+    "chinese": "人員安全",
+    "category": "SR 安全 稽核項目"
+  },
+  "PHYSICAL SECURITY": {
+    "english": "Physical Security",
+    "chinese": "實體安全",
+    "category": "SR 安全 稽核項目"
+  },
+  "PIECE RATE": {
+    "english": "PIECE RATE",
+    "chinese": "記件",
+    "category": "英文辭典"
+  },
+  "PIECED ON PLACKET": {
+    "english": "PIECED ON PLACKET",
+    "chinese": "面車明筒",
+    "category": "英文辭典"
+  },
+  "PIECED PLACKET": {
+    "english": "PIECED PLACKET",
+    "chinese": "一片鈕筒",
+    "category": "英文辭典"
+  },
+  "PIED": {
+    "english": "Pied",
+    "chinese": "雜色",
+    "category": "顏色"
+  },
+  "PIGMENT DYED": {
+    "english": "Pigment dyed",
+    "chinese": "塗料染色",
+    "category": "英文辭典"
+  },
+  "PIGMENT FLOCKING": {
+    "english": "Pigment flocking",
+    "chinese": "素色顏料植絨",
+    "category": "英文辭典"
+  },
+  "PILE FABRIC": {
+    "english": "PILE FABRIC",
+    "chinese": "毛圈布",
+    "category": "英文辭典"
+  },
+  "PIN HOLE": {
+    "english": "Pin hole",
+    "chinese": "針洞",
+    "category": "布疵"
+  },
+  "PINAFORE": {
+    "english": "Pinafore",
+    "chinese": "連胸圍裙",
+    "category": "英文辭典"
+  },
+  "PINK": {
+    "english": "Pink",
+    "chinese": "粉紅色",
+    "category": "顏色"
+  },
+  "PINSTITCH YOKE LINE": {
+    "english": "Pinstitch yoke line",
+    "chinese": "針式車法過肩線",
+    "category": "英文辭典"
+  },
+  "PIPER": {
+    "english": "PIPER",
+    "chinese": "鑲邊蝴蝶",
+    "category": "車缝裁床"
+  },
+  "PIPING": {
+    "english": "PIPING",
+    "chinese": "嵌邊",
+    "category": "英文辭典"
+  },
+  "PIQUE": {
+    "english": "PIQUE",
+    "chinese": "單珠地",
+    "category": "英文辭典"
+  },
+  "PITCH BLACK": {
+    "english": "Pitch black",
+    "chinese": "深黑色",
+    "category": "顏色"
+  },
+  "PKG. PACKAGE": {
+    "english": "PKG. PACKAGE",
+    "chinese": "包裝",
+    "category": "縮寫"
+  },
+  "PKT. POCKET": {
+    "english": "PKT. POCKET",
+    "chinese": "口袋",
+    "category": "縮寫"
+  },
+  "PLACKET": {
+    "english": "PLACKET",
+    "chinese": "明筒",
+    "category": "英文辭典"
+  },
+  "PLACKET LENGTH": {
+    "english": "Placket length",
+    "chinese": "門襟長",
+    "category": "英文辭典"
+  },
+  "PLACKET WIDTH": {
+    "english": "PLACKET WIDTH",
+    "chinese": "前筒寬",
+    "category": "尺寸部位"
+  },
+  "PLAID MATCHING": {
+    "english": "PLAID MATCHING",
+    "chinese": "對格",
+    "category": "英文辭典"
+  },
+  "PLAIDS / CHECKS": {
+    "english": "PLAIDS / CHECKS",
+    "chinese": "格仔布",
+    "category": "英文辭典"
+  },
+  "PLAIN WEAVE": {
+    "english": "PLAIN WEAVE",
+    "chinese": "平紋梭織",
+    "category": "英文辭典"
+  },
+  "PLANNING BOARD": {
+    "english": "PLANNING BOARD",
+    "chinese": "經濟排嘜",
+    "category": "車缝裁床"
+  },
+  "PLANTS LAYOUT": {
+    "english": "PLANTS LAYOUT",
+    "chinese": "廠房佈置",
+    "category": "英文辭典"
+  },
+  "PLASTIC CLIP": {
+    "english": "Plastic Clip",
+    "chinese": "膠袋",
+    "category": "包裝材料"
+  },
+  "PLASTIC CLIPS": {
+    "english": "Plastic Clips",
+    "chinese": "膠領圈",
+    "category": "包裝材料"
+  },
+  "PLASTIC SHIRT BAND": {
+    "english": "Plastic Shirt Band",
+    "chinese": "紙領條",
+    "category": "包裝材料"
+  },
+  "PLASTIC STRING": {
+    "english": "PLASTIC STRING",
+    "chinese": "膠針",
+    "category": "其他常用"
+  },
+  "PLEAT": {
+    "english": "Pleat",
+    "chinese": "打褶",
+    "category": "英文辭典"
+  },
+  "PLYS EXPORT CARTON": {
+    "english": "PLYS EXPORT CARTON",
+    "chinese": "三坑紙箱",
+    "category": "其他常用"
+  },
+  "PMS": {
+    "english": "PMS",
+    "chinese": "潘通色卡",
+    "category": "其他常用"
+  },
+  "POCKET": {
+    "english": "POCKET",
+    "chinese": "袋/口袋",
+    "category": "常用單詞"
+  },
+  "POCKET BAG": {
+    "english": "POCKET BAG",
+    "chinese": "袋布",
+    "category": "服裝部位"
+  },
+  "POCKET COVER": {
+    "english": "POCKET COVER",
+    "chinese": "袋蓋",
+    "category": "英文辭典"
+  },
+  "POCKET FACING": {
+    "english": "POCKET FACING",
+    "chinese": "袋貼",
+    "category": "英文辭典"
+  },
+  "POCKET FLAP": {
+    "english": "POCKET FLAP",
+    "chinese": "袋蓋",
+    "category": "英文辭典"
+  },
+  "POCKET FLASHER": {
+    "english": "POCKET FLASHER",
+    "chinese": "袋卡",
+    "category": "英文辭典"
+  },
+  "POCKET HIGH POINT": {
+    "english": "POCKET HIGH POINT",
+    "chinese": "袋尖高（袋最長的高度）",
+    "category": "尺寸部位"
+  },
+  "POCKET M/C": {
+    "english": "POCKET M/C",
+    "chinese": "切耳仔機",
+    "category": "製衣機器"
+  },
+  "POLKA DOTS": {
+    "english": "Polka dots",
+    "chinese": "圓點圖案",
+    "category": "英文辭典"
+  },
+  "POLO-NECK": {
+    "english": "Polo-neck",
+    "chinese": "圓高翻領",
+    "category": "英文辭典"
+  },
+  "POLYAMIDE YARNS": {
+    "english": "Polyamide Yarns",
+    "chinese": "滌綸紗",
+    "category": "紗線"
+  },
+  "POLYBAG": {
+    "english": "POLYBAG",
+    "chinese": "膠袋",
+    "category": "常用單詞"
+  },
+  "POLYBAG STICKER": {
+    "english": "Polybag Sticker",
+    "chinese": "外箱貼紙",
+    "category": "包裝材料"
+  },
+  "POLYESTER": {
+    "english": "Polyester",
+    "chinese": "滌綸",
+    "category": "縮寫"
+  },
+  "POLYURETHANE": {
+    "english": "Polyurethane",
+    "chinese": "氨綸",
+    "category": "英文辭典"
+  },
+  "PONGEE": {
+    "english": "Pongee",
+    "chinese": "春亞紡",
+    "category": "英文辭典"
+  },
+  "POS. POSITION": {
+    "english": "POS. POSITION",
+    "chinese": "位置",
+    "category": "縮寫"
+  },
+  "POSITION COLLAR": {
+    "english": "POSITION COLLAR",
+    "chinese": "定領位",
+    "category": "英文辭典"
+  },
+  "PP POLY PROPYLENE": {
+    "english": "PP POLY PROPYLENE",
+    "chinese": "聚丙烯",
+    "category": "縮寫"
+  },
+  "PPE": {
+    "english": "PPE",
+    "chinese": "個人安全設備",
+    "category": "SR 安全 稽核項目"
+  },
+  "PRAT": {
+    "english": "Prat",
+    "chinese": "臀部口袋",
+    "category": "英文辭典"
+  },
+  "PRESHRINKING": {
+    "english": "PRESHRINKING",
+    "chinese": "預縮",
+    "category": "英文辭典"
+  },
+  "PRESS OPEN": {
+    "english": "PRESS OPEN",
+    "chinese": "燙開骨",
+    "category": "車缝裁床"
+  },
+  "PRESSING": {
+    "english": "PRESSING",
+    "chinese": "熨燙",
+    "category": "車缝裁床"
+  },
+  "PRINCESS LINE": {
+    "english": "PRINCESS LINE",
+    "chinese": "公主線",
+    "category": "服裝部位"
+  },
+  "PRINCESS SEAM": {
+    "english": "PRINCESS SEAM",
+    "chinese": "公主線",
+    "category": "其他常用"
+  },
+  "PRINT": {
+    "english": "PRINT",
+    "chinese": "印花",
+    "category": "常用單詞"
+  },
+  "PRINTING": {
+    "english": "PRINTING",
+    "chinese": "印花",
+    "category": "英文辭典"
+  },
+  "PROCEDURAL SECURITY": {
+    "english": "Procedural Security",
+    "chinese": "程序安全(書面資料是否具備",
+    "category": "SR 安全 稽核項目"
+  },
+  "PRODUCTION": {
+    "english": "Production",
+    "chinese": "生產中使用危險化學物質",
+    "category": "SR 安全 稽核項目"
+  },
+  "PRODUCTION SCHEDULE": {
+    "english": "PRODUCTION SCHEDULE",
+    "chinese": "生產排期",
+    "category": "車缝裁床"
+  },
+  "PRODUCTION SKETCH": {
+    "english": "PRODUCTION SKETCH",
+    "chinese": "生產圖",
+    "category": "英文辭典"
+  },
+  "PRODUCTIONG PATTERN": {
+    "english": "PRODUCTIONG PATTERN",
+    "chinese": "生產紙樣",
+    "category": "車缝裁床"
+  },
+  "PROTECTIVE COLOR": {
+    "english": "Protective color",
+    "chinese": "保護色",
+    "category": "顏色"
+  },
+  "PRUSSIAN BLUE": {
+    "english": "Prussian blue",
+    "chinese": "普魯士藍",
+    "category": "顏色"
+  },
+  "PUCKERING": {
+    "english": "PUCKERING",
+    "chinese": "起皺",
+    "category": "車缝裁床"
+  },
+  "PUFF PRINTING": {
+    "english": "Puff printing",
+    "chinese": "發泡印花",
+    "category": "英文辭典"
+  },
+  "PURPLE": {
+    "english": "Purple",
+    "chinese": "紫色",
+    "category": "顏色"
+  },
+  "PURPLE BRONZE": {
+    "english": "Purple bronze",
+    "chinese": "紫銅色",
+    "category": "顏色"
+  },
+  "PV POLYVINYL FIBRE": {
+    "english": "PV POLYVINYL FIBRE",
+    "chinese": "聚乙烯纖維",
+    "category": "縮寫"
+  },
+  "PVC POLYVINYL CHLORIDE": {
+    "english": "PVC POLYVINYL CHLORIDE",
+    "chinese": "聚氯乙烯",
+    "category": "縮寫"
+  },
+  "QC QUALITY CONTROL": {
+    "english": "QC QUALITY CONTROL",
+    "chinese": "品質控制",
+    "category": "縮寫"
+  },
+  "QLY. QUALITY": {
+    "english": "QLY. QUALITY",
+    "chinese": "品質",
+    "category": "縮寫"
+  },
+  "QTY. QUANTITY": {
+    "english": "QTY. QUANTITY",
+    "chinese": "數量",
+    "category": "縮寫"
+  },
+  "QUALITY CONTROL / QC": {
+    "english": "QUALITY CONTROL / QC",
+    "chinese": "品質控制",
+    "category": "英文辭典"
+  },
+  "QUILL": {
+    "english": "QUILL",
+    "chinese": "間棉",
+    "category": "其他常用"
+  },
+  "QUILTING": {
+    "english": "QUILTING",
+    "chinese": "間棉",
+    "category": "車缝裁床"
+  },
+  "R.S. RIGHT SIDE": {
+    "english": "R.S. RIGHT SIDE",
+    "chinese": "正面",
+    "category": "縮寫"
+  },
+  "R.T.W. READY TO WEAR": {
+    "english": "R.T.W. READY TO WEAR",
+    "chinese": "成衣",
+    "category": "縮寫"
+  },
+  "RABBIT HAIR": {
+    "english": "Rabbit hair",
+    "chinese": "兔毛",
+    "category": "縮寫"
+  },
+  "RAG": {
+    "english": "Rag",
+    "chinese": "碎布",
+    "category": "其他常用"
+  },
+  "RAGLAN": {
+    "english": "Raglan",
+    "chinese": "插肩袖",
+    "category": "英文辭典"
+  },
+  "RAGLAN SLEEVE": {
+    "english": "RAGLAN SLEEVE",
+    "chinese": "牛角袖",
+    "category": "英文辭典"
+  },
+  "RAISED THREADS": {
+    "english": "Raised threads",
+    "chinese": "浮絲",
+    "category": "布疵"
+  },
+  "RAMIE YARN SERIES": {
+    "english": "Ramie Yarn Series",
+    "chinese": "黃麻系列紗線",
+    "category": "紗線"
+  },
+  "RAMINE": {
+    "english": "Ramine",
+    "chinese": "苧麻",
+    "category": "縮寫"
+  },
+  "RAW MATERIALS": {
+    "english": "Raw materials",
+    "chinese": "原材料",
+    "category": "英文辭典"
+  },
+  "RAYON": {
+    "english": "Rayon",
+    "chinese": "粘膠",
+    "category": "縮寫"
+  },
+  "RE-WASHING": {
+    "english": "RE-WASHING",
+    "chinese": "返洗",
+    "category": "英文辭典"
+  },
+  "REACTIVE DYE": {
+    "english": "Reactive dye",
+    "chinese": "活性染色",
+    "category": "英文辭典"
+  },
+  "RECTANGLE CLIP": {
+    "english": "Rectangle Clip",
+    "chinese": "鉚釘",
+    "category": "包裝材料"
+  },
+  "RED": {
+    "english": "Red",
+    "chinese": "紅",
+    "category": "顏色"
+  },
+  "REDDISH": {
+    "english": "Reddish",
+    "chinese": "淡紅",
+    "category": "顏色"
+  },
+  "REDDISH YELLOW": {
+    "english": "Reddish yellow",
+    "chinese": "濃黃",
+    "category": "顏色"
+  },
+  "REED MARK": {
+    "english": "Reed mark",
+    "chinese": "筘痕",
+    "category": "布疵"
+  },
+  "REF. REFERENCE": {
+    "english": "REF. REFERENCE",
+    "chinese": "參考, 參照",
+    "category": "縮寫"
+  },
+  "REFERENCE NUMBER": {
+    "english": "REFERENCE NUMBER",
+    "chinese": "參考號",
+    "category": "縮寫"
+  },
+  "REGULAR ROLLED HEM FINISH": {
+    "english": "Regular rolled hem finish",
+    "chinese": "常規卷邊",
+    "category": "英文辭典"
+  },
+  "REJ. REJECT": {
+    "english": "REJ. REJECT",
+    "chinese": "拒絕",
+    "category": "縮寫"
+  },
+  "RELAXED": {
+    "english": "Relaxed",
+    "chinese": "平量",
+    "category": "英文辭典"
+  },
+  "REMNANT": {
+    "english": "REMNANT",
+    "chinese": "布尾, 零碼布",
+    "category": "車缝裁床"
+  },
+  "REVERSE SIDE": {
+    "english": "REVERSE SIDE",
+    "chinese": "反面",
+    "category": "英文辭典"
+  },
+  "RHIN STONE": {
+    "english": "RHIN STONE",
+    "chinese": "燙石",
+    "category": "其他常用"
+  },
+  "RIB": {
+    "english": "RIB",
+    "chinese": "羅紋",
+    "category": "常用單詞"
+  },
+  "RIBBON": {
+    "english": "Ribbon",
+    "chinese": "方型膠夾",
+    "category": "包裝材料"
+  },
+  "RICH COLOR": {
+    "english": "Rich color",
+    "chinese": "濃色",
+    "category": "顏色"
+  },
+  "RING SLUB FULLY STRETCH CROSS-FIRE DENIM": {
+    "english": "RING SLUB FULLY STRETCH CROSS-FIRE DENIM",
+    "chinese": "雙向竹節彈力牛仔",
+    "category": "其他常用"
+  },
+  "RIPSTOP": {
+    "english": "Ripstop",
+    "chinese": "井字格",
+    "category": "英文辭典"
+  },
+  "RIVET": {
+    "english": "RIVET",
+    "chinese": "撞釘",
+    "category": "英文辭典"
+  },
+  "RM. ROOM": {
+    "english": "RM. ROOM",
+    "chinese": "場所",
+    "category": "縮寫"
+  },
+  "RN. RAYON": {
+    "english": "RN. RAYON",
+    "chinese": "人造絲",
+    "category": "縮寫"
+  },
+  "ROSE": {
+    "english": "Rose",
+    "chinese": "玫瑰紅",
+    "category": "顏色"
+  },
+  "ROTARY KNIFE": {
+    "english": "ROTARY KNIFE",
+    "chinese": "圓刀式電剪",
+    "category": "車缝裁床"
+  },
+  "ROUGH YARN": {
+    "english": "ROUGH YARN",
+    "chinese": "粗紗",
+    "category": "英文辭典"
+  },
+  "ROUND CORNERED POCKET": {
+    "english": "ROUND CORNERED POCKET",
+    "chinese": "圓角袋",
+    "category": "英文辭典"
+  },
+  "ROYAL BLUE": {
+    "english": "Royal blue",
+    "chinese": "品藍",
+    "category": "英文辭典"
+  },
+  "RUFFLES": {
+    "english": "RUFFLES",
+    "chinese": "荷葉邊",
+    "category": "其他常用"
+  },
+  "RULER SHAPED POCKET": {
+    "english": "RULER SHAPED POCKET",
+    "chinese": "曲尺袋",
+    "category": "英文辭典"
+  },
+  "RUN OFF STITCHING": {
+    "english": "RUN OFF STITCHING",
+    "chinese": "落坑線",
+    "category": "英文辭典"
+  },
+  "RUN STITCH": {
+    "english": "RUN STITCH",
+    "chinese": "運線",
+    "category": "車缝裁床"
+  },
+  "RUN-STITCHING": {
+    "english": "RUN-STITCHING",
+    "chinese": "運線",
+    "category": "英文辭典"
+  },
+  "RUST BROWN": {
+    "english": "Rust brown",
+    "chinese": "鼻煙色",
+    "category": "顏色"
+  },
+  "S SMALL": {
+    "english": "S SMALL",
+    "chinese": "小碼",
+    "category": "縮寫"
+  },
+  "S.A. SEAM ALLOWANCE": {
+    "english": "S.A. SEAM ALLOWANCE",
+    "chinese": "止口",
+    "category": "縮寫"
+  },
+  "S.B. SINGLE BREASTED": {
+    "english": "S.B. SINGLE BREASTED",
+    "chinese": "單排紐扣, 單襟",
+    "category": "縮寫"
+  },
+  "S.K. JACQUARD": {
+    "english": "S.K. JACQUARD",
+    "chinese": "單面提花（針織）",
+    "category": "英文辭典"
+  },
+  "S.P. SHOULDER POINT": {
+    "english": "S.P. SHOULDER POINT",
+    "chinese": "肩端點",
+    "category": "縮寫"
+  },
+  "S.P.I. STITCH PER INCH": {
+    "english": "S.P.I. STITCH PER INCH",
+    "chinese": "每英寸線跡數",
+    "category": "縮寫"
+  },
+  "S.P.M. STITCH PER MINUTES": {
+    "english": "S.P.M. STITCH PER MINUTES",
+    "chinese": "每分鐘線跡數",
+    "category": "縮寫"
+  },
+  "S/B SHOULD BE": {
+    "english": "S/B SHOULD BE",
+    "chinese": "應該",
+    "category": "縮寫"
+  },
+  "S/S SHORT SLEEVE": {
+    "english": "S/S SHORT SLEEVE",
+    "chinese": "短袖",
+    "category": "縮寫"
+  },
+  "SADDLE WIDTH": {
+    "english": "SADDLE WIDTH",
+    "chinese": "臀圍",
+    "category": "其他常用"
+  },
+  "SAFARI-JACKET": {
+    "english": "SAFARI-JACKET",
+    "chinese": "獵裝",
+    "category": "英文辭典"
+  },
+  "SAFETY MATCHINE": {
+    "english": "SAFETY MATCHINE",
+    "chinese": "五線鈒骨",
+    "category": "其他常用"
+  },
+  "SAFETY PINS": {
+    "english": "Safety Pins",
+    "chinese": "扁帶",
+    "category": "包裝材料"
+  },
+  "SALESMAN SAMPLE": {
+    "english": "SALESMAN SAMPLE",
+    "chinese": "為銷售辦",
+    "category": "SAMPLE"
+  },
+  "SALLOW": {
+    "english": "Sallow",
+    "chinese": "蒼黃",
+    "category": "顏色"
+  },
+  "SALMON": {
+    "english": "Salmon",
+    "chinese": "橙紅",
+    "category": "顏色"
+  },
+  "SAND": {
+    "english": "SAND",
+    "chinese": "新塵土洗",
+    "category": "水洗方法"
+  },
+  "SANDY": {
+    "english": "Sandy",
+    "chinese": "淡茶色",
+    "category": "顏色"
+  },
+  "SAP GREEN": {
+    "english": "Sap green",
+    "chinese": "暗綠色",
+    "category": "顏色"
+  },
+  "SATIN / SATEEN": {
+    "english": "SATIN / SATEEN",
+    "chinese": "色丁",
+    "category": "英文辭典"
+  },
+  "SC SHOPPING CENTER": {
+    "english": "SC SHOPPING CENTER",
+    "chinese": "購物中心",
+    "category": "縮寫"
+  },
+  "SCARLET": {
+    "english": "Scarlet",
+    "chinese": "緋色",
+    "category": "顏色"
+  },
+  "SCREEN PRINT": {
+    "english": "Screen print",
+    "chinese": "絲網印花",
+    "category": "英文辭典"
+  },
+  "SEAM": {
+    "english": "SEAM",
+    "chinese": "縫骨",
+    "category": "車缝裁床"
+  },
+  "SEAMSTRESS": {
+    "english": "Seamstress",
+    "chinese": "女裁縫師",
+    "category": "英文辭典"
+  },
+  "SELF FABRIC": {
+    "english": "SELF FABRIC",
+    "chinese": "自身布/同色布",
+    "category": "主料"
+  },
+  "SELF FACING": {
+    "english": "SELF FACING",
+    "chinese": "原身貼",
+    "category": "服裝部位"
+  },
+  "SELVEDGE / SELF-EDGE": {
+    "english": "SELVEDGE / SELF-EDGE",
+    "chinese": "布邊",
+    "category": "英文辭典"
+  },
+  "SELVEGE": {
+    "english": "SELVEGE",
+    "chinese": "布邊",
+    "category": "英文辭典"
+  },
+  "SEMI-SPREAD": {
+    "english": "Semi-spread",
+    "chinese": "半方的",
+    "category": "英文辭典"
+  },
+  "SEPIA": {
+    "english": "Sepia",
+    "chinese": "棕黑色",
+    "category": "顏色"
+  },
+  "SERGE": {
+    "english": "SERGE",
+    "chinese": "等都是一樣的",
+    "category": "其他"
+  },
+  "SET IN SHOULDER PAD": {
+    "english": "SET IN SHOULDER PAD",
+    "chinese": "上肩墊",
+    "category": "英文辭典"
+  },
+  "SET IN SLEEVE": {
+    "english": "SET IN SLEEVE",
+    "chinese": "上袖",
+    "category": "英文辭典"
+  },
+  "SEW": {
+    "english": "Sew",
+    "chinese": "縫紉",
+    "category": "英文辭典"
+  },
+  "SEW BUTTONHOLE / BUTTONHOLING": {
+    "english": "SEW BUTTONHOLE / BUTTONHOLING",
+    "chinese": "開鈕門",
+    "category": "英文辭典"
+  },
+  "SEW WELT POCKET": {
+    "english": "SEW WELT POCKET",
+    "chinese": "車唇袋",
+    "category": "英文辭典"
+  },
+  "SEWING MACHINE ATTACHMENTS": {
+    "english": "SEWING MACHINE ATTACHMENTS",
+    "chinese": "車縫附件",
+    "category": "車缝裁床"
+  },
+  "SEWN": {
+    "english": "SEWN",
+    "chinese": "切駁",
+    "category": "英文辭典"
+  },
+  "SGL NDL SINGLE NEEDLE": {
+    "english": "SGL NDL SINGLE NEEDLE",
+    "chinese": "單針",
+    "category": "縮寫"
+  },
+  "SHADE": {
+    "english": "Shade",
+    "chinese": "顏色深淺",
+    "category": "顏色"
+  },
+  "SHADE BAND": {
+    "english": "Shade band",
+    "chinese": "缸差樣",
+    "category": "其他常用"
+  },
+  "SHADING": {
+    "english": "SHADING",
+    "chinese": "色差",
+    "category": "車缝裁床"
+  },
+  "SHELL FABRIC": {
+    "english": "SHELL FABRIC",
+    "chinese": "面料",
+    "category": "英文辭典"
+  },
+  "SHIPPING AND RECEIVING PROCEDURES": {
+    "english": "Shipping and Receiving Procedures",
+    "chinese": "貨物裝運及接收流程",
+    "category": "SR 安全 稽核項目"
+  },
+  "SHIPPING CARTON": {
+    "english": "SHIPPING CARTON",
+    "chinese": "出口箱",
+    "category": "英文辭典"
+  },
+  "SHIPPING DATE": {
+    "english": "SHIPPING DATE",
+    "chinese": "落貨期",
+    "category": "英文辭典"
+  },
+  "SHIPPING MARKS": {
+    "english": "SHIPPING MARKS",
+    "chinese": "箱嘜",
+    "category": "英文辭典"
+  },
+  "SHIRT": {
+    "english": "Shirt",
+    "chinese": "襯衫",
+    "category": "英文辭典"
+  },
+  "SHIRT BOARD": {
+    "english": "Shirt Board",
+    "chinese": "尺寸貼紙",
+    "category": "包裝材料"
+  },
+  "SHOCKING PINK": {
+    "english": "Shocking pink",
+    "chinese": "鮮粉紅",
+    "category": "顏色"
+  },
+  "SHORTS": {
+    "english": "SHORTS",
+    "chinese": "短褲",
+    "category": "英文辭典"
+  },
+  "SHOULD POINT": {
+    "english": "SHOULD POINT",
+    "chinese": "肩點",
+    "category": "英文辭典"
+  },
+  "SHOULDER": {
+    "english": "SHOULDER",
+    "chinese": "肩寬",
+    "category": "英文辭典"
+  },
+  "SHOULDER ACROSS": {
+    "english": "SHOULDER ACROSS",
+    "chinese": "肩闊",
+    "category": "尺寸部位"
+  },
+  "SHOULDER PAD": {
+    "english": "SHOULDER PAD",
+    "chinese": "肩墊",
+    "category": "其他常用"
+  },
+  "SHOULDER PADS": {
+    "english": "Shoulder pads",
+    "chinese": "墊肩",
+    "category": "英文辭典"
+  },
+  "SHOULDER POINT": {
+    "english": "SHOULDER POINT",
+    "chinese": "肩點",
+    "category": "英文辭典"
+  },
+  "SHOULDER SLOPE": {
+    "english": "Shoulder slope",
+    "chinese": "肩斜",
+    "category": "英文辭典"
+  },
+  "SHOULDER TAPE": {
+    "english": "Shoulder Tape",
+    "chinese": "內盒紙箱",
+    "category": "包裝材料"
+  },
+  "SHOULDER WIDTH": {
+    "english": "Shoulder width",
+    "chinese": "肩寬",
+    "category": "英文辭典"
+  },
+  "SHRINK-PROOF": {
+    "english": "SHRINK-PROOF",
+    "chinese": "防縮",
+    "category": "英文辭典"
+  },
+  "SHRINK-RESISTANT": {
+    "english": "SHRINK-RESISTANT",
+    "chinese": "防縮處理",
+    "category": "英文辭典"
+  },
+  "SHRINKAGE": {
+    "english": "SHRINKAGE",
+    "chinese": "縮水",
+    "category": "英文辭典"
+  },
+  "SHUTTLE MARK": {
+    "english": "Shuttle mark",
+    "chinese": "局部紋路不明（主要由於開口運動或投梭失常所致）",
+    "category": "布疵"
+  },
+  "SIDE": {
+    "english": "SIDE",
+    "chinese": "側邊",
+    "category": "常用單詞"
+  },
+  "SIDE MARK": {
+    "english": "SIDE MARK",
+    "chinese": "側嘜",
+    "category": "英文辭典"
+  },
+  "SIDE PANEL": {
+    "english": "SIDE PANEL",
+    "chinese": "側幅",
+    "category": "英文辭典"
+  },
+  "SIDE PLEAT": {
+    "english": "Side pleat",
+    "chinese": "側褶,旁褶,追加的褶",
+    "category": "服裝部位"
+  },
+  "SIDE POCKET": {
+    "english": "Side pocket",
+    "chinese": "插袋",
+    "category": "英文辭典"
+  },
+  "SIDE SEAM": {
+    "english": "SIDE SEAM",
+    "chinese": "側骨",
+    "category": "英文辭典"
+  },
+  "SILHOUETTE": {
+    "english": "SILHOUETTE",
+    "chinese": "輪廓",
+    "category": "英文辭典"
+  },
+  "SILICON WAPPES": {
+    "english": "Silicon Wappes",
+    "chinese": "轉移印花",
+    "category": "包裝材料"
+  },
+  "SILK NOIL YARNS": {
+    "english": "Silk Noil Yarns",
+    "chinese": "真絲線",
+    "category": "紗線"
+  },
+  "SILK YARN SERIES": {
+    "english": "Silk Yarn Series",
+    "chinese": "白廠絲",
+    "category": "紗線"
+  },
+  "SILK/COTTON BLENDED YARNS": {
+    "english": "Silk/Cotton Blended Yarns",
+    "chinese": "麻紡系列紗線",
+    "category": "紗線"
+  },
+  "SILVER": {
+    "english": "Silver",
+    "chinese": "銀色",
+    "category": "顏色"
+  },
+  "SINGLE BREASTED": {
+    "english": "Single breasted",
+    "chinese": "單排扣",
+    "category": "英文辭典"
+  },
+  "SINGLE JETTED POCKET": {
+    "english": "SINGLE JETTED POCKET",
+    "chinese": "單唇袋",
+    "category": "英文辭典"
+  },
+  "SINGLE NEEDLE LOCKSTITCH MACHINE": {
+    "english": "SINGLE NEEDLE LOCKSTITCH MACHINE",
+    "chinese": "單針平車",
+    "category": "車缝裁床"
+  },
+  "SINGLE TURN": {
+    "english": "Single turn",
+    "chinese": "單卷邊",
+    "category": "英文辭典"
+  },
+  "SIZE ASSORTMENT": {
+    "english": "SIZE ASSORTMENT",
+    "chinese": "尺碼分配",
+    "category": "英文辭典"
+  },
+  "SIZE SET SAMPLE": {
+    "english": "SIZE SET SAMPLE",
+    "chinese": "跳碼辦",
+    "category": "其他常用"
+  },
+  "SIZE SPECIFICATION": {
+    "english": "SIZE SPECIFICATION",
+    "chinese": "尺碼表",
+    "category": "車缝裁床"
+  },
+  "SIZE STICKER": {
+    "english": "Size Sticker",
+    "chinese": "膠貼紙",
+    "category": "包裝材料"
+  },
+  "SIZING": {
+    "english": "SIZING",
+    "chinese": "上漿",
+    "category": "英文辭典"
+  },
+  "SKIPPED STITCHES": {
+    "english": "SKIPPED STITCHES",
+    "chinese": "跳線",
+    "category": "英文辭典"
+  },
+  "SKY BLUE": {
+    "english": "Sky blue",
+    "chinese": "天藍",
+    "category": "顏色"
+  },
+  "SLACKS": {
+    "english": "SLACKS",
+    "chinese": "松身褲",
+    "category": "英文辭典"
+  },
+  "SLANT CORNERED CUFF": {
+    "english": "SLANT CORNERED CUFF",
+    "chinese": "斜角介英",
+    "category": "英文辭典"
+  },
+  "SLANT POCKET": {
+    "english": "SLANT POCKET",
+    "chinese": "斜插袋",
+    "category": "英文辭典"
+  },
+  "SLASHING POCKET MOUTH": {
+    "english": "SLASHING POCKET MOUTH",
+    "chinese": "開袋口",
+    "category": "英文辭典"
+  },
+  "SLATE GREY": {
+    "english": "Slate grey",
+    "chinese": "鼠灰色",
+    "category": "顏色"
+  },
+  "SLEEVE": {
+    "english": "SLEEVE",
+    "chinese": "衣袖",
+    "category": "英文辭典"
+  },
+  "SLEEVE CROWN": {
+    "english": "SLEEVE CROWN",
+    "chinese": "袖山",
+    "category": "服裝部位"
+  },
+  "SLEEVE CROWN HEIGHT": {
+    "english": "SLEEVE CROWN HEIGHT",
+    "chinese": "袖山高",
+    "category": "尺寸部位"
+  },
+  "SLEEVE CUFF": {
+    "english": "Sleeve cuff",
+    "chinese": "袖口克夫",
+    "category": "英文辭典"
+  },
+  "SLEEVE HEAD": {
+    "english": "SLEEVE HEAD",
+    "chinese": "袖頭",
+    "category": "服裝部位"
+  },
+  "SLEEVE LENGTH": {
+    "english": "SLEEVE LENGTH",
+    "chinese": "袖長",
+    "category": "英文辭典"
+  },
+  "SLEEVE OPENING": {
+    "english": "SLEEVE OPENING",
+    "chinese": "袖口",
+    "category": "英文辭典"
+  },
+  "SLEEVE SLIT": {
+    "english": "SLEEVE SLIT",
+    "chinese": "袖叉",
+    "category": "服裝部位"
+  },
+  "SLIM WAIST LINE": {
+    "english": "SLIM WAIST LINE",
+    "chinese": "修腰線",
+    "category": "英文辭典"
+  },
+  "SLV. SLEEVE": {
+    "english": "SLV. SLEEVE",
+    "chinese": "袖子",
+    "category": "縮寫"
+  },
+  "SMALL SHOULDER": {
+    "english": "SMALL SHOULDER",
+    "chinese": "小肩長",
+    "category": "尺寸部位"
+  },
+  "SMOCKING": {
+    "english": "SMOCKING",
+    "chinese": "裝飾用縮褶",
+    "category": "其他常用"
+  },
+  "SMOKY GREY": {
+    "english": "Smoky grey",
+    "chinese": "霧灰色",
+    "category": "顏色"
+  },
+  "SMPL SAMPLE": {
+    "english": "SMPL SAMPLE",
+    "chinese": "樣板",
+    "category": "縮寫"
+  },
+  "SNAP": {
+    "english": "Snap",
+    "chinese": "撳鈕",
+    "category": "英文辭典"
+  },
+  "SNAP/SNAPPERS": {
+    "english": "Snap/snappers",
+    "chinese": "拖漿",
+    "category": "布疵"
+  },
+  "SNIP NOTCH": {
+    "english": "SNIP NOTCH",
+    "chinese": "剪扼位",
+    "category": "英文辭典"
+  },
+  "SNOW WHITE": {
+    "english": "Snow white",
+    "chinese": "雪白",
+    "category": "顏色"
+  },
+  "SNOWCAP": {
+    "english": "Snowcap",
+    "chinese": "米白色",
+    "category": "英文辭典"
+  },
+  "SNP SIDE NECK POINT": {
+    "english": "SNP SIDE NECK POINT",
+    "chinese": "頸側點",
+    "category": "縮寫"
+  },
+  "SOAK": {
+    "english": "Soak",
+    "chinese": "浸泡",
+    "category": "英文辭典"
+  },
+  "SOFT COLOR": {
+    "english": "Soft color",
+    "chinese": "嫩色",
+    "category": "顏色"
+  },
+  "SOFT PLEAT": {
+    "english": "Soft pleat",
+    "chinese": "活褶",
+    "category": "服裝部位"
+  },
+  "SOLID COLOR": {
+    "english": "SOLID COLOR",
+    "chinese": "單色",
+    "category": "英文辭典"
+  },
+  "SOLID DYED": {
+    "english": "Solid dyed",
+    "chinese": "素色",
+    "category": "英文辭典"
+  },
+  "SOLID SIZE": {
+    "english": "SOLID SIZE",
+    "chinese": "單色單碼",
+    "category": "英文辭典"
+  },
+  "SORREL": {
+    "english": "Sorrel",
+    "chinese": "紅棕色",
+    "category": "顏色"
+  },
+  "SORTING": {
+    "english": "SORTING",
+    "chinese": "分床分碼",
+    "category": "英文辭典"
+  },
+  "SPANDEX": {
+    "english": "SPANDEX",
+    "chinese": "彈性纖維",
+    "category": "常用單詞"
+  },
+  "SPEC. SPECIFICATION": {
+    "english": "SPEC. SPECIFICATION",
+    "chinese": "細則",
+    "category": "縮寫"
+  },
+  "SPECIAL MACHINE": {
+    "english": "SPECIAL MACHINE",
+    "chinese": "特殊機器",
+    "category": "英文辭典"
+  },
+  "SPECS": {
+    "english": "Specs",
+    "chinese": "尺寸",
+    "category": "英文辭典"
+  },
+  "SPIN RUN": {
+    "english": "Spin run",
+    "chinese": "脫針",
+    "category": "英文辭典"
+  },
+  "SPLICING": {
+    "english": "SPLICING",
+    "chinese": "駁布位",
+    "category": "車缝裁床"
+  },
+  "SPLOTCHES": {
+    "english": "SPLOTCHES",
+    "chinese": "汙跡",
+    "category": "英文辭典"
+  },
+  "SPREADER": {
+    "english": "SPREADER",
+    "chinese": "直送捆條機",
+    "category": "製衣機器"
+  },
+  "SPREADING": {
+    "english": "SPREADING",
+    "chinese": "拉布",
+    "category": "英文辭典"
+  },
+  "SPREADING MACHINE": {
+    "english": "SPREADING MACHINE",
+    "chinese": "拉布機",
+    "category": "車缝裁床"
+  },
+  "SPUN RAYON BLENDED YARNS": {
+    "english": "Spun Rayon Blended Yarns",
+    "chinese": "其他化纖紗線",
+    "category": "紗線"
+  },
+  "SPUN RAYON YARNS": {
+    "english": "Spun Rayon Yarns",
+    "chinese": "天絲紗",
+    "category": "紗線"
+  },
+  "SPUN SILK YARNS": {
+    "english": "Spun Silk Yarns",
+    "chinese": "柞絹絲",
+    "category": "紗線"
+  },
+  "SPUN YARN": {
+    "english": "SPUN YARN",
+    "chinese": "紡紗",
+    "category": "英文辭典"
+  },
+  "SQ. FT. SQUARE FEET": {
+    "english": "SQ. FT. SQUARE FEET",
+    "chinese": "平方英尺",
+    "category": "縮寫"
+  },
+  "SQUARED SHAPED POCKET": {
+    "english": "SQUARED SHAPED POCKET",
+    "chinese": "方角袋",
+    "category": "英文辭典"
+  },
+  "SQUEEGE SHARPENER": {
+    "english": "SQUEEGE SHARPENER",
+    "chinese": "熨畫機",
+    "category": "製衣機器"
+  },
+  "STAIN WARP": {
+    "english": "Stain warp",
+    "chinese": "漬經",
+    "category": "布疵"
+  },
+  "STAINING": {
+    "english": "Staining",
+    "chinese": "斑點染色、染斑",
+    "category": "布疵"
+  },
+  "STARCH LUMP": {
+    "english": "Starch lump",
+    "chinese": "漿斑",
+    "category": "布疵"
+  },
+  "START-UP MARKS": {
+    "english": "Start-up marks",
+    "chinese": "開車痕",
+    "category": "布疵"
+  },
+  "STAY": {
+    "english": "Stay",
+    "chinese": "撐條",
+    "category": "英文辭典"
+  },
+  "STAY STITCH": {
+    "english": "Stay stitch",
+    "chinese": "折邊固定線跡",
+    "category": "英文辭典"
+  },
+  "STAY TAPE": {
+    "english": "STAY TAPE",
+    "chinese": "胸襯條",
+    "category": "車缝裁床"
+  },
+  "STEAM PRESSING STAND": {
+    "english": "STEAM PRESSING STAND",
+    "chinese": "蒸汽燙台",
+    "category": "英文辭典"
+  },
+  "STICKER": {
+    "english": "STICKER",
+    "chinese": "貼紙",
+    "category": "常用單詞"
+  },
+  "STITCH": {
+    "english": "STITCH",
+    "chinese": "線步",
+    "category": "英文辭典"
+  },
+  "STITCH DOWN WITH PKT-BAG": {
+    "english": "STITCH DOWN WITH PKT-BAG",
+    "chinese": "車線連袋布",
+    "category": "英文辭典"
+  },
+  "STITCH OVERLAPPING": {
+    "english": "STITCH OVERLAPPING",
+    "chinese": "駁線",
+    "category": "英文辭典"
+  },
+  "STITCH TYPE": {
+    "english": "STITCH TYPE",
+    "chinese": "針步類型",
+    "category": "英文辭典"
+  },
+  "STITCHED PLEAT": {
+    "english": "Stitched pleat",
+    "chinese": "雙重褶",
+    "category": "服裝部位"
+  },
+  "STONEWASH": {
+    "english": "STONEWASH",
+    "chinese": "石磨洗",
+    "category": "水洗方法"
+  },
+  "STOPPER": {
+    "english": "STOPPER",
+    "chinese": "繩扣",
+    "category": "常用單詞"
+  },
+  "STORM": {
+    "english": "STORM",
+    "chinese": "霧灰",
+    "category": "顏色"
+  },
+  "STRAIGHT BOTTOM": {
+    "english": "STRAIGHT BOTTOM",
+    "chinese": "直筒褲腳",
+    "category": "英文辭典"
+  },
+  "STRAIGHT CUT": {
+    "english": "STRAIGHT CUT",
+    "chinese": "直紋裁",
+    "category": "英文辭典"
+  },
+  "STRAIGHT KNIFE": {
+    "english": "STRAIGHT KNIFE",
+    "chinese": "直刀式電剪",
+    "category": "車缝裁床"
+  },
+  "STRAIGHT KNIFE M/C": {
+    "english": "STRAIGHT KNIFE M/C",
+    "chinese": "切布機",
+    "category": "製衣機器"
+  },
+  "STRAIGHT POCKET": {
+    "english": "STRAIGHT POCKET",
+    "chinese": "直插袋",
+    "category": "英文辭典"
+  },
+  "STRAP": {
+    "english": "STRAP",
+    "chinese": "帶條",
+    "category": "英文辭典"
+  },
+  "STRIKE-OFF": {
+    "english": "STRIKE-OFF",
+    "chinese": "印花樣",
+    "category": "其他常用"
+  },
+  "STRIPE MATCHING": {
+    "english": "STRIPE MATCHING",
+    "chinese": "對條",
+    "category": "英文辭典"
+  },
+  "STRIPES": {
+    "english": "Stripes",
+    "chinese": "條紋",
+    "category": "英文辭典"
+  },
+  "STRIPY DEFECTS": {
+    "english": "Stripy defects",
+    "chinese": "條花疵點",
+    "category": "布疵"
+  },
+  "STUD": {
+    "english": "Stud",
+    "chinese": "工字鈕",
+    "category": "英文辭典"
+  },
+  "STUFFING": {
+    "english": "STUFFING",
+    "chinese": "填充物",
+    "category": "英文辭典"
+  },
+  "STY. STYLE": {
+    "english": "STY. STYLE",
+    "chinese": "款式",
+    "category": "縮寫"
+  },
+  "STYLE": {
+    "english": "STYLE",
+    "chinese": "款式",
+    "category": "英文辭典"
+  },
+  "STYLE ITEM CODE": {
+    "english": "Style Item code",
+    "chinese": "產品項目",
+    "category": "PQC成品 品質管制"
+  },
+  "SUB-CONTRACTOR": {
+    "english": "SUB-CONTRACTOR",
+    "chinese": "加工廠",
+    "category": "英文辭典"
+  },
+  "SUEDE": {
+    "english": "Suede",
+    "chinese": "麂皮絨",
+    "category": "英文辭典"
+  },
+  "SUITING": {
+    "english": "SUITING",
+    "chinese": "套裝",
+    "category": "英文辭典"
+  },
+  "SUNRAY PLEATS": {
+    "english": "Sunray pleats",
+    "chinese": "光線式褶裙,散褶裙",
+    "category": "服裝部位"
+  },
+  "SUPER MAJOR DEFECTS": {
+    "english": "Super major defects",
+    "chinese": "主要瑕疵、特大類",
+    "category": "布疵"
+  },
+  "SWATCH": {
+    "english": "Swatch",
+    "chinese": "面料小樣",
+    "category": "英文辭典"
+  },
+  "SWEEP": {
+    "english": "SWEEP",
+    "chinese": "下擺",
+    "category": "英文辭典"
+  },
+  "SWEEP BOTTON": {
+    "english": "Sweep botton",
+    "chinese": "下擺",
+    "category": "英文辭典"
+  },
+  "SWIMSUIT": {
+    "english": "SWIMSUIT",
+    "chinese": "泳裝",
+    "category": "英文辭典"
+  },
+  "SYNTHETIC YARNS": {
+    "english": "Synthetic Yarns",
+    "chinese": "晴綸紗",
+    "category": "紗線"
+  },
+  "SZ. SIZE": {
+    "english": "SZ. SIZE",
+    "chinese": "尺碼",
+    "category": "縮寫"
+  },
+  "T/C TERYLENCE/COTTON": {
+    "english": "T/C TERYLENCE/COTTON",
+    "chinese": "滌棉織物",
+    "category": "縮寫"
+  },
+  "T/C TERYLENE/COTTON": {
+    "english": "T/C TERYLENE/COTTON",
+    "chinese": "滌綸",
+    "category": "縮寫"
+  },
+  "T/P TECK PACK": {
+    "english": "T/P TECK PACK",
+    "chinese": "技術檔案",
+    "category": "縮寫"
+  },
+  "T/S TOP STITCHES": {
+    "english": "T/S TOP STITCHES",
+    "chinese": "間面線",
+    "category": "縮寫"
+  },
+  "T/T TELEGRAPHIC TRANSFER": {
+    "english": "T/T TELEGRAPHIC TRANSFER",
+    "chinese": "电汇",
+    "category": "經營管理"
+  },
+  "TAB": {
+    "english": "TAB",
+    "chinese": "袢扣",
+    "category": "英文辭典"
+  },
+  "TAFFETA": {
+    "english": "TAFFETA",
+    "chinese": "塔夫綢",
+    "category": "英文辭典"
+  },
+  "TAG": {
+    "english": "TAG",
+    "chinese": "掛牌",
+    "category": "常用單詞"
+  },
+  "TAG TIN": {
+    "english": "Tag Tin",
+    "chinese": "斜紋帶",
+    "category": "包裝材料"
+  },
+  "TAILORSHIP": {
+    "english": "Tailorship",
+    "chinese": "手工",
+    "category": "英文辭典"
+  },
+  "TAN": {
+    "english": "Tan",
+    "chinese": "淺棕色",
+    "category": "顏色"
+  },
+  "TANK": {
+    "english": "Tank",
+    "chinese": "女式短背心",
+    "category": "英文辭典"
+  },
+  "TAPE": {
+    "english": "TAPE",
+    "chinese": "帶條",
+    "category": "英文辭典"
+  },
+  "TAPE YARNS": {
+    "english": "Tape Yarns",
+    "chinese": "馬海毛紗",
+    "category": "紗線"
+  },
+  "TAPER BOTTOM": {
+    "english": "TAPER BOTTOM",
+    "chinese": "蘿蔔褲腳",
+    "category": "英文辭典"
+  },
+  "TAPESTRY RED": {
+    "english": "Tapestry red",
+    "chinese": "咖啡色",
+    "category": "顏色"
+  },
+  "TAPING": {
+    "english": "TAPING",
+    "chinese": "鑲邊",
+    "category": "英文辭典"
+  },
+  "TARPULIN": {
+    "english": "TARPULIN",
+    "chinese": "防水布",
+    "category": "其他常用"
+  },
+  "TASLON": {
+    "english": "Taslon",
+    "chinese": "塔絲隆",
+    "category": "英文辭典"
+  },
+  "TAWNY": {
+    "english": "Tawny",
+    "chinese": "黃褐色",
+    "category": "顏色"
+  },
+  "TBD TO BE DETERMINED": {
+    "english": "TBD To Be Determined",
+    "chinese": "待定",
+    "category": "縮寫"
+  },
+  "TEAL": {
+    "english": "Teal",
+    "chinese": "湖藍",
+    "category": "英文辭典"
+  },
+  "TECK PACK": {
+    "english": "TECK PACK",
+    "chinese": "技術檔案",
+    "category": "其他"
+  },
+  "TENCEL": {
+    "english": "Tencel",
+    "chinese": "天絲,是",
+    "category": "縮寫"
+  },
+  "TERRY": {
+    "english": "TERRY",
+    "chinese": "毛巾布",
+    "category": "其他常用"
+  },
+  "TERRY CLOTH": {
+    "english": "TERRY CLOTH",
+    "chinese": "毛巾布",
+    "category": "英文辭典"
+  },
+  "TEXTURED YARN": {
+    "english": "TEXTURED YARN",
+    "chinese": "光亮紗線",
+    "category": "英文辭典"
+  },
+  "THIGH": {
+    "english": "THIGH",
+    "chinese": "脾圍",
+    "category": "英文辭典"
+  },
+  "THREAD": {
+    "english": "THREAD",
+    "chinese": "線",
+    "category": "常用單詞"
+  },
+  "THREAD CLIPS": {
+    "english": "THREAD CLIPS",
+    "chinese": "紗剪（剪線用）",
+    "category": "英文辭典"
+  },
+  "THREAD OVERLOCKING M/C": {
+    "english": "THREAD OVERLOCKING M/C",
+    "chinese": "拉筒車",
+    "category": "製衣機器"
+  },
+  "THREE POINTED CATCHING FACING": {
+    "english": "THREE POINTED CATCHING FACING",
+    "chinese": "三尖鈕子",
+    "category": "英文辭典"
+  },
+  "THREE POINTED CUFF": {
+    "english": "THREE POINTED CUFF",
+    "chinese": "三尖介英",
+    "category": "英文辭典"
+  },
+  "THREE POINTED EXTENSION": {
+    "english": "THREE POINTED EXTENSION",
+    "chinese": "三尖褲頭搭咀",
+    "category": "英文辭典"
+  },
+  "THREE POINTS POCKET": {
+    "english": "THREE POINTS POCKET",
+    "chinese": "三尖袋",
+    "category": "英文辭典"
+  },
+  "TIE": {
+    "english": "Tie",
+    "chinese": "領帶",
+    "category": "英文辭典"
+  },
+  "TIE-DYED": {
+    "english": "Tie-dyed",
+    "chinese": "紮染",
+    "category": "英文辭典"
+  },
+  "TIGERLILY": {
+    "english": "TIGERLILY",
+    "chinese": "橘紅",
+    "category": "顏色"
+  },
+  "TINY POCKET": {
+    "english": "Tiny pocket",
+    "chinese": "小口袋",
+    "category": "英文辭典"
+  },
+  "TIPPING": {
+    "english": "TIPPING",
+    "chinese": "鑲邊",
+    "category": "英文辭典"
+  },
+  "TIREWOMAN": {
+    "english": "Tirewoman",
+    "chinese": "女服裝員",
+    "category": "英文辭典"
+  },
+  "TISSUE PAPER": {
+    "english": "Tissue Paper",
+    "chinese": "領蝴蝶",
+    "category": "包裝材料"
+  },
+  "TO BE ADVISE": {
+    "english": "TO BE ADVISE",
+    "chinese": "待回覆",
+    "category": "英文辭典"
+  },
+  "TODDLER APPAREL": {
+    "english": "Toddler apparel",
+    "chinese": "兒童服飾",
+    "category": "英文辭典"
+  },
+  "TOLERANCE": {
+    "english": "TOLERANCE",
+    "chinese": "拋位, 寬鬆量",
+    "category": "車缝裁床"
+  },
+  "TOP COLLAR": {
+    "english": "TOP COLLAR",
+    "chinese": "面領",
+    "category": "英文辭典"
+  },
+  "TOP FLY": {
+    "english": "TOP FLY",
+    "chinese": "門襟",
+    "category": "其他常用"
+  },
+  "TOP SLEEVE": {
+    "english": "TOP SLEEVE",
+    "chinese": "大袖",
+    "category": "英文辭典"
+  },
+  "TOP STITCHING": {
+    "english": "TOP STITCHING",
+    "chinese": "間面線",
+    "category": "英文辭典"
+  },
+  "TOP VENT": {
+    "english": "TOP VENT",
+    "chinese": "叉的面層",
+    "category": "英文辭典"
+  },
+  "TOP VENT OF SLEEVE": {
+    "english": "TOP VENT OF SLEEVE",
+    "chinese": "大側",
+    "category": "英文辭典"
+  },
+  "TOP-STITCHING": {
+    "english": "TOP-STITCHING",
+    "chinese": "間面線",
+    "category": "英文辭典"
+  },
+  "TOPS": {
+    "english": "TOPS",
+    "chinese": "上裝",
+    "category": "英文辭典"
+  },
+  "TOTAL PRICE": {
+    "english": "TOTAL PRICE",
+    "chinese": "總價",
+    "category": "英文辭典"
+  },
+  "TOWEL": {
+    "english": "TOWEL",
+    "chinese": "毛圈布",
+    "category": "英文辭典"
+  },
+  "TOX-PROOF": {
+    "english": "Tox-proof",
+    "chinese": "德國萊因區技術安全組織標籤",
+    "category": "英文辭典"
+  },
+  "TQC TOTAL QUALITY CONTROL": {
+    "english": "TQC TOTAL QUALITY CONTROL",
+    "chinese": "全面品質控制",
+    "category": "縮寫"
+  },
+  "TQM TOTAL QUALITY MANAGEMENT": {
+    "english": "TQM TOTAL QUALITY MANAGEMENT",
+    "chinese": "全面品質管制",
+    "category": "縮寫"
+  },
+  "TRACKING NUMBER": {
+    "english": "Tracking number",
+    "chinese": "快遞單號",
+    "category": "英文辭典"
+  },
+  "TRAINING AWARENESS": {
+    "english": "Training Awareness",
+    "chinese": "安全培訓及憂患意識",
+    "category": "SR 安全 稽核項目"
+  },
+  "TRAINING REQUIREMENT": {
+    "english": "Training requirement",
+    "chinese": "訓練要求",
+    "category": "SR 安全 稽核項目"
+  },
+  "TRANSFER": {
+    "english": "TRANSFER",
+    "chinese": "燙畫",
+    "category": "常用單詞"
+  },
+  "TRANSFERRED PRINTING": {
+    "english": "Transferred printing",
+    "chinese": "轉移印花",
+    "category": "英文辭典"
+  },
+  "TRANSLUCENT": {
+    "english": "Translucent",
+    "chinese": "半透明",
+    "category": "顏色"
+  },
+  "TRANSPARENT": {
+    "english": "Transparent",
+    "chinese": "透明",
+    "category": "顏色"
+  },
+  "TRICOT": {
+    "english": "TRICOT",
+    "chinese": "經向斜紋毛織布",
+    "category": "英文辭典"
+  },
+  "TRIM": {
+    "english": "TRIM",
+    "chinese": "飾邊",
+    "category": "常用單詞"
+  },
+  "TRIM FRONT EDGE": {
+    "english": "TRIM FRONT EDGE",
+    "chinese": "修剪前幅邊緣",
+    "category": "英文辭典"
+  },
+  "TRIM THREAD": {
+    "english": "TRIM THREAD",
+    "chinese": "剪線",
+    "category": "英文辭典"
+  },
+  "TRIMMING": {
+    "english": "TRIMMING",
+    "chinese": "來料加工",
+    "category": "縮寫"
+  },
+  "TRIMMINGS": {
+    "english": "TRIMMINGS",
+    "chinese": "部件",
+    "category": "英文辭典"
+  },
+  "TROPICAL PRINT": {
+    "english": "Tropical print",
+    "chinese": "轉移印花",
+    "category": "英文辭典"
+  },
+  "TROUSERS": {
+    "english": "TROUSERS",
+    "chinese": "褲子",
+    "category": "英文辭典"
+  },
+  "TT YARNS": {
+    "english": "TT Yarns",
+    "chinese": "結子紗",
+    "category": "紗線"
+  },
+  "TUCKING": {
+    "english": "TUCKING",
+    "chinese": "打排褶",
+    "category": "車缝裁床"
+  },
+  "TUCKS": {
+    "english": "Tucks",
+    "chinese": "打褶",
+    "category": "英文辭典"
+  },
+  "TUMBLE DRY": {
+    "english": "Tumble dry",
+    "chinese": "滾筒式烘乾",
+    "category": "英文辭典"
+  },
+  "TUMBLE DRY LOW": {
+    "english": "TUMBLE DRY LOW",
+    "chinese": "低溫烘乾",
+    "category": "洗標內容"
+  },
+  "TURING UP HEM": {
+    "english": "Turing up hem",
+    "chinese": "反邊縫",
+    "category": "英文辭典"
+  },
+  "TURNED FINISH": {
+    "english": "TURNED FINISH",
+    "chinese": "卷邊",
+    "category": "英文辭典"
+  },
+  "TURQUOISE": {
+    "english": "Turquoise",
+    "chinese": "藍綠色",
+    "category": "顏色"
+  },
+  "TURQUOISE BLUE": {
+    "english": "Turquoise blue",
+    "chinese": "土耳其玉色",
+    "category": "顏色"
+  },
+  "TURTLE NECK": {
+    "english": "Turtle neck",
+    "chinese": "高而緊的領口",
+    "category": "英文辭典"
+  },
+  "TUSSAH SILK": {
+    "english": "Tussah silk",
+    "chinese": "柞蠶絲",
+    "category": "縮寫"
+  },
+  "TUXEDO": {
+    "english": "TUXEDO",
+    "chinese": "無尾燕尾服",
+    "category": "英文辭典"
+  },
+  "TWEED": {
+    "english": "TWEED",
+    "chinese": "毛絨布",
+    "category": "英文辭典"
+  },
+  "TWILL": {
+    "english": "TWILL",
+    "chinese": "斜紋布",
+    "category": "英文辭典"
+  },
+  "TWILL TAPE": {
+    "english": "Twill Tape",
+    "chinese": "腰牌",
+    "category": "包裝材料"
+  },
+  "TWIST LEG": {
+    "english": "TWIST LEG",
+    "chinese": "扭腳",
+    "category": "英文辭典"
+  },
+  "TWO LAYER YOKE": {
+    "english": "TWO LAYER YOKE",
+    "chinese": "雙層擔幹",
+    "category": "車缝裁床"
+  },
+  "UBL UNDER BUST LINE": {
+    "english": "UBL UNDER BUST LINE",
+    "chinese": "下胸圍線",
+    "category": "縮寫"
+  },
+  "ULTRAMARINE": {
+    "english": "Ultramarine",
+    "chinese": "青藍色",
+    "category": "顏色"
+  },
+  "ULTRAMARINE BLUE": {
+    "english": "Ultramarine blue",
+    "chinese": "群青",
+    "category": "顏色"
+  },
+  "UMBER": {
+    "english": "Umber",
+    "chinese": "濃茶色",
+    "category": "顏色"
+  },
+  "UNDER ARM SEAM": {
+    "english": "UNDER ARM SEAM",
+    "chinese": "夾底線",
+    "category": "服裝部位"
+  },
+  "UNDER CLOSURE": {
+    "english": "UNDER CLOSURE",
+    "chinese": "底襟",
+    "category": "其他常用"
+  },
+  "UNDER FLY": {
+    "english": "UNDER FLY",
+    "chinese": "裏襟",
+    "category": "其他常用"
+  },
+  "UNDER PRESSING": {
+    "english": "UNDER PRESSING",
+    "chinese": "中燙",
+    "category": "英文辭典"
+  },
+  "UNDER SLEEVE": {
+    "english": "UNDER SLEEVE",
+    "chinese": "小袖",
+    "category": "英文辭典"
+  },
+  "UNDER VENT/BOTTOM VENT": {
+    "english": "UNDER VENT/BOTTOM VENT",
+    "chinese": "叉的底層",
+    "category": "英文辭典"
+  },
+  "UNDERARM SEAM": {
+    "english": "UNDERARM SEAM",
+    "chinese": "袖底骨",
+    "category": "英文辭典"
+  },
+  "UNDERFACING": {
+    "english": "UNDERFACING",
+    "chinese": "裏貼/內貼",
+    "category": "服裝部位"
+  },
+  "UNDERWEAR": {
+    "english": "UNDERWEAR",
+    "chinese": "內衣",
+    "category": "英文辭典"
+  },
+  "UNEVEN COLLAR": {
+    "english": "UNEVEN COLLAR",
+    "chinese": "歪領",
+    "category": "英文辭典"
+  },
+  "UNEVEN COLOR": {
+    "english": "UNEVEN COLOR",
+    "chinese": "深淺色",
+    "category": "英文辭典"
+  },
+  "UNEVEN DYING": {
+    "english": "UNEVEN DYING",
+    "chinese": "染色不均勻",
+    "category": "英文辭典"
+  },
+  "UNEVEN HEM": {
+    "english": "UNEVEN HEM",
+    "chinese": "衫腳不平均",
+    "category": "英文辭典"
+  },
+  "UNEVEN LENGTH OF PLACKET": {
+    "english": "UNEVEN LENGTH OF PLACKET",
+    "chinese": "長短筒",
+    "category": "英文辭典"
+  },
+  "UNEVEN LENGTH OF SLEEVE": {
+    "english": "UNEVEN LENGTH OF SLEEVE",
+    "chinese": "長短袖",
+    "category": "英文辭典"
+  },
+  "UNEVEN LIPS": {
+    "english": "UNEVEN LIPS",
+    "chinese": "大小唇",
+    "category": "英文辭典"
+  },
+  "UNEVEN PLAIDS": {
+    "english": "UNEVEN PLAIDS",
+    "chinese": "格仔不均勻",
+    "category": "英文辭典"
+  },
+  "UNIT PRICE": {
+    "english": "UNIT PRICE",
+    "chinese": "單價",
+    "category": "英文辭典"
+  },
+  "UNMEET BACK VENT": {
+    "english": "UNMEET BACK VENT",
+    "chinese": "背叉豁",
+    "category": "英文辭典"
+  },
+  "UPPER ARM WIDTH": {
+    "english": "UPPER ARM WIDTH",
+    "chinese": "袖脾闊",
+    "category": "尺寸部位"
+  },
+  "UPPER COLLAR HEIGHT": {
+    "english": "UPPER COLLAR HEIGHT",
+    "chinese": "上級領高",
+    "category": "尺寸部位"
+  },
+  "V. VIOLET": {
+    "english": "V. VIOLET",
+    "chinese": "紫色",
+    "category": "縮寫"
+  },
+  "VAPOR BLUE": {
+    "english": "VAPOR BLUE",
+    "chinese": "煙灰",
+    "category": "顏色"
+  },
+  "VELCRO": {
+    "english": "Velcro",
+    "chinese": "魔術貼",
+    "category": "英文辭典"
+  },
+  "VELVET": {
+    "english": "VELVET",
+    "chinese": "天鵝絨",
+    "category": "英文辭典"
+  },
+  "VELVETEEN": {
+    "english": "VELVETEEN",
+    "chinese": "仿天鵝絨",
+    "category": "英文辭典"
+  },
+  "VENETIAN": {
+    "english": "VENETIAN",
+    "chinese": "縮絨呢",
+    "category": "英文辭典"
+  },
+  "VENT": {
+    "english": "VENT",
+    "chinese": "叉（有疊位）",
+    "category": "英文辭典"
+  },
+  "VERDIGRIS COLOR": {
+    "english": "Verdigris color",
+    "chinese": "銅綠色",
+    "category": "顏色"
+  },
+  "VERMILION": {
+    "english": "Vermilion",
+    "chinese": "桔紅;朱砂紅",
+    "category": "顏色"
+  },
+  "VEST": {
+    "english": "VEST",
+    "chinese": "多指正式的西裝背心",
+    "category": "其他"
+  },
+  "VIOLET": {
+    "english": "Violet",
+    "chinese": "紫羅蘭色",
+    "category": "顏色"
+  },
+  "VISA": {
+    "english": "Visa",
+    "chinese": "護照",
+    "category": "英文辭典"
+  },
+  "VISCOSE RAYON": {
+    "english": "VISCOSE RAYON",
+    "chinese": "人造絲",
+    "category": "英文辭典"
+  },
+  "VISITORS": {
+    "english": "Visitors",
+    "chinese": "訪客",
+    "category": "SR 安全 稽核項目"
+  },
+  "VISLON ZIPPER": {
+    "english": "Vislon zipper",
+    "chinese": "樹脂膠牙拉鏈",
+    "category": "英文辭典"
+  },
+  "VOGUE": {
+    "english": "VOGUE",
+    "chinese": "流行的",
+    "category": "英文辭典"
+  },
+  "W WOVEN": {
+    "english": "W WOVEN",
+    "chinese": "梭織",
+    "category": "縮寫"
+  },
+  "W. WAIST": {
+    "english": "W. WAIST",
+    "chinese": "腰圍",
+    "category": "縮寫"
+  },
+  "W. WIDTH": {
+    "english": "W. WIDTH",
+    "chinese": "寬度",
+    "category": "縮寫"
+  },
+  "W.B. WAISTBAND": {
+    "english": "W.B. WAISTBAND",
+    "chinese": "褲頭",
+    "category": "縮寫"
+  },
+  "W.I.P. WORK IN PROCESS": {
+    "english": "W.I.P. Work In Process",
+    "chinese": "半成品",
+    "category": "縮寫"
+  },
+  "W.L. WAIST LINE": {
+    "english": "W.L. WAIST LINE",
+    "chinese": "腰線",
+    "category": "縮寫"
+  },
+  "W.S. WRONG SIDE": {
+    "english": "W.S. WRONG SIDE",
+    "chinese": "反面",
+    "category": "縮寫"
+  },
+  "WADDING": {
+    "english": "WADDING",
+    "chinese": "棉絮",
+    "category": "常用單詞"
+  },
+  "WAFFLE": {
+    "english": "WAFFLE",
+    "chinese": "華夫格（針織布）",
+    "category": "其他常用"
+  },
+  "WAIST": {
+    "english": "WAIST",
+    "chinese": "腰圍",
+    "category": "英文辭典"
+  },
+  "WAIST BAND": {
+    "english": "Waist band",
+    "chinese": "腰頭",
+    "category": "英文辭典"
+  },
+  "WAIST TAG": {
+    "english": "WAIST TAG",
+    "chinese": "腰卡",
+    "category": "英文辭典"
+  },
+  "WAIST WIDTH": {
+    "english": "WAIST WIDTH",
+    "chinese": "腰闊",
+    "category": "尺寸部位"
+  },
+  "WAISTBAND": {
+    "english": "WAISTBAND",
+    "chinese": "腰頭",
+    "category": "英文辭典"
+  },
+  "WAISTBAND IS EXTENSION OF BODY": {
+    "english": "WAISTBAND IS EXTENSION OF BODY",
+    "chinese": "原身褲頭",
+    "category": "車缝裁床"
+  },
+  "WAIVER": {
+    "english": "Waiver",
+    "chinese": "棄權證明書",
+    "category": "英文辭典"
+  },
+  "WALES": {
+    "english": "WALES",
+    "chinese": "縱向線圈",
+    "category": "英文辭典"
+  },
+  "WAREHOUSE": {
+    "english": "WAREHOUSE",
+    "chinese": "倉庫",
+    "category": "英文辭典"
+  },
+  "WARP / ENDS": {
+    "english": "WARP / ENDS",
+    "chinese": "經紗",
+    "category": "英文辭典"
+  },
+  "WARP KNITTED FABRIC": {
+    "english": "WARP KNITTED FABRIC",
+    "chinese": "經向針織布",
+    "category": "英文辭典"
+  },
+  "WARP-KNITTING": {
+    "english": "WARP-KNITTING",
+    "chinese": "經編織物",
+    "category": "英文辭典"
+  },
+  "WASH COLD": {
+    "english": "WASH COLD",
+    "chinese": "冷水洗",
+    "category": "洗標內容"
+  },
+  "WASH WARM": {
+    "english": "WASH WARM",
+    "chinese": "溫水洗",
+    "category": "洗標內容"
+  },
+  "WASHING INITIAL LOAD": {
+    "english": "WASHING INITIAL LOAD",
+    "chinese": "頭缸洗水",
+    "category": "英文辭典"
+  },
+  "WASHING INSTRUCTION": {
+    "english": "WASHING INSTRUCTION",
+    "chinese": "洗水指示",
+    "category": "英文辭典"
+  },
+  "WASHING STREAKS": {
+    "english": "WASHING STREAKS",
+    "chinese": "洗水痕",
+    "category": "英文辭典"
+  },
+  "WATER REPELLENT": {
+    "english": "WATER REPELLENT",
+    "chinese": "防水處理",
+    "category": "英文辭典"
+  },
+  "WATER SHRINKAGE": {
+    "english": "Water shrinkage",
+    "chinese": "縮水率",
+    "category": "英文辭典"
+  },
+  "WATERPROOF FABRIC": {
+    "english": "WATERPROOF FABRIC",
+    "chinese": "防水布",
+    "category": "英文辭典"
+  },
+  "WAVE STITCHING": {
+    "english": "WAVE STITCHING",
+    "chinese": "線步起波浪",
+    "category": "英文辭典"
+  },
+  "WEAVING UNDER": {
+    "english": "Weaving under",
+    "chinese": "花紋少織（多梭箱織機的換緯運動不良造成）",
+    "category": "布疵"
+  },
+  "WEB": {
+    "english": "WEB",
+    "chinese": "網狀物",
+    "category": "英文辭典"
+  },
+  "WEFT / PICKS": {
+    "english": "WEFT / PICKS",
+    "chinese": "緯紗",
+    "category": "英文辭典"
+  },
+  "WEFT-KNITTING": {
+    "english": "WEFT-KNITTING",
+    "chinese": "緯編織物",
+    "category": "英文辭典"
+  },
+  "WEIGHTS": {
+    "english": "WEIGHTS",
+    "chinese": "壓鐵",
+    "category": "車缝裁床"
+  },
+  "WELT POCKET": {
+    "english": "WELT POCKET",
+    "chinese": "西裝袋",
+    "category": "英文辭典"
+  },
+  "WHITE": {
+    "english": "White",
+    "chinese": "白色",
+    "category": "顏色"
+  },
+  "WHK WHISKER": {
+    "english": "WHK whisker",
+    "chinese": "貓須",
+    "category": "縮寫"
+  },
+  "WINE RED": {
+    "english": "Wine red",
+    "chinese": "葡萄紅",
+    "category": "顏色"
+  },
+  "WINTER SKY": {
+    "english": "WINTER SKY",
+    "chinese": "天藍",
+    "category": "顏色"
+  },
+  "WMSP. WORKMANSHIP": {
+    "english": "WMSP. WORKMANSHIP",
+    "chinese": "手工, 車工",
+    "category": "縮寫"
+  },
+  "WOOL": {
+    "english": "Wool",
+    "chinese": "羊毛",
+    "category": "縮寫"
+  },
+  "WOOL/POLYESTER YARNS": {
+    "english": "Wool/Polyester Yarns",
+    "chinese": "毛粘紗",
+    "category": "紗線"
+  },
+  "WOOL/SILK YARNSS": {
+    "english": "Wool/Silk Yarnss",
+    "chinese": "羊毛",
+    "category": "紗線"
+  },
+  "WOOLEN": {
+    "english": "WOOLEN",
+    "chinese": "粗紡羊毛",
+    "category": "英文辭典"
+  },
+  "WOOLLEN YARN SERIES": {
+    "english": "Woollen Yarn Series",
+    "chinese": "羊絨紗",
+    "category": "紗線"
+  },
+  "WORK SHEET": {
+    "english": "Work sheet",
+    "chinese": "工作底稿",
+    "category": "英文辭典"
+  },
+  "WORK TICKET": {
+    "english": "WORK TICKET",
+    "chinese": "工票",
+    "category": "英文辭典"
+  },
+  "WORKMANSHIP": {
+    "english": "WORKMANSHIP",
+    "chinese": "手工",
+    "category": "英文辭典"
+  },
+  "WORSTED": {
+    "english": "WORSTED",
+    "chinese": "精紡羊毛",
+    "category": "英文辭典"
+  },
+  "WOVEN": {
+    "english": "Woven",
+    "chinese": "平織",
+    "category": "布疵"
+  },
+  "WOVEN INTERFACING": {
+    "english": "WOVEN INTERFACING",
+    "chinese": "梭織襯",
+    "category": "副料"
+  },
+  "WOVEN LABEL": {
+    "english": "WOVEN LABEL",
+    "chinese": "平織 標籤",
+    "category": "英文辭典"
+  },
+  "WRAPSEAM": {
+    "english": "WRAPSEAM",
+    "chinese": "包縫",
+    "category": "英文辭典"
+  },
+  "WRINKLE": {
+    "english": "WRINKLE",
+    "chinese": "不平服",
+    "category": "車缝裁床"
+  },
+  "WRINKLE AT ARMHOLE": {
+    "english": "Wrinkle at armhole",
+    "chinese": "夾圈（袖隆）不圓順",
+    "category": "英文辭典"
+  },
+  "WRINKLES": {
+    "english": "WRINKLES",
+    "chinese": "起皺",
+    "category": "英文辭典"
+  },
+  "WT. WEIGHT": {
+    "english": "WT. WEIGHT",
+    "chinese": "重量",
+    "category": "縮寫"
+  },
+  "X KING SIZE": {
+    "english": "X KING SIZE",
+    "chinese": "特大號",
+    "category": "縮寫"
+  },
+  "XL EXTRA LARGE": {
+    "english": "XL EXTRA LARGE",
+    "chinese": "特大號",
+    "category": "縮寫"
+  },
+  "XXL EXTRA EXTRA LARGE": {
+    "english": "XXL EXTRA EXTRA LARGE",
+    "chinese": "超特大號",
+    "category": "縮寫"
+  },
+  "Y. YELLOW": {
+    "english": "Y. YELLOW",
+    "chinese": "黃色",
+    "category": "縮寫"
+  },
+  "YAK HAIR YARNS": {
+    "english": "Yak Hair Yarns",
+    "chinese": "羊仔毛紗",
+    "category": "紗線"
+  },
+  "YARK HAIR": {
+    "english": "Yark hair",
+    "chinese": "犛牛毛",
+    "category": "縮寫"
+  },
+  "YARN": {
+    "english": "YARN",
+    "chinese": "紗線",
+    "category": "英文辭典"
+  },
+  "YARN COUNT": {
+    "english": "YARN COUNT",
+    "chinese": "紗支",
+    "category": "其他常用"
+  },
+  "YARNS": {
+    "english": "Yarns",
+    "chinese": "棉及其混紡紗線",
+    "category": "紗線"
+  },
+  "YD. YARDAGE": {
+    "english": "YD. YARDAGE",
+    "chinese": "碼數",
+    "category": "縮寫"
+  },
+  "YELLOW": {
+    "english": "Yellow",
+    "chinese": "黃色",
+    "category": "顏色"
+  },
+  "YOKE": {
+    "english": "Yoke",
+    "chinese": "過肩",
+    "category": "英文辭典"
+  },
+  "YORK YELLOW": {
+    "english": "York yellow",
+    "chinese": "蛋黃色",
+    "category": "顏色"
+  },
+  "ZIG-ZAG": {
+    "english": "ZIG-ZAG",
+    "chinese": "人字",
+    "category": "英文辭典"
+  },
+  "ZIG-ZAG STITCH": {
+    "english": "ZIG-ZAG STITCH",
+    "chinese": "人字線步",
+    "category": "車缝裁床"
+  },
+  "ZIG-ZAG STITCHES": {
+    "english": "ZIG-ZAG STITCHES",
+    "chinese": "人字線步",
+    "category": "英文辭典"
+  },
+  "ZIG-ZAG STITCHES M/C": {
+    "english": "ZIG-ZAG STITCHES M/C",
+    "chinese": "雙針車",
+    "category": "製衣機器"
+  },
+  "ZIGZAG": {
+    "english": "Zigzag",
+    "chinese": "之字型",
+    "category": "英文辭典"
+  },
+  "ZIP PULLER": {
+    "english": "Zip puller",
+    "chinese": "拉頭",
+    "category": "英文辭典"
+  },
+  "ZIPPER": {
+    "english": "ZIPPER",
+    "chinese": "拉鏈",
+    "category": "常用單詞"
+  },
+  "ZIPPER FASTENER": {
+    "english": "ZIPPER FASTENER",
+    "chinese": "拉鏈系結物",
+    "category": "英文辭典"
+  }
+}

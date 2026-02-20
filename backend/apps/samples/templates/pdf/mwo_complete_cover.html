@@ -1,0 +1,138 @@
+{% extends "pdf/base.html" %}
+
+{% block title %}MWO - {{ mwo.mwo_no|default:"DRAFT" }}{% endblock %}
+
+{% block content %}
+<div style="text-align: center; padding-top: 50px;">
+    <h1 style="font-size: 28pt; margin-bottom: 10px; border-bottom: none;">
+        Manufacturing Work Order
+    </h1>
+    <h2 style="font-size: 22pt; color: #4472C4; margin-top: 0; border-bottom: none;">
+        {{ mwo.mwo_no|default:"DRAFT" }}
+    </h2>
+</div>
+
+<div style="margin: 40px auto; max-width: 700px;">
+    <table style="width: 100%; border-collapse: collapse;">
+        <tbody>
+            <tr>
+                <td style="width: 35%; padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Style Number
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ style.style_number|default:"N/A" }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Style Name
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ style.style_name|default:"N/A" }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Customer
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ style.customer|default:"N/A" }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Season
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ style.season|default:"N/A" }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Revision
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ style_revision.revision_label|default:"v1" }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Factory
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ mwo.factory_name|default:"TBD" }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Sample Run
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ run.sample_type|default:"Sample" }} Run #{{ run.run_number|default:"1" }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Status
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ mwo.get_status_display|default:mwo.status|default:"Draft" }}
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Quantity
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ run.quantity|default:"TBD" }} pcs
+                </td>
+            </tr>
+            <tr>
+                <td style="padding: 12px; font-weight: bold; background-color: #f0f4f8; border: 1px solid #ddd;">
+                    Due Date
+                </td>
+                <td style="padding: 12px; border: 1px solid #ddd;">
+                    {{ run.due_date|date:"Y-m-d"|default:"TBD" }}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% if mwo.notes %}
+<div style="margin: 30px auto; max-width: 700px; padding: 15px; background-color: #fffde7; border-left: 4px solid #ffc107;">
+    <h3 style="margin-top: 0; font-size: 12pt;">Notes</h3>
+    <p style="margin-bottom: 0;">{{ mwo.notes }}</p>
+</div>
+{% endif %}
+
+<div style="margin-top: 60px; text-align: center;">
+    <h3 style="font-size: 14pt; color: #666;">Document Contents</h3>
+    <table style="width: 60%; margin: 20px auto; border-collapse: collapse;">
+        <tbody>
+            <tr>
+                <td style="padding: 8px; text-align: left; border-bottom: 1px solid #eee;">1. Cover Page</td>
+                <td style="padding: 8px; text-align: right; border-bottom: 1px solid #eee;">This page</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; text-align: left; border-bottom: 1px solid #eee;">2. Tech Pack (Bilingual)</td>
+                <td style="padding: 8px; text-align: right; border-bottom: 1px solid #eee;">English + Chinese</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; text-align: left; border-bottom: 1px solid #eee;">3. Bill of Materials (BOM)</td>
+                <td style="padding: 8px; text-align: right; border-bottom: 1px solid #eee;">With translations</td>
+            </tr>
+            <tr>
+                <td style="padding: 8px; text-align: left;">4. Spec/Measurement Sheet</td>
+                <td style="padding: 8px; text-align: right;">With translations</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div style="position: absolute; bottom: 50px; width: 100%; text-align: center;">
+    <p style="font-size: 10pt; color: #999;">
+        Version {{ mwo.version_no|default:"1" }} | Generated {{ now|date:"Y-m-d H:i" }}
+    </p>
+</div>
+{% endblock %}

@@ -1,0 +1,183 @@
+{% extends "pdf/base.html" %}
+
+{% block title %}MWO - {{ mwo.mwo_no }}{% endblock %}
+
+{% block content %}
+<h1>Manufacturing Work Order</h1>
+
+<div class="header-info">
+    <p><strong>MWO Number:</strong> {{ mwo.mwo_no|default:"N/A" }}</p>
+    <p><strong>Factory:</strong> {{ mwo.factory_name|default:"TBD" }}</p>
+    <p><strong>Status:</strong> {{ mwo.get_status_display|default:mwo.status|default:"N/A" }}</p>
+    <p><strong>Created:</strong> {{ mwo.created_at|date:"Y-m-d"|default:"N/A" }}</p>
+    <p><strong>Version:</strong> v{{ mwo.version_no|default:"1" }}</p>
+    {% if mwo.quantity %}<p><strong>Quantity:</strong> {{ mwo.quantity }}</p>{% endif %}
+    {% if mwo.notes %}<p><strong>Notes:</strong> {{ mwo.notes }}</p>{% endif %}
+</div>
+
+<h2>Bill of Materials 物料清單</h2>
+{% if bom_data %}
+<table>
+    <thead>
+        <tr style="background-color: #4472C4; color: white;">
+            <th style="width: 3%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">#</th>
+            <th style="width: 9%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Code</th>
+            <th style="width: 28%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Material 物料</th>
+            <th style="width: 7%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Cat.</th>
+            <th style="width: 10%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Color</th>
+            <th style="width: 5%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">UOM</th>
+            <th style="width: 8%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Unit</th>
+            <th style="width: 8%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Total</th>
+            <th style="width: 7%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Price</th>
+            <th style="width: 5%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">LT</th>
+            <th style="width: 10%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Supplier</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in bom_data %}
+        <tr>
+            <td style="text-align: center;">{{ forloop.counter }}</td>
+            <td>{{ item.material_code|default:"-"|truncatechars:12 }}</td>
+            <td>
+                {{ item.material_name|default:"N/A"|truncatechars:40 }}
+                {% if item.material_name_zh %}
+                <br><span style="color: #666; font-size: 7pt;">{{ item.material_name_zh|truncatechars:40 }}</span>
+                {% endif %}
+            </td>
+            <td>{{ item.category|default:"-"|truncatechars:8 }}</td>
+            <td>{{ item.color|default:"-"|truncatechars:15 }}</td>
+            <td style="text-align: center;">{{ item.uom|default:"-" }}</td>
+            <td style="text-align: right;">{{ item.consumption|floatformat:2|default:"0" }}</td>
+            <td style="text-align: right;">{{ item.total_consumption|floatformat:2|default:"0" }}</td>
+            <td style="text-align: right;">${{ item.unit_price|floatformat:2|default:"0.00" }}</td>
+            <td style="text-align: center;">{{ item.leadtime_days|default:"-" }}</td>
+            <td>{{ item.supplier_name|default:"-"|truncatechars:15 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="no-data">No BOM data available</div>
+{% endif %}
+
+<h2>Operations 工序指示</h2>
+{% if ops_data %}
+<table>
+    <thead>
+        <tr style="background-color: #4472C4; color: white;">
+            <th style="width: 5%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Step</th>
+            <th style="width: 50%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Description 工序</th>
+            <th style="width: 18%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Machine 機器</th>
+            <th style="width: 7%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Mins</th>
+            <th style="width: 20%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Special Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for op in ops_data %}
+        <tr>
+            <td style="text-align: center;">{{ op.step_no|default:forloop.counter }}</td>
+            <td>
+                {{ op.description|default:"-"|truncatechars:60 }}
+                {% if op.description_zh %}
+                <br><span style="color: #666; font-size: 7pt;">{{ op.description_zh|truncatechars:60 }}</span>
+                {% endif %}
+            </td>
+            <td>
+                {{ op.machine_type|default:"-" }}
+                {% if op.machine_type_zh %}
+                <br><span style="color: #666; font-size: 7pt;">{{ op.machine_type_zh }}</span>
+                {% endif %}
+            </td>
+            <td style="text-align: center;">{{ op.std_minutes|default:"-" }}</td>
+            <td>{{ op.special_requirements|default:"-"|truncatechars:35 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="no-data">No operations data available</div>
+{% endif %}
+
+<h2>Quality Control & Packaging</h2>
+{% if qc_data %}
+<div style="margin-bottom: 1em;">
+    <h3 style="font-size: 12pt; margin-top: 0.5em;">Labels & Markings</h3>
+    {% if qc_data.labels %}
+    <table>
+        <thead>
+            <tr style="background-color: #4472C4; color: white;">
+                <th style="width: 20%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Type</th>
+                <th style="width: 50%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Position</th>
+                <th style="width: 30%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Method</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for label in qc_data.labels %}
+            <tr>
+                <td>{{ label.type|default:"" }}</td>
+                <td>{{ label.position|default:"" }}</td>
+                <td>{{ label.method|default:"" }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="font-size: 9pt; color: #666;">No label specifications</p>
+    {% endif %}
+</div>
+
+<div style="margin-bottom: 1em;">
+    <h3 style="font-size: 12pt; margin-top: 0.5em;">Packaging Requirements</h3>
+    {% if qc_data.packaging %}
+    <table>
+        <tbody>
+            <tr>
+                <td style="width: 30%; font-weight: bold;">Polybag:</td>
+                <td>{{ qc_data.packaging.polybag|default:"Standard polybag" }}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Carton:</td>
+                <td>{{ qc_data.packaging.carton|default:"Standard carton box" }}</td>
+            </tr>
+            {% if qc_data.packaging.special_requirements %}
+            <tr>
+                <td style="font-weight: bold;">Special:</td>
+                <td>{{ qc_data.packaging.special_requirements|join:", " }}</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="font-size: 9pt; color: #666;">No packaging specifications</p>
+    {% endif %}
+</div>
+
+<div>
+    <h3 style="font-size: 12pt; margin-top: 0.5em;">Inspection Standards</h3>
+    {% if qc_data.inspections %}
+    <table>
+        <tbody>
+            <tr>
+                <td style="width: 30%; font-weight: bold;">Measurement Tolerance:</td>
+                <td>{{ qc_data.inspections.measurement_tolerance|default:"Per spec sheet" }}</td>
+            </tr>
+            <tr>
+                <td style="font-weight: bold;">Visual Inspection:</td>
+                <td>{{ qc_data.inspections.visual_inspection|default:"Per AQL standard" }}</td>
+            </tr>
+            {% if qc_data.inspections.functional_tests %}
+            <tr>
+                <td style="font-weight: bold;">Functional Tests:</td>
+                <td>{{ qc_data.inspections.functional_tests|join:", " }}</td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+    {% else %}
+    <p style="font-size: 9pt; color: #666;">No inspection standards defined</p>
+    {% endif %}
+</div>
+{% else %}
+<div class="no-data">No QC specifications defined</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends "pdf/base.html" %}
+
+{% block title %}BOM - {{ mwo.mwo_no|default:"DRAFT" }}{% endblock %}
+
+{% block content %}
+<h1>Bill of Materials (BOM)</h1>
+<h2 style="border-bottom: none; margin-top: 0; font-size: 14pt; color: #666;">
+    Bilingual Material List
+</h2>
+
+<div class="header-info">
+    <p>
+        <strong>Style:</strong> {{ style_revision.style.style_number|default:"N/A" }} - {{ style_revision.style.style_name|default:"" }}
+    </p>
+    <p>
+        <strong>MWO:</strong> {{ mwo.mwo_no|default:"DRAFT" }}
+    </p>
+    <p>
+        <strong>Translation Status:</strong>
+        <span style="color: {% if translated_count == total_count %}#28a745{% else %}#dc3545{% endif %};">
+            {{ translated_count }}/{{ total_count }} items translated
+        </span>
+    </p>
+</div>
+
+{% if bom_data %}
+<table>
+    <thead>
+        <tr style="background-color: #4472C4; color: white;">
+            <th style="width: 3%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa; text-align: center;">#</th>
+            <th style="width: 8%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Code</th>
+            <th style="width: 18%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Material (EN)</th>
+            <th style="width: 16%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Material (ZH)</th>
+            <th style="width: 8%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Category</th>
+            <th style="width: 10%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Color</th>
+            <th style="width: 5%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">UOM</th>
+            <th style="width: 7%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Cons.</th>
+            <th style="width: 7%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Price</th>
+            <th style="width: 5%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">LT</th>
+            <th style="width: 13%; background-color: #4472C4; color: white; padding: 6px; border: 1px solid #3a5faa;">Supplier</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in bom_data %}
+        <tr{% if not item.material_name_zh %} style="background-color: #fff3cd;"{% endif %}>
+            <td style="text-align: center; vertical-align: top;">{{ item.line_no }}</td>
+            <td style="vertical-align: top; font-size: 7pt;">{{ item.material_code|default:"-"|truncatechars:10 }}</td>
+            <td style="vertical-align: top;">
+                {{ item.material_name|default:"-"|truncatechars:35 }}
+                {% if item.description %}
+                <br><span style="color: #666; font-size: 7pt;">{{ item.description|truncatechars:40 }}</span>
+                {% endif %}
+            </td>
+            <td style="vertical-align: top;">
+                {% if item.material_name_zh %}
+                <span style="color: #0066cc;">{{ item.material_name_zh|truncatechars:25 }}</span>
+                {% if item.description_zh %}
+                <br><span style="color: #0066cc; font-size: 7pt;">{{ item.description_zh|truncatechars:30 }}</span>
+                {% endif %}
+                {% else %}
+                <span style="color: #999; font-style: italic;">-</span>
+                {% endif %}
+            </td>
+            <td style="vertical-align: top; font-size: 7pt;">{{ item.category|default:"-"|truncatechars:10 }}</td>
+            <td style="vertical-align: top; font-size: 7pt;">{{ item.color|default:"-"|truncatechars:12 }}</td>
+            <td style="text-align: center; vertical-align: top;">{{ item.uom|default:"-" }}</td>
+            <td style="text-align: right; vertical-align: top;">{{ item.consumption|floatformat:2 }}</td>
+            <td style="text-align: right; vertical-align: top;">${{ item.unit_price|floatformat:2 }}</td>
+            <td style="text-align: center; vertical-align: top;">{{ item.leadtime_days|default:"-" }}</td>
+            <td style="vertical-align: top; font-size: 7pt;">{{ item.supplier|default:"-"|truncatechars:18 }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<div style="margin-top: 20px; padding: 10px; background-color: #e3f2fd; border-radius: 4px;">
+    <p style="margin: 0; font-size: 9pt;">
+        <strong>Legend:</strong>
+        <span style="color: #0066cc; margin-left: 10px;">Blue text = Chinese translation</span>
+        <span style="background-color: #fff3cd; padding: 2px 6px; margin-left: 10px;">Yellow row = Missing translation</span>
+    </p>
+</div>
+
+{% else %}
+<div class="no-data">No BOM data available</div>
+{% endif %}
+{% endblock %}

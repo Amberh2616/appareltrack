@@ -1,0 +1,96 @@
+{% extends "pdf/base.html" %}
+
+{% block title %}Cost Estimate - {{ estimate.id }}{% endblock %}
+
+{% block content %}
+<h1>Cost Estimate</h1>
+
+<div class="header-info">
+    <p><strong>Estimate ID:</strong> {{ estimate.id }}</p>
+    <p><strong>Version:</strong> v{{ estimate.estimate_version|default:"1" }}</p>
+    <p><strong>Status:</strong> {{ estimate.get_status_display|default:estimate.status|default:"N/A" }}</p>
+    <p><strong>Currency:</strong> {{ estimate.currency|default:"USD" }}</p>
+    <p><strong>Created:</strong> {{ estimate.created_at|date:"Y-m-d"|default:"N/A" }}</p>
+    {% if estimate.valid_until %}<p><strong>Valid Until:</strong> {{ estimate.valid_until|date:"Y-m-d" }}</p>{% endif %}
+    {% if estimate.estimated_total %}<p><strong>Total:</strong> ${{ estimate.estimated_total|floatformat:2 }}</p>{% endif %}
+</div>
+
+<h2>Cost Breakdown</h2>
+{% if breakdown %}
+<table>
+    <thead>
+        <tr>
+            <th style="width: 50%;">Category</th>
+            <th style="width: 25%;">Amount</th>
+            <th style="width: 25%;">Percentage</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% if breakdown.materials %}
+        <tr>
+            <td><strong>Materials</strong></td>
+            <td>${{ breakdown.materials.total|floatformat:2|default:"0.00" }}</td>
+            <td>{{ breakdown.materials.percentage|floatformat:1|default:"0.0" }}%</td>
+        </tr>
+        {% if breakdown.materials.items %}
+            {% for item in breakdown.materials.items %}
+            <tr>
+                <td style="padding-left: 2em;">{{ item.name }}</td>
+                <td>${{ item.cost|floatformat:2|default:"0.00" }}</td>
+                <td>{{ item.percentage|floatformat:1|default:"0.0" }}%</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+        {% endif %}
+
+        {% if breakdown.labor %}
+        <tr>
+            <td><strong>Labor</strong></td>
+            <td>${{ breakdown.labor.total|floatformat:2|default:"0.00" }}</td>
+            <td>{{ breakdown.labor.percentage|floatformat:1|default:"0.0" }}%</td>
+        </tr>
+        {% if breakdown.labor.items %}
+            {% for item in breakdown.labor.items %}
+            <tr>
+                <td style="padding-left: 2em;">{{ item.name }}</td>
+                <td>${{ item.cost|floatformat:2|default:"0.00" }}</td>
+                <td>{{ item.percentage|floatformat:1|default:"0.0" }}%</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+        {% endif %}
+
+        {% if breakdown.overhead %}
+        <tr>
+            <td><strong>Overhead</strong></td>
+            <td>${{ breakdown.overhead.total|floatformat:2|default:"0.00" }}</td>
+            <td>{{ breakdown.overhead.percentage|floatformat:1|default:"0.0" }}%</td>
+        </tr>
+        {% endif %}
+
+        {% if breakdown.margin %}
+        <tr>
+            <td><strong>Margin</strong></td>
+            <td>${{ breakdown.margin.total|floatformat:2|default:"0.00" }}</td>
+            <td>{{ breakdown.margin.percentage|floatformat:1|default:"0.0" }}%</td>
+        </tr>
+        {% endif %}
+
+        {% if estimate.estimated_total %}
+        <tr style="background-color: #f0f0f0; font-weight: bold;">
+            <td>TOTAL</td>
+            <td>${{ estimate.estimated_total|floatformat:2 }}</td>
+            <td>100.0%</td>
+        </tr>
+        {% endif %}
+    </tbody>
+</table>
+{% else %}
+<div class="no-data">No cost breakdown data available</div>
+{% endif %}
+
+{% if estimate.notes %}
+<h2>Notes</h2>
+<p>{{ estimate.notes }}</p>
+{% endif %}
+{% endblock %}

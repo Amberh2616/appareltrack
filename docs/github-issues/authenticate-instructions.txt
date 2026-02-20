@@ -1,0 +1,24 @@
+GitHub CLI Authentication Required
+====================================
+
+Current Status: Authentication token expired
+
+To create GitHub Issues, please run:
+
+1. Authenticate:
+   gh auth login
+
+2. Follow the prompts:
+   - Choose: GitHub.com
+   - Choose: HTTPS or SSH (recommend HTTPS)
+   - Authenticate: Login via browser (easiest)
+
+3. Verify authentication:
+   gh auth status
+
+4. Create all 4 issues:
+   ./create-issues.sh
+
+   OR (on Windows PowerShell):
+   .\create-issues.ps1
+
