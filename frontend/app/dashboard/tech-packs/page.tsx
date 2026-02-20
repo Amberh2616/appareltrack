@@ -430,12 +430,19 @@ export default function DocumentsPage() {
                   const pageCount = item.classification_result?.total_pages || 0;
                   const aiLabel = getAIClassificationLabel(item.classification_result?.file_type);
 
-                  // 決定查看翻譯的連結
-                  const reviewLink = item.tech_pack_revision_id
-                    ? `/dashboard/revisions/${item.tech_pack_revision_id}/review`
-                    : item.style_revision
-                    ? `/dashboard/revisions/${item.style_revision}/bom`
-                    : null;
+                  // 依 file_type 決定正確的目標頁面
+                  const fileType = item.classification_result?.file_type;
+                  const reviewLink = (() => {
+                    if (fileType === 'bom_only' && item.style_revision)
+                      return `/dashboard/revisions/${item.style_revision}/bom`;
+                    if (fileType === 'spec_only' && item.style_revision)
+                      return `/dashboard/revisions/${item.style_revision}/spec`;
+                    if (item.tech_pack_revision_id)
+                      return `/dashboard/revisions/${item.tech_pack_revision_id}/review`;
+                    if (item.style_revision)
+                      return `/dashboard/revisions/${item.style_revision}/bom`;
+                    return null;
+                  })();
 
                   return (
                     <tr key={item.id} className="hover:bg-gray-50">
