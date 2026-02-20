@@ -594,7 +594,7 @@ class UploadedDocumentViewSet(viewsets.ModelViewSet):
         """
         doc = self.get_object()
 
-        if doc.status not in ['uploaded', 'classifying']:
+        if doc.status not in ['uploaded', 'classifying', 'failed']:
             return Response(
                 {'error': f'Cannot classify document in status: {doc.status}'},
                 status=status.HTTP_400_BAD_REQUEST
@@ -633,13 +633,31 @@ class UploadedDocumentViewSet(viewsets.ModelViewSet):
             doc.status = 'classifying'
             doc.save(update_fields=['status', 'updated_at'])
 
-            # Get file path
-            file_path = doc.file.path
+            # Get file path (handles S3/R2 by downloading to temp file)
+            import os as _os, tempfile as _tempfile
+            def _get_local_path(f):
+                try:
+                    return f.path, None
+                except NotImplementedError:
+                    ext = _os.path.splitext(f.name)[1] or '.pdf'
+                    tmp = _tempfile.NamedTemporaryFile(delete=False, suffix=ext)
+                    f.seek(0)
+                    tmp.write(f.read())
+                    tmp.close()
+                    return tmp.name, tmp.name
 
+            file_path, temp_file = _get_local_path(doc.file)
             logger.info(f"Starting classification for document {doc.id}: {file_path}")
 
             # Classify document using AI
-            classification_result = classify_document(file_path)
+            try:
+                classification_result = classify_document(file_path)
+            finally:
+                if temp_file:
+                    try:
+                        _os.unlink(temp_file)
+                    except OSError:
+                        pass
 
             # Update document
             doc.classification_result = classification_result

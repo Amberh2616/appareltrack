@@ -353,10 +353,24 @@ def classify_document_task(self, document_id: str) -> dict:
         }
     """
     import logging
+    import os
+    import tempfile
     from ..models import UploadedDocument
     from ..services import classify_document
 
     logger = logging.getLogger(__name__)
+
+    def _get_local_path(field_file):
+        try:
+            return field_file.path, None
+        except NotImplementedError:
+            ext = os.path.splitext(field_file.name)[1] or '.pdf'
+            tmp = tempfile.NamedTemporaryFile(delete=False, suffix=ext)
+            field_file.seek(0)
+            tmp.write(field_file.read())
+            tmp.close()
+            logger.info(f"[S3] Downloaded {field_file.name} to temp file {tmp.name}")
+            return tmp.name, tmp.name
 
     try:
         doc = UploadedDocument.objects.get(pk=document_id)
@@ -365,11 +379,18 @@ def classify_document_task(self, document_id: str) -> dict:
         doc.status = 'classifying'
         doc.save(update_fields=['status', 'updated_at'])
 
-        file_path = doc.file.path
+        file_path, temp_file = _get_local_path(doc.file)
         logger.info(f"[Async] Starting classification for document {doc.id}: {file_path}")
 
         # Run classification
-        classification_result = classify_document(file_path)
+        try:
+            classification_result = classify_document(file_path)
+        finally:
+            if temp_file:
+                try:
+                    os.unlink(temp_file)
+                except OSError:
+                    pass
 
         # Update document
         doc.classification_result = classification_result

@@ -10,6 +10,8 @@ This service handles the core extraction pipeline:
 """
 
 import logging
+import os
+import tempfile
 import pdfplumber
 import fitz  # PyMuPDF
 
@@ -23,6 +25,25 @@ from apps.styles.models import Style, StyleRevision
 logger = logging.getLogger(__name__)
 
 
+def _get_local_path(field_file):
+    """
+    Return (local_path, temp_path_to_cleanup).
+    For local storage: returns (file.path, None).
+    For S3/R2 storage: downloads to a temp file, returns (tmp_path, tmp_path).
+    Always call os.unlink(temp_path) in a finally block if temp_path is not None.
+    """
+    try:
+        return field_file.path, None
+    except NotImplementedError:
+        ext = os.path.splitext(field_file.name)[1] or '.pdf'
+        tmp = tempfile.NamedTemporaryFile(delete=False, suffix=ext)
+        field_file.seek(0)
+        tmp.write(field_file.read())
+        tmp.close()
+        logger.info(f"[S3] Downloaded {field_file.name} to temp file {tmp.name}")
+        return tmp.name, tmp.name
+
+
 def perform_extraction(doc: UploadedDocument, target_style_id: str = None) -> dict:
     """
     Perform AI extraction on a classified document.
@@ -30,39 +51,22 @@ def perform_extraction(doc: UploadedDocument, target_style_id: str = None) -> di
     Args:
         doc: UploadedDocument instance (must be in 'classified' or 'extracting' status)
         target_style_id: Optional UUID of an existing Style to link this document to.
-                         If provided, skips style creation from filename.
 
     Returns:
-        dict: {
-            'style_revision_id': str,
-            'tech_pack_revision_id': str,
-            'extraction_stats': {
-                'tech_pack_blocks': int,
-                'bom_items': int,
-                'measurements': int
-            }
-        }
-
-    Raises:
-        ValueError: If classification result is missing
-        Exception: On extraction failure
+        dict with style_revision_id, tech_pack_revision_id, extraction_stats
     """
-    # Get classification result
     classification = doc.classification_result
     if not classification:
         raise ValueError("No classification result found")
 
-    # 1. Create Revision (for Tech Pack review) and StyleRevision (for BOM/Measurement)
+    # 1. Resolve Style
     if target_style_id:
-        # Use existing Style if target_style_id is provided
         try:
             style = Style.objects.get(id=target_style_id)
         except (Style.DoesNotExist, ValueError, ValidationError):
-            # Not found or invalid UUID → fallback to filename
             logger.warning(f"target_style_id {target_style_id} invalid or not found, falling back to filename")
             target_style_id = None
         else:
-            # Found — enforce org boundary (both non-NULL and different → reject)
             if doc.organization and style.organization and doc.organization != style.organization:
                 raise ValueError(
                     f"Cross-organization binding rejected: "
@@ -70,17 +74,14 @@ def perform_extraction(doc: UploadedDocument, target_style_id: str = None) -> di
                 )
 
     if not target_style_id:
-        # Extract style number from filename (e.g., "LW1FLWS TECH PACK.pdf" → "LW1FLWS")
         style_number = doc.filename.split()[0] if ' ' in doc.filename else doc.filename.split('.')[0]
-
-        # Get or create Style
         style, _ = Style.objects.get_or_create(
             organization=doc.organization,
             style_number=style_number,
             defaults={
                 'style_name': f'{style_number} (Auto-generated)',
-                'season': 'SS25',  # Default season
-                'customer': 'Unknown',  # Default customer
+                'season': 'SS25',
+                'customer': 'Unknown',
             }
         )
 
@@ -92,116 +93,107 @@ def perform_extraction(doc: UploadedDocument, target_style_id: str = None) -> di
         status='draft'
     )
 
-    # Get page count
-    with pdfplumber.open(doc.file.path) as pdf:
-        page_count = len(pdf.pages)
+    # Get local file path — downloads to temp file for S3/R2 storage
+    local_file_path, temp_file = _get_local_path(doc.file)
 
-    # Create TechPackRevision (for Tech Pack review with DraftBlocks)
-    tech_pack_revision = TechPackRevision.objects.create(
-        file=doc.file,
-        filename=doc.filename,
-        page_count=page_count,
-        status='uploaded'
-    )
+    try:
+        # Get page count
+        with pdfplumber.open(local_file_path) as pdf:
+            page_count = len(pdf.pages)
 
-    logger.info(f"Created StyleRevision {style_revision.id} and TechPackRevision {tech_pack_revision.id} for Style {style.style_number}")
-
-    # Use style_revision for BOM/Measurement, tech_pack_revision for DraftBlocks
-    revision = style_revision
-
-    # 2. Extract based on page types
-    file_type = classification.get('file_type', 'other')
-    is_mixed = file_type == 'mixed'
-
-    tech_pack_pages = [p['page'] for p in classification['pages'] if p['type'] == 'tech_pack']
-    bom_pages = [p['page'] for p in classification['pages'] if p['type'] == 'bom_table']
-    measurement_pages = [p['page'] for p in classification['pages'] if p['type'] == 'measurement_table']
-    other_pages = [p['page'] for p in classification['pages'] if p['type'] in ['other', 'cover']]
-
-    # FIX: For mixed files, try to extract "other" pages as both tech_pack and bom
-    # This prevents content loss when AI classification is uncertain
-    if is_mixed:
-        # Add "other" pages to both tech_pack and bom extraction lists
-        if other_pages:
-            logger.info(f"Mixed file: adding {len(other_pages)} 'other' pages to extraction")
-            tech_pack_pages = sorted(set(tech_pack_pages + other_pages))
-            bom_pages = sorted(set(bom_pages + other_pages))
-
-        # FIX: BOM pages may also contain Tech Pack text (e.g., BULK COMMENTS)
-        # Extract Tech Pack blocks from BOM pages too
-        if bom_pages:
-            logger.info(f"Mixed file: adding {len(bom_pages)} 'bom_table' pages to Tech Pack extraction")
-            tech_pack_pages = sorted(set(tech_pack_pages + bom_pages))
-
-    extraction_stats = {
-        'tech_pack_blocks': 0,
-        'bom_items': 0,
-        'measurements': 0,
-    }
-
-    # 3. Extract Tech Pack annotations (if any)
-    if tech_pack_pages:
-        logger.info(f"Extracting Tech Pack from pages: {tech_pack_pages}")
-        extraction_stats['tech_pack_blocks'] = _extract_tech_pack_blocks(
-            doc.file.path, tech_pack_pages, tech_pack_revision
+        # Create TechPackRevision (for Tech Pack review with DraftBlocks)
+        tech_pack_revision = TechPackRevision.objects.create(
+            file=doc.file,
+            filename=doc.filename,
+            page_count=page_count,
+            status='uploaded'
         )
 
-    # 4. Extract BOM (if any)
-    if bom_pages:
-        logger.info(f"Extracting BOM from pages: {bom_pages}")
-        from apps.parsing.services.bom_extractor import extract_bom_from_pages
+        logger.info(f"Created StyleRevision {style_revision.id} and TechPackRevision {tech_pack_revision.id} for Style {style.style_number}")
 
-        try:
-            bom_count = extract_bom_from_pages(doc.file.path, bom_pages, revision)
-            extraction_stats['bom_items'] = bom_count
-            logger.info(f"BOM extraction completed: {bom_count} items")
-        except Exception as e:
-            logger.error(f"BOM extraction failed: {str(e)}")
-            if not doc.extraction_errors:
-                doc.extraction_errors = []
-            doc.extraction_errors.append({
-                'step': 'bom_extraction',
-                'error': str(e)
-            })
+        revision = style_revision
 
-    # 5. Extract Measurement (if any)
-    if measurement_pages:
-        logger.info(f"Extracting Measurement from pages: {measurement_pages}")
-        from apps.parsing.services.measurement_extractor import extract_measurements_from_page
+        # 2. Determine page types
+        file_type = classification.get('file_type', 'other')
+        is_mixed = file_type == 'mixed'
 
-        for page_num in measurement_pages[:2]:  # Limit to first 2 pages
+        tech_pack_pages = [p['page'] for p in classification['pages'] if p['type'] == 'tech_pack']
+        bom_pages = [p['page'] for p in classification['pages'] if p['type'] == 'bom_table']
+        measurement_pages = [p['page'] for p in classification['pages'] if p['type'] == 'measurement_table']
+        other_pages = [p['page'] for p in classification['pages'] if p['type'] in ['other', 'cover']]
+
+        if is_mixed:
+            if other_pages:
+                logger.info(f"Mixed file: adding {len(other_pages)} 'other' pages to extraction")
+                tech_pack_pages = sorted(set(tech_pack_pages + other_pages))
+                bom_pages = sorted(set(bom_pages + other_pages))
+            if bom_pages:
+                logger.info(f"Mixed file: adding {len(bom_pages)} 'bom_table' pages to Tech Pack extraction")
+                tech_pack_pages = sorted(set(tech_pack_pages + bom_pages))
+
+        extraction_stats = {'tech_pack_blocks': 0, 'bom_items': 0, 'measurements': 0}
+
+        # 3. Extract Tech Pack annotations
+        if tech_pack_pages:
+            logger.info(f"Extracting Tech Pack from pages: {tech_pack_pages}")
+            extraction_stats['tech_pack_blocks'] = _extract_tech_pack_blocks(
+                local_file_path, tech_pack_pages, tech_pack_revision
+            )
+
+        # 4. Extract BOM
+        if bom_pages:
+            logger.info(f"Extracting BOM from pages: {bom_pages}")
+            from apps.parsing.services.bom_extractor import extract_bom_from_pages
             try:
-                measurement_count = extract_measurements_from_page(doc.file.path, page_num, revision)
-                extraction_stats['measurements'] += measurement_count
-                logger.info(f"Page {page_num}: Extracted {measurement_count} measurements")
+                bom_count = extract_bom_from_pages(local_file_path, bom_pages, revision)
+                extraction_stats['bom_items'] = bom_count
+                logger.info(f"BOM extraction completed: {bom_count} items")
             except Exception as e:
-                logger.error(f"Measurement extraction failed for page {page_num}: {str(e)}")
+                logger.error(f"BOM extraction failed: {str(e)}")
                 if not doc.extraction_errors:
                     doc.extraction_errors = []
-                doc.extraction_errors.append({
-                    'step': 'measurement_extraction',
-                    'page': page_num,
-                    'error': str(e)
-                })
+                doc.extraction_errors.append({'step': 'bom_extraction', 'error': str(e)})
 
-    # 6. Update document status
-    doc.style_revision = revision
-    doc.tech_pack_revision = tech_pack_revision
-    doc.status = 'extracted'
-    doc.save(update_fields=['style_revision', 'tech_pack_revision', 'status', 'extraction_errors', 'updated_at'])
+        # 5. Extract Measurements
+        if measurement_pages:
+            logger.info(f"Extracting Measurement from pages: {measurement_pages}")
+            from apps.parsing.services.measurement_extractor import extract_measurements_from_page
+            for page_num in measurement_pages[:2]:
+                try:
+                    measurement_count = extract_measurements_from_page(local_file_path, page_num, revision)
+                    extraction_stats['measurements'] += measurement_count
+                    logger.info(f"Page {page_num}: Extracted {measurement_count} measurements")
+                except Exception as e:
+                    logger.error(f"Measurement extraction failed for page {page_num}: {str(e)}")
+                    if not doc.extraction_errors:
+                        doc.extraction_errors = []
+                    doc.extraction_errors.append({'step': 'measurement_extraction', 'page': page_num, 'error': str(e)})
 
-    # 7. Update Style.current_revision to the newly extracted StyleRevision
-    #    so BOM/Spec pages reflect the latest extracted data
-    style.current_revision = revision
-    style.save(update_fields=['current_revision'])
+        # 6. Update document status
+        doc.style_revision = revision
+        doc.tech_pack_revision = tech_pack_revision
+        doc.status = 'extracted'
+        doc.save(update_fields=['style_revision', 'tech_pack_revision', 'status', 'extraction_errors', 'updated_at'])
 
-    logger.info(f"Extraction completed for {doc.id}: {extraction_stats}")
+        # 7. Update Style.current_revision so BOM/Spec pages reflect the latest data
+        style.current_revision = revision
+        style.save(update_fields=['current_revision'])
 
-    return {
-        'style_revision_id': str(revision.id),
-        'tech_pack_revision_id': str(tech_pack_revision.id),
-        'extraction_stats': extraction_stats,
-    }
+        logger.info(f"Extraction completed for {doc.id}: {extraction_stats}")
+
+        return {
+            'style_revision_id': str(revision.id),
+            'tech_pack_revision_id': str(tech_pack_revision.id),
+            'extraction_stats': extraction_stats,
+        }
+
+    finally:
+        if temp_file:
+            try:
+                os.unlink(temp_file)
+                logger.info(f"[S3] Cleaned up temp file {temp_file}")
+            except OSError:
+                pass
 
 
 def _extract_tech_pack_blocks(file_path: str, tech_pack_pages: list, tech_pack_revision: TechPackRevision) -> int:
