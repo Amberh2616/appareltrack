@@ -2,14 +2,18 @@
  * Approve Revision API
  */
 
-import { API_BASE_URL } from './client';
+import { API_BASE_URL, getAccessToken } from './client';
 
 const API_BASE = API_BASE_URL;
 
 export async function approveRevision(revisionId: string) {
+  const token = getAccessToken();
   const res = await fetch(`${API_BASE}/revisions/${revisionId}/approve/`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
   });
 
   if (!res.ok) {

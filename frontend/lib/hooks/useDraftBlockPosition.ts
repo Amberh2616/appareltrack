@@ -11,9 +11,14 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useCallback, useRef } from 'react';
 import type { BlockOverlay } from '@/lib/types/revision';
-import { API_BASE_URL } from '@/lib/api/client';
+import { API_BASE_URL, getAccessToken } from '@/lib/api/client';
 
 const API_BASE = API_BASE_URL;
+
+function authHeaders(): Record<string, string> {
+  const token = getAccessToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
 
 interface PositionUpdate {
   blockId: string;
@@ -39,6 +44,7 @@ export function useUpdateBlockPosition(revisionId: string) {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
+          ...authHeaders(),
         },
         body: JSON.stringify({ overlay_x, overlay_y, overlay_visible }),
       });
@@ -64,6 +70,7 @@ export function useBatchUpdateBlockPositions(revisionId: string) {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          ...authHeaders(),
         },
         body: JSON.stringify(updates),
       });
@@ -91,6 +98,7 @@ export function useToggleBlockVisibility(revisionId: string) {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
+          ...authHeaders(),
         },
         body: JSON.stringify({ overlay_visible: visible }),
       });
