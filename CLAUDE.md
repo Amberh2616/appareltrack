@@ -1,7 +1,7 @@
 # ApparelTrack - Claude Project Memory
 
 **Last Updated:** 2026-02-20
-**Status:** P0-P29 + SaaS + STYLE-CENTER (Stage 1-5) + TRACK-PROGRESS + FIX-0214 + FIX-0215 + DEPLOY-0218 + FIX-0219 全部完成
+**Status:** P0-P29 + SaaS + STYLE-CENTER (Stage 1-5) + TRACK-PROGRESS + FIX-0214 + FIX-0215 + DEPLOY-0218 + FIX-0219 + FIX-0220 全部完成
 
 ---
 
@@ -354,6 +354,7 @@ const { canEdit, isAdmin, hasPermission } = usePermissions();
 | FIX-0214 | Decimal toFixed bug + 全站搜尋修復 + 300ms Debounce | 02-14 |
 | FIX-0215 | useMemo 修復全站無限 re-render + TopNav 移除無用搜尋框 | 02-15 |
 | DEPLOY-0218 | Railway + Vercel 正式部署完成 | 02-18 |
+| FIX-0220 | Cloudflare R2 永久儲存 + FIX-0219 全修 + UI 改善 | 02-20 |
 | FIX-0219 | 部署後頁面修復（PageNumberPagination + Superuser org + JWT fetch）| 02-20 |
 
 **完整細節：** [docs/PROGRESS-CHANGELOG.md](docs/PROGRESS-CHANGELOG.md)

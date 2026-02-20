@@ -55,6 +55,132 @@
 | **FIX-0117** | 完整工作流程跳轉路徑修復 | 2026-01-17 |
 | **FIX-0126** | API URL 統一 + 健康檢查 | 2026-01-26 |
 | **FIX-0214** | Decimal toFixed bug + 全站搜尋修復 + Debounce | 2026-02-14 |
+| **FIX-0220** | Cloudflare R2 永久儲存 + FIX-0219 修復 | 2026-02-20 |
+
+---
+
+## FIX-0220：Cloudflare R2 + 全站修復 (2026-02-20)
+
+### 1. Cloudflare R2 永久儲存（核心）
+
+**問題：** Railway 使用 ephemeral filesystem，每次部署後上傳的 PDF 全部消失。
+
+**修復：** 接入 Cloudflare R2（S3-compatible）作為永久檔案儲存。
+
+**修改檔案：**
+- `backend/requirements.txt`：加入 `django-storages==1.14.4`、`boto3==1.34.0`
+- `backend/config/settings/base.py`：加入 R2/S3 storage 設定（環境變數驅動）
+
+**Railway 新增環境變數：**
+| 變數 | 值 |
+|------|-----|
+| `AWS_STORAGE_BUCKET_NAME` | `appareltrack` |
+| `AWS_S3_ENDPOINT_URL` | `https://{account_id}.r2.cloudflarestorage.com` |
+| `AWS_S3_CUSTOM_DOMAIN` | `pub-xxx.r2.dev`（R2 public domain）|
+| `AWS_ACCESS_KEY_ID` | R2 Account API Token ID |
+| `AWS_SECRET_ACCESS_KEY` | R2 Account API Token Secret |
+
+**踩坑記錄：**
+- 第一個 API token 是 Object Read Only → PutObject AccessDenied → 要建 Account API Token（有 Object Read & Write）
+- 上傳成功後出現「AI processing failed」→ 因為 `doc.file.path` 在 S3 storage 會拋 `NotImplementedError`
+
+---
+
+### 2. S3/R2 `file.path` NotImplementedError 全站修復
+
+**問題：** S3Boto3Storage 不支援 `.path` 屬性（S3 沒有本地路徑），所有讀取 PDF 的程式都用 `doc.file.path` → 在 R2 環境下拋 `NotImplementedError`。
+
+**修復策略：** 加入 `_get_local_path(field_file)` helper：
+- local storage → 直接回傳 `.path`
+- S3/R2 storage → 下載到 `tempfile.NamedTemporaryFile`，回傳 temp path，用完 `os.unlink()` 清理
+
+**修改檔案：**
+- `backend/apps/parsing/services/extraction_service.py`：`_get_local_path()` helper + `perform_extraction()` 全面替換
+- `backend/apps/parsing/tasks/_main.py`：`classify_document_task` 同步修復
+- `backend/apps/parsing/views.py`：
+  - 同步 classify 端點修復
+  - `page_image` 端點修復（canvas 頁面圖片）
+  - 允許 `status='failed'` 重新分類（retry）
+
+---
+
+### 3. FIX-0219：部署後壞掉的頁面修復
+
+#### 3a. Documents 頁面連結修復
+**問題：** 所有文件都跳到 `/review`，BOM 應跳 `/bom`，Spec 應跳 `/spec`。
+**修復：** 依 `classification_result.file_type` 決定連結：
+```
+bom_only    → /dashboard/revisions/{style_revision}/bom
+spec_only   → /dashboard/revisions/{style_revision}/spec
+mixed/tp    → /dashboard/revisions/{tech_pack_revision_id}/review
+```
+**修改：** `frontend/app/dashboard/tech-packs/page.tsx`
+
+#### 3b. BOM/Spec 頁面提取後無資料
+**問題：** 每次提取都建新 `StyleRevision`，但 `Style.current_revision` FK 沒更新 → BOM/Spec 頁面還指向舊版本。
+**修復：** `extraction_service.py` 提取完成後加：
+```python
+style.current_revision = revision
+style.save(update_fields=['current_revision'])
+```
+
+#### 3c. Tech Pack 翻譯頁面修復
+
+**問題 1：** Batch Translate 401 Unauthorized
+- 原因：`getAccessToken()` 從 Zustand in-memory 讀取，可能未 hydrate
+- 修復：`authHeaders()` 改從 `localStorage`/`sessionStorage` 直接讀 JWT
+
+**問題 2：** 翻譯全返回英文（Success:224 但全是原文）
+- 原因：`TRANSLATION_BASE_URL` 有尾部空格 → URL 變成 `/openai/v1 /chat/completions`
+- 修復：Railway 環境變數移除尾部空格
+
+**問題 3：** `batch_translate` 例外時靜默 fallback 回英文
+- 原因：`except Exception` handler 返回 `texts[i]`（原文）→ 被標記成 `done`
+- 修復：改回傳 `''`，讓 translation_service 正確標記為 `failed`
+
+**問題 4：** Canvas 頁面永遠 loading（`isLoading` 不歸零）
+- 原因：PDF 不存在時 fetch 失敗 → `blobUrl=null` 但 `isDone` 未追蹤 → background effect 提早 return → `isLoading` 卡住
+- 修復：`useAuthImageUrl` 加入 `isDone` flag，fetch 失敗時也設 `isDone=true`
+
+**修改：**
+- `frontend/app/dashboard/revisions/[id]/review/page.tsx`
+- `frontend/components/review/TechPackCanvas.tsx`
+- `backend/apps/parsing/utils/translate.py`
+
+---
+
+### 4. BOM/Spec 頁面 UI 改善
+
+#### BOM 編輯頁（`/revisions/{id}/bom`）
+- 加入 **Verify All** 按鈕（一鍵驗證所有 BOM 項目）
+
+#### Spec 編輯頁（`/revisions/{id}/spec`）
+- 加入 **Verify All** 按鈕（一鍵驗證所有 Spec 項目）
+
+#### BOM 總覽頁（`/dashboard/bom`）
+- 加入 **建立日期** 欄位
+- 加入 **刪除** 按鈕（`DELETE /api/v2/styles/{id}/`）
+
+#### Spec 總覽頁（`/dashboard/spec`）
+- 加入 **建立日期** 欄位
+- 加入 **刪除** 按鈕
+
+#### 翻譯審校頁（`/revisions/{id}/review`）
+- 加入 **Retry Failed** 按鈕（重試失敗的翻譯項目，不顯示 failed 數字）
+
+---
+
+### 5. StyleViewSet DELETE 端點
+
+**問題：** `StyleViewSet` 繼承 `viewsets.ViewSet`（非 `ModelViewSet`）→ 沒有 `destroy` 方法 → 刪除按鈕觸發 405 Method Not Allowed。
+**修復：** `backend/apps/styles/views.py` 手動加入 `destroy()` 方法。
+
+---
+
+### 6. Django Admin 新增
+
+- 在 `backend/apps/parsing/admin.py` 註冊 `DraftBlock`（含 `source_text`/`translated_text`/`translation_status` 欄位）
+- 方便 debug 翻譯結果
 
 ---
 
