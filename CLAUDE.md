@@ -1,4 +1,4 @@
-# Fashion Production System - Claude Project Memory
+# ApparelTrack - Claude Project Memory
 
 **Last Updated:** 2026-02-18
 **Status:** P0-P29 + SaaS + STYLE-CENTER (Stage 1-5) + TRACK-PROGRESS + FIX-0214 + FIX-0215 + DEPLOY-0218 全部完成
