@@ -770,59 +770,60 @@ class UploadedDocumentViewSet(viewsets.ModelViewSet):
                     status=status.HTTP_500_INTERNAL_SERVER_ERROR
                 )
 
-        # Sync mode (original behavior) - use refactored service
-        try:
-            # Update status
-            doc.status = 'extracting'
-            doc.save(update_fields=['status', 'updated_at'])
+        # Sync mode - run extraction in background thread, return 202 immediately
+        # (avoids Railway proxy 60s timeout and gunicorn worker kill)
+        import threading
+        from django.utils import timezone
 
-            logger.info(f"Starting extraction for document {doc.id}")
+        def _run_extraction_background(doc_id, target_style_id):
+            import django.db
+            try:
+                doc_obj = UploadedDocument.objects.get(id=doc_id)
+                from .services.extraction_service import perform_extraction
+                perform_extraction(doc_obj, target_style_id=target_style_id)
+                logger.info(f"[Thread] Extraction completed for {doc_id}")
+            except ValueError as e:
+                logger.warning(f"[Thread] Extraction rejected for {doc_id}: {str(e)}")
+                UploadedDocument.objects.filter(id=doc_id).update(
+                    status='classified',
+                    updated_at=timezone.now()
+                )
+            except Exception as e:
+                logger.error(f"[Thread] Extraction failed for {doc_id}: {str(e)}", exc_info=True)
+                try:
+                    doc_obj = UploadedDocument.objects.get(id=doc_id)
+                    if not doc_obj.extraction_errors:
+                        doc_obj.extraction_errors = []
+                    doc_obj.extraction_errors.append({
+                        'step': 'extraction',
+                        'error': str(e)
+                    })
+                    doc_obj.status = 'failed'
+                    doc_obj.save(update_fields=['status', 'extraction_errors', 'updated_at'])
+                except Exception:
+                    UploadedDocument.objects.filter(id=doc_id).update(
+                        status='failed',
+                        updated_at=timezone.now()
+                    )
+            finally:
+                django.db.connections.close_all()
 
-            # Use extraction service
-            from .services.extraction_service import perform_extraction
-            result = perform_extraction(doc, target_style_id=target_style_id)
+        doc.status = 'extracting'
+        doc.save(update_fields=['status', 'updated_at'])
 
-            logger.info(f"Extraction completed for {doc.id}: {result['extraction_stats']}")
+        thread = threading.Thread(
+            target=_run_extraction_background,
+            args=(str(doc.id), target_style_id),
+            daemon=True
+        )
+        thread.start()
 
-            # Refresh doc from database to get updated values
-            doc.refresh_from_db()
-
-            serializer = self.get_serializer(doc)
-            response_data = serializer.data
-            response_data['extraction_stats'] = result['extraction_stats']
-            response_data['revision_id'] = result['style_revision_id']
-            response_data['style_revision_id'] = result['style_revision_id']
-            response_data['tech_pack_revision_id'] = result['tech_pack_revision_id']
-
-            return Response(response_data)
-
-        except ValueError as e:
-            # Known validation errors (cross-org, missing classification, etc.)
-            logger.warning(f"Extraction rejected for {doc.id}: {str(e)}")
-            doc.status = 'classified'  # Revert to classified, not failed
-            doc.save(update_fields=['status', 'updated_at'])
-            return Response(
-                {'error': str(e)},
-                status=status.HTTP_400_BAD_REQUEST
-            )
-
-        except Exception as e:
-            logger.error(f"Extraction failed for {doc.id}: {str(e)}", exc_info=True)
-
-            # Update status to failed
-            doc.status = 'failed'
-            if not doc.extraction_errors:
-                doc.extraction_errors = []
-            doc.extraction_errors.append({
-                'step': 'extraction',
-                'error': str(e)
-            })
-            doc.save(update_fields=['status', 'extraction_errors', 'updated_at'])
-
-            return Response(
-                {'error': f'Extraction failed: {str(e)}'},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR
-            )
+        logger.info(f"[Thread] Extraction thread started for {doc.id}")
+        return Response({
+            'status': 'extracting',
+            'document_id': str(doc.id),
+            'message': 'Extraction started in background'
+        }, status=status.HTTP_202_ACCEPTED)
 
     @action(detail=False, methods=['post'], url_path='batch-upload')
     def batch_upload(self, request):

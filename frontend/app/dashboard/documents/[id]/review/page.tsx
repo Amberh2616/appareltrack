@@ -292,23 +292,20 @@ export default function ReviewPage() {
         return  // Let the useEffect handle polling
       }
 
-      // Sync mode (original behavior)
-      const controller = new AbortController()
-      const timeoutId = setTimeout(() => controller.abort(), 600000)
+      // Sync mode - backend returns 202 immediately, extraction runs in background thread
+      // Start elapsed time counter
+      startTimeRef.current = Date.now()
+      timeIntervalRef.current = setInterval(() => {
+        if (startTimeRef.current) {
+          setElapsedTime(Math.floor((Date.now() - startTimeRef.current) / 1000))
+        }
+      }, 1000)
 
       const syncUrl = styleId
         ? `${API_BASE_URL}/uploaded-documents/${documentId}/extract/?style_id=${styleId}`
         : `${API_BASE_URL}/uploaded-documents/${documentId}/extract/`
 
-      const response = await authFetch(
-        syncUrl,
-        {
-          method: 'POST',
-          signal: controller.signal,
-        }
-      )
-
-      clearTimeout(timeoutId)
+      const response = await authFetch(syncUrl, { method: 'POST' })
 
       if (!response.ok) {
         const errorData = await response.json()
@@ -354,7 +351,7 @@ export default function ReviewPage() {
         return
       }
 
-      // Fallback: Poll for extraction completion if not in response
+      // Poll for extraction completion (backend returns 202, extraction runs in background)
       const pollInterval = setInterval(async () => {
         const statusResponse = await authFetch(
           `${API_BASE_URL}/uploaded-documents/${documentId}/status/`
@@ -363,6 +360,7 @@ export default function ReviewPage() {
 
         if (statusData.status === 'extracted' || statusData.status === 'completed') {
           clearInterval(pollInterval)
+          if (timeIntervalRef.current) clearInterval(timeIntervalRef.current)
           setIsExtracting(false)
           setIsCompleted(true)
           setStatus(statusData)
@@ -394,6 +392,7 @@ export default function ReviewPage() {
           router.push('/dashboard/tech-packs')
         } else if (statusData.status === 'failed') {
           clearInterval(pollInterval)
+          if (timeIntervalRef.current) clearInterval(timeIntervalRef.current)
           setIsExtracting(false)
           setError('Extraction failed. Please check the errors and try again.')
         }
@@ -615,33 +614,18 @@ export default function ReviewPage() {
         </div>
       )}
 
-      {/* DA-2: Async extraction progress indicator */}
-      {isExtracting && USE_ASYNC_MODE && extractTaskId && (
+      {/* Extraction progress indicator */}
+      {isExtracting && (
         <div className="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600" />
-              <div>
-                <p className="font-medium text-blue-900">AI 正在提取資料...</p>
-                <p className="text-sm text-blue-700 mt-1">
-                  <Clock className="inline-block w-3 h-3 mr-1" />
-                  已花時間: {formatElapsedTime(elapsedTime)}
-                </p>
-              </div>
+          <div className="flex items-center gap-3">
+            <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-blue-600" />
+            <div>
+              <p className="font-medium text-blue-900">AI 正在提取資料...</p>
+              <p className="text-sm text-blue-700 mt-1">
+                <Clock className="inline-block w-3 h-3 mr-1" />
+                已花時間: {formatElapsedTime(elapsedTime)}
+              </p>
             </div>
-            {extractTaskStatus && (
-              <div className="text-xs text-gray-500">
-                <span className="font-mono">Task: {extractTaskId.slice(0, 8)}...</span>
-                <span className="ml-2">
-                  Status: <span className={
-                    extractTaskStatus.status === 'SUCCESS' ? 'text-green-600' :
-                    extractTaskStatus.status === 'FAILURE' ? 'text-red-600' :
-                    extractTaskStatus.status === 'STARTED' ? 'text-blue-600' :
-                    'text-gray-600'
-                  }>{extractTaskStatus.status}</span>
-                </span>
-              </div>
-            )}
           </div>
           {elapsedTime > 60 && (
             <p className="mt-2 text-xs text-blue-600">
