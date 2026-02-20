@@ -1,5 +1,5 @@
 # Fashion Production System - Production Requirements
-# v5: force cache bust
+# v6: upgrade openai 1.12→1.57 (fix httpx proxies compat)
 
 # Core Django
 Django==4.2.8
@@ -38,7 +38,7 @@ pdfplumber==0.11.5
 openpyxl==3.1.2
 
 # AI / OpenAI
-openai==1.12.0
+openai==1.57.0
 
 # Static files
 whitenoise==6.6.0
