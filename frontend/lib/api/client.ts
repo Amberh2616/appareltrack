@@ -164,3 +164,4 @@ apiClient.delete = async function<T>(endpoint: string): Promise<T> {
 };
 
 export { API_BASE_URL };
+export { getAccessToken };

@@ -5,7 +5,18 @@ import { useRouter, useParams, useSearchParams } from 'next/navigation'
 import { CheckCircle2, FileText, AlertCircle, ArrowLeft, ChevronDown, ChevronUp, FolderOpen, Clock } from 'lucide-react'
 import Link from 'next/link'
 import { toast } from 'sonner'
-import { API_BASE_URL } from '@/lib/api/client'
+import { API_BASE_URL, getAccessToken } from '@/lib/api/client'
+
+function authFetch(url: string, options: RequestInit = {}) {
+  const token = getAccessToken()
+  return fetch(url, {
+    ...options,
+    headers: {
+      ...options.headers,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+  })
+}
 
 interface ClassificationPage {
   page: number
@@ -50,7 +61,7 @@ interface TaskStatus {
 // Helper: resolve styleId from style_revision_id
 async function resolveStyleId(styleRevisionId: string): Promise<string | null> {
   try {
-    const res = await fetch(`${API_BASE_URL}/style-revisions/${styleRevisionId}/`)
+    const res = await authFetch(`${API_BASE_URL}/style-revisions/${styleRevisionId}/`)
     if (!res.ok) return null
     const data = await res.json()
     return data.data?.style || data.style || null
@@ -62,7 +73,7 @@ async function resolveStyleId(styleRevisionId: string): Promise<string | null> {
 // Helper: resolve styleId from tech pack revision
 async function resolveStyleIdFromTechPackRevision(techPackRevisionId: string): Promise<string | null> {
   try {
-    const res = await fetch(`${API_BASE_URL}/revisions/${techPackRevisionId}/`)
+    const res = await authFetch(`${API_BASE_URL}/revisions/${techPackRevisionId}/`)
     if (!res.ok) return null
     const data = await res.json()
     return data.data?.style || data.style || null
@@ -129,7 +140,7 @@ export default function ReviewPage() {
     if (!extractTaskId) return
 
     try {
-      const response = await fetch(
+      const response = await authFetch(
         `${API_BASE_URL}/tasks/${extractTaskId}/`
       )
 
@@ -200,7 +211,7 @@ export default function ReviewPage() {
 
   const fetchStatus = async () => {
     try {
-      const response = await fetch(
+      const response = await authFetch(
         `${API_BASE_URL}/uploaded-documents/${documentId}/status/`
       )
 
@@ -264,7 +275,7 @@ export default function ReviewPage() {
 
       // DA-2: Use async mode if enabled
       if (USE_ASYNC_MODE) {
-        const response = await fetch(
+        const response = await authFetch(
           `${API_BASE_URL}/uploaded-documents/${documentId}/extract/?async=true${styleParam}`,
           { method: 'POST' }
         )
@@ -289,7 +300,7 @@ export default function ReviewPage() {
         ? `${API_BASE_URL}/uploaded-documents/${documentId}/extract/?style_id=${styleId}`
         : `${API_BASE_URL}/uploaded-documents/${documentId}/extract/`
 
-      const response = await fetch(
+      const response = await authFetch(
         syncUrl,
         {
           method: 'POST',
@@ -345,7 +356,7 @@ export default function ReviewPage() {
 
       // Fallback: Poll for extraction completion if not in response
       const pollInterval = setInterval(async () => {
-        const statusResponse = await fetch(
+        const statusResponse = await authFetch(
           `${API_BASE_URL}/uploaded-documents/${documentId}/status/`
         )
         const statusData = await statusResponse.json()

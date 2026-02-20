@@ -37,7 +37,7 @@ import {
   type BatchProcessResponse,
   type StyleResult,
 } from '@/lib/api/batch-upload';
-import { API_BASE_URL } from '@/lib/api/client';
+import { API_BASE_URL, getAccessToken } from '@/lib/api/client';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 
@@ -227,6 +227,8 @@ function SingleUpload({ styleId }: { styleId?: string | null }) {
       });
 
       xhr.open('POST', `${API_BASE_URL}/uploaded-documents/`);
+      const token = getAccessToken();
+      if (token) xhr.setRequestHeader('Authorization', `Bearer ${token}`);
       xhr.send(formData);
     });
   };

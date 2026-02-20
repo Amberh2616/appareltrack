@@ -4,7 +4,18 @@ import { useEffect, useState, useRef } from 'react'
 import { useRouter, useParams, useSearchParams } from 'next/navigation'
 import { CheckCircle2, Loader2, AlertCircle, Clock, XCircle, RefreshCw } from 'lucide-react'
 import { toast } from 'sonner'
-import { API_BASE_URL } from '@/lib/api/client'
+import { API_BASE_URL, getAccessToken } from '@/lib/api/client'
+
+function authFetch(url: string, options: RequestInit = {}) {
+  const token = getAccessToken()
+  return fetch(url, {
+    ...options,
+    headers: {
+      ...options.headers,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    },
+  })
+}
 
 interface ProcessingStatus {
   id: string
@@ -155,7 +166,7 @@ export default function ProcessingPage() {
     try {
       // DA-2: Use async mode if enabled
       const asyncParam = USE_ASYNC_MODE ? '?async=true' : ''
-      const response = await fetch(
+      const response = await authFetch(
         `${API_BASE_URL}/uploaded-documents/${documentId}/classify/${asyncParam}`,
         {
           method: 'POST',
@@ -185,7 +196,7 @@ export default function ProcessingPage() {
     if (!taskId) return
 
     try {
-      const response = await fetch(
+      const response = await authFetch(
         `${API_BASE_URL}/tasks/${taskId}/`
       )
 
@@ -220,7 +231,7 @@ export default function ProcessingPage() {
 
   const pollStatus = async () => {
     try {
-      const response = await fetch(
+      const response = await authFetch(
         `${API_BASE_URL}/uploaded-documents/${documentId}/status/`
       )
 
