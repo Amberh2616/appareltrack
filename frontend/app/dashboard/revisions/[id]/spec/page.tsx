@@ -14,6 +14,7 @@ import {
   type ColumnFiltersState,
 } from "@tanstack/react-table";
 import { useMeasurements, useTranslateMeasurementBatch, useDeleteMeasurement, useCreateMeasurement } from "@/lib/hooks/useMeasurement";
+import { useBatchVerifySpec } from "@/lib/hooks/useStyleDetail";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
@@ -29,7 +30,7 @@ import {
 } from "@/components/ui/dialog";
 import { MeasurementEditDrawer } from "@/components/measurement/MeasurementEditDrawer";
 import type { MeasurementItem, CreateMeasurementPayload } from "@/lib/types/measurement";
-import { ArrowUpDown, Pencil, Sparkles, Ruler, ArrowLeft, Trash2, Plus, Package, DollarSign, LayoutDashboard } from "lucide-react";
+import { ArrowUpDown, Pencil, Sparkles, Ruler, ArrowLeft, Trash2, Plus, Package, DollarSign, LayoutDashboard, CheckCircle } from "lucide-react";
 import Link from "next/link";
 import { apiClient } from "@/lib/api/client";
 import { ReadinessWarningBanner } from "@/components/styles/ReadinessWarningBanner";
@@ -53,10 +54,11 @@ export default function SpecPage() {
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
   const [globalFilter, setGlobalFilter] = useState("");
 
-  const { data: measurementData, isLoading, error } = useMeasurements(revisionId);
+  const { data: measurementData, isLoading, error, refetch } = useMeasurements(revisionId);
   const translateBatchMutation = useTranslateMeasurementBatch(revisionId);
   const deleteMutation = useDeleteMeasurement(revisionId);
   const createMutation = useCreateMeasurement(revisionId);
+  const batchVerifyMutation = useBatchVerifySpec(revisionId);
 
   // 新增尺寸點對話框狀態
   const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
@@ -426,6 +428,14 @@ export default function SpecPage() {
           >
             <Sparkles className="h-4 w-4 mr-2" />
             {translateBatchMutation.isPending ? "翻譯中..." : "AI 批量翻譯"}
+          </Button>
+          <Button
+            variant="outline"
+            onClick={() => batchVerifyMutation.mutate(undefined, { onSuccess: () => refetch() })}
+            disabled={batchVerifyMutation.isPending}
+          >
+            <CheckCircle className="h-4 w-4 mr-2" />
+            {batchVerifyMutation.isPending ? "確認中..." : "Verify All"}
           </Button>
           <Badge variant="secondary" className="text-base px-3 py-1">
             {translatedCount}/{items.length} 已翻譯

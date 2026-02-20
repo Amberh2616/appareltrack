@@ -15,8 +15,9 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Ruler, FileText, Search } from "lucide-react";
+import { Ruler, FileText, Search, Trash2 } from "lucide-react";
 import { apiClient } from "@/lib/api/client";
+import { useQueryClient } from "@tanstack/react-query";
 
 interface StyleItem {
   id: string;
@@ -75,6 +76,21 @@ export default function SpecOverviewPage() {
   const [search, setSearch] = useState("");
   const [debouncedSearch, setDebouncedSearch] = useState("");
   const [styleRevisions, setStyleRevisions] = useState<Record<string, { id: string; label: string; measurementCount: number }>>({});
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const queryClient = useQueryClient();
+
+  const handleDelete = async (styleId: string, styleNumber: string) => {
+    if (!confirm(`確定要刪除款式「${styleNumber}」及其所有 Spec 資料？此操作無法復原。`)) return;
+    setDeletingId(styleId);
+    try {
+      await apiClient(`/styles/${styleId}/`, { method: 'DELETE' });
+      queryClient.invalidateQueries({ queryKey: ['styles-list'] });
+    } catch (e) {
+      alert(`刪除失敗：${(e as Error).message}`);
+    } finally {
+      setDeletingId(null);
+    }
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => setDebouncedSearch(search), 300);
@@ -211,6 +227,7 @@ export default function SpecOverviewPage() {
               <TableHead className="text-center">季節</TableHead>
               <TableHead className="text-center">版本</TableHead>
               <TableHead className="text-center">尺寸點數</TableHead>
+              <TableHead className="text-center">建立日期</TableHead>
               <TableHead className="text-right">操作</TableHead>
             </TableRow>
           </TableHeader>
@@ -250,17 +267,31 @@ export default function SpecOverviewPage() {
                         <span className="text-muted-foreground text-sm">-</span>
                       )}
                     </TableCell>
+                    <TableCell className="text-center text-sm text-muted-foreground">
+                      {new Date(style.created_at).toLocaleDateString('zh-TW')}
+                    </TableCell>
                     <TableCell className="text-right">
-                      {revisionInfo ? (
-                        <Link href={`/dashboard/revisions/${revisionInfo.id}/spec`}>
-                          <Button variant="outline" size="sm">
-                            <Ruler className="h-4 w-4 mr-1" />
-                            Spec
-                          </Button>
-                        </Link>
-                      ) : (
-                        <span className="text-muted-foreground text-sm">無版本</span>
-                      )}
+                      <div className="flex items-center justify-end gap-1">
+                        {revisionInfo ? (
+                          <Link href={`/dashboard/revisions/${revisionInfo.id}/spec`}>
+                            <Button variant="outline" size="sm">
+                              <Ruler className="h-4 w-4 mr-1" />
+                              Spec
+                            </Button>
+                          </Link>
+                        ) : (
+                          <span className="text-muted-foreground text-sm">無版本</span>
+                        )}
+                        <Button
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => handleDelete(style.id, style.style_number)}
+                          disabled={deletingId === style.id}
+                          className="text-red-500 hover:text-red-700 hover:bg-red-50"
+                        >
+                          <Trash2 className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 );
