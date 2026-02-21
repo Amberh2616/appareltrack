@@ -157,6 +157,24 @@ export default function DraftReviewPage() {
   const blockListRef = useRef<HTMLDivElement>(null);
   const blockRefs = useRef<Map<string, HTMLDivElement>>(new Map());
 
+  // Prefetch adjacent pages in background (warm up Redis cache)
+  // Must be before early returns to comply with React Rules of Hooks
+  useEffect(() => {
+    const revision = data?.data;
+    if (!revision) return;
+    const prefetch = (pageNum: number) => {
+      if (pageNum < 1 || pageNum > revision.page_count) return;
+      const url = `${API_BASE}/revisions/${revision.id}/page-image/${pageNum}/?scale=2`;
+      try {
+        const raw = sessionStorage.getItem('auth-storage') || localStorage.getItem('auth-storage');
+        const token = raw ? JSON.parse(raw)?.state?.accessToken : null;
+        fetch(url, { headers: token ? { Authorization: `Bearer ${token}` } : {} });
+      } catch { /* silently ignore */ }
+    };
+    prefetch(currentPage + 1);
+    prefetch(currentPage + 2);
+  }, [currentPage, data?.data?.page_count, data?.data?.id]);
+
   // Loading state
   if (isLoading) {
     return (
@@ -202,22 +220,6 @@ export default function DraftReviewPage() {
     return `${API_BASE}/revisions/${revisionId}/page-image/${pageNum}/?scale=2`;
   };
 
-  // Prefetch adjacent pages in background (warm up Redis cache)
-  useEffect(() => {
-    if (!revision) return;
-    const prefetch = (pageNum: number) => {
-      if (pageNum < 1 || pageNum > revision.page_count) return;
-      const url = getPageImageUrl(pageNum);
-      try {
-        const raw = sessionStorage.getItem('auth-storage') || localStorage.getItem('auth-storage');
-        const token = raw ? JSON.parse(raw)?.state?.accessToken : null;
-        fetch(url, { headers: token ? { Authorization: `Bearer ${token}` } : {} });
-      } catch { /* silently ignore */ }
-    };
-    prefetch(currentPage + 1);
-    prefetch(currentPage + 2);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentPage, revision?.page_count]);
 
   // Handle block selection and scroll right sidebar
   const handleBlockSelect = (blockId: string) => {
