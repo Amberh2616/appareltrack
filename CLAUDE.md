@@ -356,7 +356,7 @@ const { canEdit, isAdmin, hasPermission } = usePermissions();
 | FIX-0215 | useMemo 修復全站無限 re-render + TopNav 移除無用搜尋框 | 02-15 |
 | DEPLOY-0218 | Railway + Vercel 正式部署完成 | 02-18 |
 | FIX-0220 | Cloudflare R2 永久儲存 + FIX-0219 全修 + UI 改善 | 02-20 |
-| FIX-0221-B | 翻譯審校頁全修：PDF 原圖（Redis crash + 401）、Delete（Chrome confirm 封鎖）、文字模糊（Retina）| 02-21 |
+| FIX-0221-B | 翻譯審校頁 10 項修復：Save Layout、Auth token、Batch URL、React #310、forwardRef、Redis cache、PDF 灰色×2、Delete confirm、Retina 文字 | 02-21 |
 | FIX-0221 | Railway Railpack 修復 + R2 確認 + 翻譯框 Save Layout 按鈕 | 02-21 |
 | FIX-0219 | 部署後頁面修復（PageNumberPagination + Superuser org + JWT fetch）| 02-20 |
 

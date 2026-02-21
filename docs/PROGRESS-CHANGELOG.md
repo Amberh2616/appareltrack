@@ -57,72 +57,128 @@
 | **FIX-0214** | Decimal toFixed bug + 全站搜尋修復 + Debounce | 2026-02-14 |
 | **FIX-0220** | Cloudflare R2 永久儲存 + FIX-0219 修復 | 2026-02-20 |
 | **FIX-0221** | Railway Railpack 錯誤修復 + R2 運作確認 | 2026-02-21 |
-| **FIX-0221-B** | 翻譯審校頁面全面修復（PDF 圖、Delete、Retina）| 2026-02-21 |
+| **FIX-0221-B** | 翻譯審校頁面全面修復（Save Layout、Auth、React #310、Redis、Delete、Retina 共 9 項）| 2026-02-21 |
 
 ---
 
 ## FIX-0221-B：翻譯審校頁面全面修復 (2026-02-21)
 
-### 問題 1：PDF 原圖不顯示（灰色畫面）
-
-**根因 A：** Railway 未設置 Redis service，但 `page_image` endpoint 直接呼叫 `cache.get()`，連線失敗導致整個 function 拋出例外，回傳 500。
-
-**修復：** 把 `cache.get()` 和 `cache.set()` 各自包在獨立的 `try/except`，Redis 失敗時跳過 cache，照樣渲染 PDF 並回傳圖片。
-
-```python
-# 修改前：cache 失敗 → 整個 endpoint 500
-img_data = cache.get(cache_key)  # 直接拋例外
-
-# 修改後：cache 失敗 → 跳過，照樣渲染
-try:
-    img_data = cache.get(cache_key)
-except Exception:
-    img_data = None  # Redis 掛了，直接渲染
-```
-
-**根因 B：** `useAuthImageUrl`（TechPackCanvas）沒有 JWT 401 自動 refresh 機制，token 過期後靜悄悄失敗顯示灰色。
-
-**修復：** 加入 401 → `refreshAccessToken()` → 重試邏輯（同 `useDraft.ts` 做法）。
-
-**修改檔案：**
-- `backend/apps/parsing/views.py`：`page_image` endpoint cache 改為各自 try/except
-- `frontend/components/review/TechPackCanvas.tsx`：`useAuthImageUrl` 加入 401 retry + import `useAuthStore`
+今天共完成 9 項修復/功能。
 
 ---
 
-### 問題 2：Delete 按鈕有時沒反應
+### 1. Save Layout 按鈕
 
-**根因：** `EditPopup.tsx` 的 Delete 按鈕用 `window.confirm()`。Chrome 在同一頁面被呼叫 `confirm()` 多次後會自動封鎖，封鎖後 `confirm()` 靜悄悄回傳 `false`，導致「有的可以刪有的不能刪」。
+**問題：** 拖動翻譯框後無法儲存位置，離開頁面就消失。
 
-**修復：** 移除 `window.confirm()`，點 Delete 直接執行（使用者已先雙擊開啟 modal，是明確操作）。
+**實作：**
+- `pendingPositions` ref 追蹤所有被移動的 block
+- `Save Layout` 按鈕在 PDF header，顯示 Saving... → ✓ Saved
+- 呼叫 `PATCH /api/v2/revisions/{id}/blocks/positions/` 批量儲存
 
-**修改檔案：** `frontend/components/review/EditPopup.tsx`
-
----
-
-### 問題 3：翻譯框文字模糊
-
-**根因：** Fabric.js Canvas 沒有啟用 Retina/HiDPI 支援，在 devicePixelRatio=2 的螢幕上以 1x 解析度繪製，文字看起來模糊。
-
-**修復：** 加入 `enableRetinaScaling: true` 到 Fabric.js Canvas 初始化選項。
-
-**修改檔案：** `frontend/components/review/TechPackCanvas.tsx`
+**修改：** `review/page.tsx`、`useDraftBlockPosition.ts`
 
 ---
 
-### 順帶修復：所有 Block 操作加入 JWT 401 自動 refresh
+### 2. Auth Token 讀取修復
 
-`useDraftBlockPosition.ts` 的三個 mutation（updatePosition、batchUpdatePositions、toggleVisibility）原本使用 plain `fetch`，token 過期後會靜悄悄失敗。改用統一的 `fetchWithAuth` 函數，支援 401 → refresh → retry。
+**問題：** `getAccessToken()` 從 Zustand memory 讀，hydration 時序問題可能拿到 null。
 
-**修改檔案：** `frontend/lib/hooks/useDraftBlockPosition.ts`、`frontend/lib/hooks/useDraft.ts`
+**修復：** 改 `getTokenFromStorage()` 直接讀 `sessionStorage/localStorage`。`useDraft.ts` + `useDraftBlockPosition.ts` 三個 mutation 全部統一用 `fetchWithAuth`（支援 401 → refresh → retry）。
+
+**修改：** `useDraft.ts`、`useDraftBlockPosition.ts`
 
 ---
 
-### Commits
-- `cbb50bd` fix(auth): add JWT 401 auto-refresh to TechPackCanvas image fetch + useDraft
-- `7bb9ed4` fix(page-image): gracefully skip Redis cache if unavailable
-- `c895467` fix(review): remove window.confirm from Delete + wire fetchWithAuth to mutations
-- `4356cb7` fix(canvas): enable Retina scaling for crisp text on HiDPI displays
+### 3. Batch Save URL 修正
+
+**問題：** 前端用 `POST .../update_block_positions/`，後端實際是 `PATCH .../blocks/positions/`，payload 格式也錯（`block_id` 應為 `id`）。
+
+**修復：** URL、HTTP method、payload 全部修正。
+
+---
+
+### 4. React error #310 當機修復
+
+**根因：** `useEffect`（prefetch 下一頁）放在 early return 之後，違反 React Rules of Hooks，頁面直接當機。
+
+**修復：** 所有 `useEffect` 移到 early return 之前，內部用 optional chaining guard。
+
+**修改：** `review/page.tsx`
+
+---
+
+### 5. forwardRef → 普通 function（#310 備援修復）
+
+**根因：** 改用 `forwardRef` 時也觸發 React #310。
+
+**修復：** 還原為普通 function component，用 `pendingPositions` ref 追蹤位置，不需要 forwardRef。
+
+**修改：** `TechPackCanvas.tsx`
+
+---
+
+### 6. PDF 頁面 Redis 快取 + 預載入
+
+**功能：** `page_image` endpoint 加 Redis 快取（24h），前端預載入下兩頁，換頁速度大幅提升（10s → 快取後即時）。
+
+**修改：** `views.py`（cache）、`review/page.tsx`（prefetch）
+
+---
+
+### 7. PDF 原圖不顯示 — Redis crash（500）
+
+**根因：** Railway 無 Redis，`cache.get()` 拋例外導致整個 endpoint 500，前端灰色畫面。
+
+**修復：** `cache.get()` / `cache.set()` 各自獨立 `try/except`，Redis 掛了照樣渲染 PDF。
+
+**修改：** `views.py`
+
+---
+
+### 8. PDF 原圖不顯示 — JWT 401 token 過期
+
+**根因：** `useAuthImageUrl` 沒有 401 retry，token 過期後靜悄悄失敗，Blocks 從 React Query 快取顯示但圖片抓不到。
+
+**修復：** `useAuthImageUrl` 加入 401 → `refreshAccessToken()` → 重試。
+
+**修改：** `TechPackCanvas.tsx`
+
+---
+
+### 9. Delete 按鈕有時沒反應
+
+**根因：** `EditPopup` Delete 用 `window.confirm()`。Chrome 多次呼叫後自動封鎖，靜悄悄回傳 `false`，導致「有的可以刪有的不能刪」。
+
+**修復：** 移除 `window.confirm()`，直接執行（使用者已雙擊開啟 modal，是明確操作）。
+
+**修改：** `EditPopup.tsx`
+
+---
+
+### 10. 翻譯框文字模糊（Retina）
+
+**根因：** Fabric.js Canvas 未啟用 HiDPI 支援，在 2x 螢幕上以 1x 解析度繪製。
+
+**修復：** `enableRetinaScaling: true`。
+
+**修改：** `TechPackCanvas.tsx`
+
+---
+
+### 今日 Commits
+
+| Commit | 說明 |
+|--------|------|
+| `889c9f4` | feat(admin): Django Admin 顯示 UploadedDocument 檔案 URL |
+| `c8c654a` | feat(review): Save Layout 按鈕 + auth token 修復 + Batch URL 修正 |
+| `06497c5` | perf(review): Redis 快取 PDF 頁面 + 預載下兩頁 |
+| `0daf76c` | fix(review): 還原 forwardRef → 修 React #310 當機 |
+| `3c0f90e` | fix(review): useEffect 移到 early return 前 → 修 React hooks 規則 |
+| `cbb50bd` | fix(auth): TechPackCanvas + useDraft 加入 JWT 401 auto-refresh |
+| `7bb9ed4` | fix(page-image): Redis cache 改 try/except，Redis 掛了照樣渲染 |
+| `c895467` | fix(review): 移除 window.confirm + 三個 mutation 改 fetchWithAuth |
+| `4356cb7` | fix(canvas): enableRetinaScaling: true → 文字清晰 |
 
 ---
 
