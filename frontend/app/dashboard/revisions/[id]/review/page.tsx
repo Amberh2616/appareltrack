@@ -192,6 +192,23 @@ export default function DraftReviewPage() {
     return `${API_BASE}/revisions/${revisionId}/page-image/${pageNum}/?scale=2`;
   };
 
+  // Prefetch adjacent pages in background (warm up Redis cache)
+  useEffect(() => {
+    if (!revision) return;
+    const prefetch = (pageNum: number) => {
+      if (pageNum < 1 || pageNum > revision.page_count) return;
+      const url = getPageImageUrl(pageNum);
+      try {
+        const raw = sessionStorage.getItem('auth-storage') || localStorage.getItem('auth-storage');
+        const token = raw ? JSON.parse(raw)?.state?.accessToken : null;
+        fetch(url, { headers: token ? { Authorization: `Bearer ${token}` } : {} });
+      } catch { /* silently ignore */ }
+    };
+    prefetch(currentPage + 1);
+    prefetch(currentPage + 2);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentPage, revision?.page_count]);
+
   // Handle block selection and scroll right sidebar
   const handleBlockSelect = (blockId: string) => {
     setSelectedBlockId(blockId);

@@ -346,37 +346,48 @@ class RevisionViewSet(viewsets.ReadOnlyModelViewSet):
         scale = max(0.5, min(3.0, scale))  # Clamp to 0.5-3.0
 
         try:
+            from django.core.cache import cache
             import os as _os, tempfile as _tempfile
 
-            def _get_local_path(f):
-                try:
-                    return f.path, None
-                except NotImplementedError:
-                    ext = _os.path.splitext(f.name)[1] or '.pdf'
-                    tmp = _tempfile.NamedTemporaryFile(delete=False, suffix=ext)
-                    f.seek(0)
-                    tmp.write(f.read())
-                    tmp.close()
-                    return tmp.name, tmp.name
+            # Redis cache key: revision + page + scale
+            cache_key = f"page_img:{pk}:{page_num}:{scale}"
+            img_data = cache.get(cache_key)
 
-            local_path, temp_file = _get_local_path(revision.file)
-            try:
-                pdf_doc = fitz.open(local_path)
-                page = pdf_doc.load_page(page_num - 1)  # 0-indexed
-                mat = fitz.Matrix(scale, scale)
-                pix = page.get_pixmap(matrix=mat)
-                img_data = pix.tobytes("png")
-                pdf_doc.close()
-            finally:
-                if temp_file:
+            if img_data is None:
+                # Cache miss → download PDF from R2 and render
+                def _get_local_path(f):
                     try:
-                        _os.unlink(temp_file)
-                    except OSError:
-                        pass
+                        return f.path, None
+                    except NotImplementedError:
+                        ext = _os.path.splitext(f.name)[1] or '.pdf'
+                        tmp = _tempfile.NamedTemporaryFile(delete=False, suffix=ext)
+                        f.seek(0)
+                        tmp.write(f.read())
+                        tmp.close()
+                        return tmp.name, tmp.name
 
-            # Return as image response
+                local_path, temp_file = _get_local_path(revision.file)
+                try:
+                    pdf_doc = fitz.open(local_path)
+                    page = pdf_doc.load_page(page_num - 1)  # 0-indexed
+                    mat = fitz.Matrix(scale, scale)
+                    pix = page.get_pixmap(matrix=mat)
+                    img_data = pix.tobytes("png")
+                    pdf_doc.close()
+                finally:
+                    if temp_file:
+                        try:
+                            _os.unlink(temp_file)
+                        except OSError:
+                            pass
+
+                # Cache for 24 hours (PDF pages don't change)
+                cache.set(cache_key, img_data, timeout=86400)
+
+            # Return as image response with browser cache headers
             response = HttpResponse(img_data, content_type="image/png")
             response['Content-Disposition'] = f'inline; filename="page_{page_num}.png"'
+            response['Cache-Control'] = 'private, max-age=3600'
             return response
 
         except Exception as e:
