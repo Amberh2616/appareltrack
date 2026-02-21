@@ -58,10 +58,8 @@ export function EditPopup({
   };
 
   const handleDelete = () => {
-    if (window.confirm('Hide this translation box?')) {
-      onDelete();
-      onClose();
-    }
+    onDelete();
+    onClose();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {

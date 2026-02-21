@@ -69,12 +69,8 @@ interface BatchPositionUpdate {
 export function useUpdateBlockPosition(revisionId: string) {
   return useMutation({
     mutationFn: async ({ blockId, overlay_x, overlay_y, overlay_visible = true }: PositionUpdate) => {
-      const res = await fetch(`${API_BASE}/draft-blocks/${blockId}/position/`, {
+      const res = await fetchWithAuth(`${API_BASE}/draft-blocks/${blockId}/position/`, {
         method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          ...authHeaders(),
-        },
         body: JSON.stringify({ overlay_x, overlay_y, overlay_visible }),
       });
 
@@ -105,12 +101,8 @@ export function useBatchUpdateBlockPositions(revisionId: string) {
         })),
       };
 
-      const res = await fetch(`${API_BASE}/revisions/${revisionId}/blocks/positions/`, {
+      const res = await fetchWithAuth(`${API_BASE}/revisions/${revisionId}/blocks/positions/`, {
         method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          ...authHeaders(),
-        },
         body: JSON.stringify(payload),
       });
 
@@ -133,12 +125,8 @@ export function useToggleBlockVisibility(revisionId: string) {
 
   return useMutation({
     mutationFn: async ({ blockId, visible }: { blockId: string; visible: boolean }) => {
-      const res = await fetch(`${API_BASE}/draft-blocks/${blockId}/`, {
+      const res = await fetchWithAuth(`${API_BASE}/draft-blocks/${blockId}/`, {
         method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-          ...authHeaders(),
-        },
         body: JSON.stringify({ overlay_visible: visible }),
       });
 
