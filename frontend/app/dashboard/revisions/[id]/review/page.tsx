@@ -19,7 +19,7 @@ import { useDebouncedPositionSave, useToggleBlockVisibility, useBatchUpdateBlock
 import type { DraftBlock as DraftBlockType } from '@/lib/types/revision';
 import { approveRevision } from '@/lib/api/approve';
 import { CoveragePanel } from '@/components/review/CoveragePanel';
-import { TechPackCanvas, type TechPackCanvasHandle } from '@/components/review/TechPackCanvas';
+import { TechPackCanvas } from '@/components/review/TechPackCanvas';
 import { EditPopup } from '@/components/review/EditPopup';
 import { LayoutDashboard } from 'lucide-react';
 
@@ -88,16 +88,26 @@ export default function DraftReviewPage() {
   const { savePositionNow } = useDebouncedPositionSave(revisionId);
   const toggleVisibility = useToggleBlockVisibility(revisionId);
   const batchUpdatePositions = useBatchUpdateBlockPositions(revisionId);
-  const canvasRef = useRef<TechPackCanvasHandle>(null);
+  const pendingPositions = useRef<Map<string, { x: number; y: number }>>(new Map());
   const [isSavingLayout, setIsSavingLayout] = useState(false);
   const [layoutSaved, setLayoutSaved] = useState(false);
 
   const handleSaveLayout = async () => {
-    const positions = canvasRef.current?.getAllPositions();
-    if (!positions || positions.length === 0) return;
+    if (pendingPositions.current.size === 0) {
+      setLayoutSaved(true);
+      setTimeout(() => setLayoutSaved(false), 1500);
+      return;
+    }
     setIsSavingLayout(true);
     try {
+      const positions = Array.from(pendingPositions.current.entries()).map(([block_id, { x, y }]) => ({
+        block_id,
+        overlay_x: x,
+        overlay_y: y,
+        overlay_visible: true,
+      }));
       await batchUpdatePositions.mutateAsync({ positions });
+      pendingPositions.current.clear();
       setLayoutSaved(true);
       setTimeout(() => setLayoutSaved(false), 2000);
     } catch {
@@ -222,6 +232,7 @@ export default function DraftReviewPage() {
 
   const handlePositionChange = (blockId: string, x: number, y: number) => {
     savePositionNow(blockId, x, y);
+    pendingPositions.current.set(blockId, { x, y });
   };
 
   // Handle double-click to edit
@@ -580,7 +591,6 @@ export default function DraftReviewPage() {
           ) : (
             currentPageData ? (
               <TechPackCanvas
-                ref={canvasRef}
                 pageImageUrl={getPageImageUrl(currentPage)}
                 pageNumber={currentPage}
                 pageWidth={currentPageData.width || 612}
