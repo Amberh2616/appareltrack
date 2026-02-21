@@ -346,15 +346,19 @@ class RevisionViewSet(viewsets.ReadOnlyModelViewSet):
         scale = max(0.5, min(3.0, scale))  # Clamp to 0.5-3.0
 
         try:
-            from django.core.cache import cache
             import os as _os, tempfile as _tempfile
 
-            # Redis cache key: revision + page + scale
+            # Try Redis cache (gracefully skip if Redis unavailable)
+            img_data = None
             cache_key = f"page_img:{pk}:{page_num}:{scale}"
-            img_data = cache.get(cache_key)
+            try:
+                from django.core.cache import cache
+                img_data = cache.get(cache_key)
+            except Exception:
+                pass  # Redis not configured — render without cache
 
             if img_data is None:
-                # Cache miss → download PDF from R2 and render
+                # Cache miss → download PDF from R2/local and render
                 def _get_local_path(f):
                     try:
                         return f.path, None
@@ -381,8 +385,12 @@ class RevisionViewSet(viewsets.ReadOnlyModelViewSet):
                         except OSError:
                             pass
 
-                # Cache for 24 hours (PDF pages don't change)
-                cache.set(cache_key, img_data, timeout=86400)
+                # Store in cache (skip if Redis unavailable)
+                try:
+                    from django.core.cache import cache
+                    cache.set(cache_key, img_data, timeout=86400)
+                except Exception:
+                    pass
 
             # Return as image response with browser cache headers
             response = HttpResponse(img_data, content_type="image/png")
