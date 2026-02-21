@@ -1,6 +1,6 @@
 # Fashion Production System - Progress Changelog
 
-**Last Updated:** 2026-02-14
+**Last Updated:** 2026-02-21 (FIX-0221-B)
 
 此文檔記錄所有功能開發的詳細進度和技術實現細節。
 
@@ -56,6 +56,73 @@
 | **FIX-0126** | API URL 統一 + 健康檢查 | 2026-01-26 |
 | **FIX-0214** | Decimal toFixed bug + 全站搜尋修復 + Debounce | 2026-02-14 |
 | **FIX-0220** | Cloudflare R2 永久儲存 + FIX-0219 修復 | 2026-02-20 |
+| **FIX-0221** | Railway Railpack 錯誤修復 + R2 運作確認 | 2026-02-21 |
+| **FIX-0221-B** | 翻譯審校頁面全面修復（PDF 圖、Delete、Retina）| 2026-02-21 |
+
+---
+
+## FIX-0221-B：翻譯審校頁面全面修復 (2026-02-21)
+
+### 問題 1：PDF 原圖不顯示（灰色畫面）
+
+**根因 A：** Railway 未設置 Redis service，但 `page_image` endpoint 直接呼叫 `cache.get()`，連線失敗導致整個 function 拋出例外，回傳 500。
+
+**修復：** 把 `cache.get()` 和 `cache.set()` 各自包在獨立的 `try/except`，Redis 失敗時跳過 cache，照樣渲染 PDF 並回傳圖片。
+
+```python
+# 修改前：cache 失敗 → 整個 endpoint 500
+img_data = cache.get(cache_key)  # 直接拋例外
+
+# 修改後：cache 失敗 → 跳過，照樣渲染
+try:
+    img_data = cache.get(cache_key)
+except Exception:
+    img_data = None  # Redis 掛了，直接渲染
+```
+
+**根因 B：** `useAuthImageUrl`（TechPackCanvas）沒有 JWT 401 自動 refresh 機制，token 過期後靜悄悄失敗顯示灰色。
+
+**修復：** 加入 401 → `refreshAccessToken()` → 重試邏輯（同 `useDraft.ts` 做法）。
+
+**修改檔案：**
+- `backend/apps/parsing/views.py`：`page_image` endpoint cache 改為各自 try/except
+- `frontend/components/review/TechPackCanvas.tsx`：`useAuthImageUrl` 加入 401 retry + import `useAuthStore`
+
+---
+
+### 問題 2：Delete 按鈕有時沒反應
+
+**根因：** `EditPopup.tsx` 的 Delete 按鈕用 `window.confirm()`。Chrome 在同一頁面被呼叫 `confirm()` 多次後會自動封鎖，封鎖後 `confirm()` 靜悄悄回傳 `false`，導致「有的可以刪有的不能刪」。
+
+**修復：** 移除 `window.confirm()`，點 Delete 直接執行（使用者已先雙擊開啟 modal，是明確操作）。
+
+**修改檔案：** `frontend/components/review/EditPopup.tsx`
+
+---
+
+### 問題 3：翻譯框文字模糊
+
+**根因：** Fabric.js Canvas 沒有啟用 Retina/HiDPI 支援，在 devicePixelRatio=2 的螢幕上以 1x 解析度繪製，文字看起來模糊。
+
+**修復：** 加入 `enableRetinaScaling: true` 到 Fabric.js Canvas 初始化選項。
+
+**修改檔案：** `frontend/components/review/TechPackCanvas.tsx`
+
+---
+
+### 順帶修復：所有 Block 操作加入 JWT 401 自動 refresh
+
+`useDraftBlockPosition.ts` 的三個 mutation（updatePosition、batchUpdatePositions、toggleVisibility）原本使用 plain `fetch`，token 過期後會靜悄悄失敗。改用統一的 `fetchWithAuth` 函數，支援 401 → refresh → retry。
+
+**修改檔案：** `frontend/lib/hooks/useDraftBlockPosition.ts`、`frontend/lib/hooks/useDraft.ts`
+
+---
+
+### Commits
+- `cbb50bd` fix(auth): add JWT 401 auto-refresh to TechPackCanvas image fetch + useDraft
+- `7bb9ed4` fix(page-image): gracefully skip Redis cache if unavailable
+- `c895467` fix(review): remove window.confirm from Delete + wire fetchWithAuth to mutations
+- `4356cb7` fix(canvas): enable Retina scaling for crisp text on HiDPI displays
 
 ---
 

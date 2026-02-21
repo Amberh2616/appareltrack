@@ -1,7 +1,7 @@
 # ApparelTrack - Claude Project Memory
 
-**Last Updated:** 2026-02-20
-**Status:** P0-P29 + SaaS + STYLE-CENTER (Stage 1-5) + TRACK-PROGRESS + FIX-0214 + FIX-0215 + DEPLOY-0218 + FIX-0219 + FIX-0220 全部完成
+**Last Updated:** 2026-02-21
+**Status:** P0-P29 + SaaS + STYLE-CENTER (Stage 1-5) + TRACK-PROGRESS + FIX-0214 + FIX-0215 + DEPLOY-0218 + FIX-0219 + FIX-0220 + FIX-0221-B 全部完成
 
 ---
 
@@ -313,6 +313,7 @@ const { canEdit, isAdmin, hasPermission } = usePermissions();
 | TODO-COST | 完整成本分析（報價 vs 實際成本：物料+人工+損耗）| P2 |
 | TODO-i18n | 多語言翻譯支援（中/越/柬/印尼）| P3 |
 | SaaS-BILLING | 計費系統整合 (Stripe) | 待做 |
+| SOFT-DELETE | BOM / Spec / Tech Pack 改軟刪除 + 確認彈窗（上線前處理）| 待做 |
 | P22 | 庫存管理 (Inventory) | 規劃中 |
 | P12 | 自訂 Excel/PDF 模板 | 計劃中 |
 | Phase B | Supplier Portal | 計劃中 |
@@ -355,6 +356,8 @@ const { canEdit, isAdmin, hasPermission } = usePermissions();
 | FIX-0215 | useMemo 修復全站無限 re-render + TopNav 移除無用搜尋框 | 02-15 |
 | DEPLOY-0218 | Railway + Vercel 正式部署完成 | 02-18 |
 | FIX-0220 | Cloudflare R2 永久儲存 + FIX-0219 全修 + UI 改善 | 02-20 |
+| FIX-0221-B | 翻譯審校頁全修：PDF 原圖（Redis crash + 401）、Delete（Chrome confirm 封鎖）、文字模糊（Retina）| 02-21 |
+| FIX-0221 | Railway Railpack 修復 + R2 確認 + 翻譯框 Save Layout 按鈕 | 02-21 |
 | FIX-0219 | 部署後頁面修復（PageNumberPagination + Superuser org + JWT fetch）| 02-20 |
 
 **完整細節：** [docs/PROGRESS-CHANGELOG.md](docs/PROGRESS-CHANGELOG.md)
