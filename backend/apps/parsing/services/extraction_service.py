@@ -196,9 +196,38 @@ def perform_extraction(doc: UploadedDocument, target_style_id: str = None) -> di
                 pass
 
 
+def _process_page_io(file_path: str, page_num: int) -> tuple:
+    """
+    Pure I/O: Vision extraction + translation for one page (no DB writes).
+    Safe to run in parallel threads.
+    Returns: (page_num, extracted_blocks, translations, page_width, page_height)
+    """
+    from apps.parsing.utils.vision_extract import extract_text_from_pdf_page_vision
+    from apps.parsing.utils.translate import batch_translate
+
+    # Get page dimensions (open PDF per-thread, thread-safe)
+    pdf_doc = fitz.open(file_path)
+    try:
+        pdf_page = pdf_doc.load_page(page_num - 1)
+        page_width = int(pdf_page.rect.width)
+        page_height = int(pdf_page.rect.height)
+    finally:
+        pdf_doc.close()
+
+    # Vision API call (main bottleneck — runs in parallel)
+    extracted_blocks = extract_text_from_pdf_page_vision(file_path, page_num)
+
+    # Translate extracted texts
+    texts = [block.get('text', '').strip() for block in extracted_blocks]
+    translations = batch_translate(texts)
+
+    return page_num, extracted_blocks, translations, page_width, page_height
+
+
 def _extract_tech_pack_blocks(file_path: str, tech_pack_pages: list, tech_pack_revision: TechPackRevision) -> int:
     """
     Extract Tech Pack text blocks from PDF pages.
+    Pages are processed in parallel (I/O bound), DB writes are sequential.
 
     Args:
         file_path: Path to PDF file
@@ -208,83 +237,74 @@ def _extract_tech_pack_blocks(file_path: str, tech_pack_pages: list, tech_pack_r
     Returns:
         int: Number of blocks extracted
     """
-    from apps.parsing.utils.vision_extract import extract_text_from_pdf_page_vision
-    from apps.parsing.utils.translate import batch_translate
+    from concurrent.futures import ThreadPoolExecutor, as_completed
 
     total_blocks = 0
 
-    # Open PDF to get page dimensions
-    pdf_doc = fitz.open(file_path)
+    # ── Step 1: Parallel I/O (Vision API + Translation) ──────────────────
+    max_workers = min(3, len(tech_pack_pages))  # Max 3 concurrent OpenAI calls
+    page_results = {}
 
-    try:
-        for page_num in tech_pack_pages:
+    with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        futures = {
+            executor.submit(_process_page_io, file_path, page_num): page_num
+            for page_num in tech_pack_pages
+        }
+        for future in as_completed(futures):
+            page_num = futures[future]
             try:
-                # Extract text blocks
-                extracted_blocks = extract_text_from_pdf_page_vision(file_path, page_num)
-
-                # Get page dimensions from PDF
-                pdf_page = pdf_doc.load_page(page_num - 1)  # 0-indexed
-                page_width = int(pdf_page.rect.width)
-                page_height = int(pdf_page.rect.height)
-
-                # Get or create page
-                page_obj, _ = RevisionPage.objects.get_or_create(
-                    revision=tech_pack_revision,
-                    page_number=page_num,
-                    defaults={
-                        'width': page_width,
-                        'height': page_height
-                    }
-                )
-
-                # Batch translate
-                texts_to_translate = [block.get('text', '').strip() for block in extracted_blocks]
-                translations = batch_translate(texts_to_translate)
-
-                # Save blocks with translation
-                with transaction.atomic():
-                    for i, block in enumerate(extracted_blocks):
-                        text = texts_to_translate[i]
-                        if not text:
-                            continue
-
-                        translation = translations[i] if i < len(translations) else ""
-
-                        # Get bbox from block
-                        bbox = block.get('bbox', {})
-                        bbox_x = bbox.get('x', 0)
-                        bbox_y = bbox.get('y', 0)
-                        bbox_width = bbox.get('width', 100)
-                        bbox_height = bbox.get('height', 20)
-
-                        # Filter strategy: only save important blocks
-                        is_text_layer = block.get('type') == 'text_layer'
-
-                        # Skip short text from text_layer
-                        if is_text_layer and len(text) <= 3:
-                            continue
-
-                        # Create DraftBlock with translation
-                        DraftBlock.objects.create(
-                            page=page_obj,
-                            source_text=text,
-                            translated_text=translation,
-                            bbox_x=bbox_x,
-                            bbox_y=bbox_y,
-                            bbox_width=bbox_width,
-                            bbox_height=bbox_height,
-                            block_type=block.get('type', 'callout'),
-                            status='auto',
-                            translation_status='done' if translation else 'pending',
-                        )
-                        total_blocks += 1
-
-                logger.info(f"Page {page_num}: Extracted {len(extracted_blocks)} blocks")
+                result = future.result()
+                page_results[page_num] = result
+                logger.info(f"Page {page_num}: Vision extraction done ({len(result[1])} blocks)")
             except Exception as e:
                 logger.error(f"Failed to extract Tech Pack page {page_num}: {str(e)}")
 
-    finally:
-        pdf_doc.close()
+    # ── Step 2: Sequential DB writes (safe) ──────────────────────────────
+    for page_num in tech_pack_pages:
+        if page_num not in page_results:
+            continue
+
+        _, extracted_blocks, translations, page_width, page_height = page_results[page_num]
+
+        try:
+            page_obj, _ = RevisionPage.objects.get_or_create(
+                revision=tech_pack_revision,
+                page_number=page_num,
+                defaults={'width': page_width, 'height': page_height}
+            )
+
+            texts_to_translate = [block.get('text', '').strip() for block in extracted_blocks]
+
+            with transaction.atomic():
+                for i, block in enumerate(extracted_blocks):
+                    text = texts_to_translate[i]
+                    if not text:
+                        continue
+
+                    translation = translations[i] if i < len(translations) else ""
+
+                    bbox = block.get('bbox', {})
+                    is_text_layer = block.get('type') == 'text_layer'
+                    if is_text_layer and len(text) <= 3:
+                        continue
+
+                    DraftBlock.objects.create(
+                        page=page_obj,
+                        source_text=text,
+                        translated_text=translation,
+                        bbox_x=bbox.get('x', 0),
+                        bbox_y=bbox.get('y', 0),
+                        bbox_width=bbox.get('width', 100),
+                        bbox_height=bbox.get('height', 20),
+                        block_type=block.get('type', 'callout'),
+                        status='auto',
+                        translation_status='done' if translation else 'pending',
+                    )
+                    total_blocks += 1
+
+            logger.info(f"Page {page_num}: Saved {len(extracted_blocks)} blocks to DB")
+        except Exception as e:
+            logger.error(f"Failed to save Tech Pack page {page_num} to DB: {str(e)}")
 
     return total_blocks
 

@@ -73,7 +73,7 @@ def extract_text_from_pdf_page_vision(pdf_path: str, page_number: int) -> list[d
         # 轉換為圖片
         doc = fitz.open(pdf_path)
         page = doc.load_page(page_number - 1)
-        pix = page.get_pixmap(matrix=fitz.Matrix(300/72, 300/72))  # 2026-01-10: 提高解析度
+        pix = page.get_pixmap(matrix=fitz.Matrix(150/72, 150/72))  # 150 DPI: 圖片縮小4x，GPT-4o tokens大幅減少
         img_bytes = pix.tobytes("png")
         img_base64 = base64.b64encode(img_bytes).decode('utf-8')
         doc.close()
