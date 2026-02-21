@@ -5,6 +5,7 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { Revision, RevisionResponse } from '@/lib/types/revision';
 import { API_BASE_URL } from '@/lib/api/client';
+import { useAuthStore } from '@/lib/stores/authStore';
 
 const API_BASE = API_BASE_URL;
 
@@ -28,13 +29,34 @@ function getTokenFromStorage(): string | null {
 
 async function fetchWithAuth(url: string, options: RequestInit = {}): Promise<Response> {
   const token = getTokenFromStorage();
-  return fetch(url, {
+  const res = await fetch(url, {
     ...options,
     headers: {
       ...options.headers,
       ...(token ? { Authorization: `Bearer ${token}` } : {}),
     },
   });
+
+  // Auto-refresh on 401
+  if (res.status === 401 && token) {
+    const refreshed = await useAuthStore.getState().refreshAccessToken();
+    if (refreshed) {
+      const newToken = getTokenFromStorage();
+      return fetch(url, {
+        ...options,
+        headers: {
+          ...options.headers,
+          ...(newToken ? { Authorization: `Bearer ${newToken}` } : {}),
+        },
+      });
+    } else {
+      // Refresh failed → redirect to login
+      useAuthStore.getState().logout();
+      if (typeof window !== 'undefined') window.location.href = '/login';
+    }
+  }
+
+  return res;
 }
 
 // ===== Fetch Revision Data =====

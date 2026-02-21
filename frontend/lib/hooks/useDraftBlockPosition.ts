@@ -12,6 +12,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useCallback, useRef } from 'react';
 import type { BlockOverlay } from '@/lib/types/revision';
 import { API_BASE_URL } from '@/lib/api/client';
+import { useAuthStore } from '@/lib/stores/authStore';
 
 const API_BASE = API_BASE_URL;
 
@@ -32,6 +33,20 @@ function getTokenFromStorage(): string | null {
 function authHeaders(): Record<string, string> {
   const token = getTokenFromStorage();
   return token ? { Authorization: `Bearer ${token}` } : {};
+}
+
+async function fetchWithAuth(url: string, options: RequestInit = {}): Promise<Response> {
+  const res = await fetch(url, { ...options, headers: { 'Content-Type': 'application/json', ...authHeaders() } });
+  if (res.status === 401) {
+    const refreshed = await useAuthStore.getState().refreshAccessToken();
+    if (refreshed) {
+      return fetch(url, { ...options, headers: { 'Content-Type': 'application/json', ...authHeaders() } });
+    } else {
+      useAuthStore.getState().logout();
+      if (typeof window !== 'undefined') window.location.href = '/login';
+    }
+  }
+  return res;
 }
 
 interface PositionUpdate {

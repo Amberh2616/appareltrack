@@ -13,6 +13,15 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { fabric } from 'fabric';
 import type { DraftBlock } from '@/lib/types/revision';
+import { useAuthStore } from '@/lib/stores/authStore';
+
+function getStoredToken(): string | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = sessionStorage.getItem('auth-storage') || localStorage.getItem('auth-storage');
+    return raw ? JSON.parse(raw)?.state?.accessToken ?? null : null;
+  } catch { return null; }
+}
 
 /** Fetch image with JWT auth and return a blob URL (avoids <img> 401) */
 function useAuthImageUrl(url: string): { blobUrl: string | null; isDone: boolean } {
@@ -26,15 +35,26 @@ function useAuthImageUrl(url: string): { blobUrl: string | null; isDone: boolean
 
     const load = async () => {
       try {
-        // Read token directly from storage (same approach as useDraft)
-        let token: string | null = null;
-        if (typeof window !== 'undefined') {
-          const raw = sessionStorage.getItem('auth-storage') || localStorage.getItem('auth-storage');
-          if (raw) token = JSON.parse(raw)?.state?.accessToken ?? null;
-        }
-        const res = await fetch(url, {
+        let token = getStoredToken();
+        let res = await fetch(url, {
           headers: token ? { Authorization: `Bearer ${token}` } : {},
         });
+
+        // Auto-refresh on 401 (expired token)
+        if (res.status === 401) {
+          const refreshed = await useAuthStore.getState().refreshAccessToken();
+          if (refreshed) {
+            token = getStoredToken();
+            res = await fetch(url, {
+              headers: token ? { Authorization: `Bearer ${token}` } : {},
+            });
+          } else {
+            useAuthStore.getState().logout();
+            if (typeof window !== 'undefined') window.location.href = '/login';
+            return;
+          }
+        }
+
         if (!res.ok) {
           if (!revoked) setIsDone(true); // Image unavailable — stop loading
           return;
