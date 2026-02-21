@@ -15,11 +15,11 @@ import Link from 'next/link';
 import { useState, useRef, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { useDraft, useUpdateDraftBlock } from '@/lib/hooks/useDraft';
-import { useDebouncedPositionSave, useToggleBlockVisibility } from '@/lib/hooks/useDraftBlockPosition';
+import { useDebouncedPositionSave, useToggleBlockVisibility, useBatchUpdateBlockPositions } from '@/lib/hooks/useDraftBlockPosition';
 import type { DraftBlock as DraftBlockType } from '@/lib/types/revision';
 import { approveRevision } from '@/lib/api/approve';
 import { CoveragePanel } from '@/components/review/CoveragePanel';
-import { TechPackCanvas } from '@/components/review/TechPackCanvas';
+import { TechPackCanvas, type TechPackCanvasHandle } from '@/components/review/TechPackCanvas';
 import { EditPopup } from '@/components/review/EditPopup';
 import { LayoutDashboard } from 'lucide-react';
 
@@ -87,6 +87,25 @@ export default function DraftReviewPage() {
   const updateBlock = useUpdateDraftBlock(revisionId);
   const { savePositionNow } = useDebouncedPositionSave(revisionId);
   const toggleVisibility = useToggleBlockVisibility(revisionId);
+  const batchUpdatePositions = useBatchUpdateBlockPositions(revisionId);
+  const canvasRef = useRef<TechPackCanvasHandle>(null);
+  const [isSavingLayout, setIsSavingLayout] = useState(false);
+  const [layoutSaved, setLayoutSaved] = useState(false);
+
+  const handleSaveLayout = async () => {
+    const positions = canvasRef.current?.getAllPositions();
+    if (!positions || positions.length === 0) return;
+    setIsSavingLayout(true);
+    try {
+      await batchUpdatePositions.mutateAsync({ positions });
+      setLayoutSaved(true);
+      setTimeout(() => setLayoutSaved(false), 2000);
+    } catch {
+      alert('Failed to save layout. Please try again.');
+    } finally {
+      setIsSavingLayout(false);
+    }
+  };
 
   // Resolve styleId for Style Center link
   const { data: styleId } = useQuery({
@@ -456,6 +475,28 @@ export default function DraftReviewPage() {
 
             <span className="border-l border-gray-300 h-5 mx-1"></span>
 
+            {/* Save Layout Button */}
+            <button
+              onClick={handleSaveLayout}
+              disabled={isSavingLayout || showOriginalPdf}
+              className={`px-3 py-1 text-xs rounded font-medium flex items-center gap-1 transition-colors ${
+                layoutSaved
+                  ? 'bg-green-500 text-white'
+                  : 'bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50'
+              }`}
+              title="Save all translation box positions"
+            >
+              {isSavingLayout ? (
+                <><span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin" />Saving...</>
+              ) : layoutSaved ? (
+                '✓ Saved'
+              ) : (
+                'Save Layout'
+              )}
+            </button>
+
+            <span className="border-l border-gray-300 h-5 mx-1"></span>
+
             {/* Mode Toggle */}
             <button
               onClick={() => setShowOriginalPdf(!showOriginalPdf)}
@@ -522,6 +563,7 @@ export default function DraftReviewPage() {
           ) : (
             currentPageData ? (
               <TechPackCanvas
+                ref={canvasRef}
                 pageImageUrl={getPageImageUrl(currentPage)}
                 pageNumber={currentPage}
                 pageWidth={currentPageData.width || 612}

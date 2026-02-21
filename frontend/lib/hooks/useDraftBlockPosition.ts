@@ -11,12 +11,26 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 import { useCallback, useRef } from 'react';
 import type { BlockOverlay } from '@/lib/types/revision';
-import { API_BASE_URL, getAccessToken } from '@/lib/api/client';
+import { API_BASE_URL } from '@/lib/api/client';
 
 const API_BASE = API_BASE_URL;
 
+function getTokenFromStorage(): string | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw =
+      sessionStorage.getItem('auth-storage') ||
+      localStorage.getItem('auth-storage');
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    return parsed?.state?.accessToken ?? null;
+  } catch {
+    return null;
+  }
+}
+
 function authHeaders(): Record<string, string> {
-  const token = getAccessToken();
+  const token = getTokenFromStorage();
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
@@ -65,14 +79,24 @@ export function useBatchUpdateBlockPositions(revisionId: string) {
   const queryClient = useQueryClient();
 
   return useMutation({
-    mutationFn: async (updates: BatchPositionUpdate) => {
-      const res = await fetch(`${API_BASE}/revisions/${revisionId}/update_block_positions/`, {
-        method: 'POST',
+    mutationFn: async (updates: { positions: Array<{ block_id: string; overlay_x: number; overlay_y: number; overlay_visible: boolean }> }) => {
+      // 後端格式：{ positions: [{ id, overlay_x, overlay_y, overlay_visible }] }
+      const payload = {
+        positions: updates.positions.map(p => ({
+          id: p.block_id,
+          overlay_x: p.overlay_x,
+          overlay_y: p.overlay_y,
+          overlay_visible: p.overlay_visible,
+        })),
+      };
+
+      const res = await fetch(`${API_BASE}/revisions/${revisionId}/blocks/positions/`, {
+        method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
           ...authHeaders(),
         },
-        body: JSON.stringify(updates),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) {

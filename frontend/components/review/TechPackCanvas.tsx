@@ -10,9 +10,13 @@
  * - 縮放控制
  */
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, forwardRef, useImperativeHandle } from 'react';
 import { fabric } from 'fabric';
 import type { DraftBlock } from '@/lib/types/revision';
+
+export interface TechPackCanvasHandle {
+  getAllPositions: () => Array<{ block_id: string; overlay_x: number; overlay_y: number; overlay_visible: boolean }>;
+}
 
 /** Fetch image with JWT auth and return a blob URL (avoids <img> 401) */
 function useAuthImageUrl(url: string): { blobUrl: string | null; isDone: boolean } {
@@ -74,7 +78,7 @@ interface TechPackCanvasProps {
   zoomLevel?: number;
 }
 
-export function TechPackCanvas({
+export const TechPackCanvas = forwardRef<TechPackCanvasHandle, TechPackCanvasProps>(function TechPackCanvas({
   pageImageUrl,
   pageNumber,
   pageWidth,
@@ -86,11 +90,27 @@ export function TechPackCanvas({
   onBlockDoubleClick,
   onBlockDelete,
   zoomLevel = 1,
-}: TechPackCanvasProps) {
+}, ref) {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const fabricRef = useRef<fabric.Canvas | null>(null);
   const objectsMapRef = useRef<Map<string, fabric.Group>>(new Map());
+  const scaleRef = useRef<number>(1);
+
+  useImperativeHandle(ref, () => ({
+    getAllPositions: () => {
+      const positions: Array<{ block_id: string; overlay_x: number; overlay_y: number; overlay_visible: boolean }> = [];
+      objectsMapRef.current.forEach((group, blockId) => {
+        positions.push({
+          block_id: blockId,
+          overlay_x: (group.left || 0) / scaleRef.current,
+          overlay_y: (group.top || 0) / scaleRef.current,
+          overlay_visible: true,
+        });
+      });
+      return positions;
+    },
+  }));
   const [isLoading, setIsLoading] = useState(true);
 
   // Fetch page image with auth (blob URL bypasses JWT restriction on <img>)
@@ -112,6 +132,7 @@ export function TechPackCanvas({
   // 計算 canvas 尺寸
   useEffect(() => {
     setScale(zoomLevel);
+    scaleRef.current = zoomLevel;
   }, [zoomLevel]);
 
   // 初始化 Canvas
@@ -434,4 +455,4 @@ export function TechPackCanvas({
       </div>
     </div>
   );
-}
+});
