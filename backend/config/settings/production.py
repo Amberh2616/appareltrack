@@ -19,10 +19,26 @@ if _railway_domain and _railway_domain not in ALLOWED_HOSTS:
     ALLOWED_HOSTS.append(_railway_domain)
 
 # Database — 支援 Railway 的 DATABASE_URL 格式
-_db_url = os.getenv("DATABASE_URL")
+_db_url = os.getenv("DATABASE_URL") or os.getenv("DATABASE_PRIVATE_URL")
+import sys
+print(f"[DB] DATABASE_URL={'SET' if _db_url else 'NOT SET'}", file=sys.stderr)
 if _db_url:
     DATABASES = {
         "default": dj_database_url.parse(_db_url, conn_max_age=600)
+    }
+elif os.getenv("PGHOST"):
+    # Railway 自動注入 PG* 變數 — 作為備用
+    print(f"[DB] Using PGHOST={os.getenv('PGHOST')}", file=sys.stderr)
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": os.getenv("PGDATABASE", "railway"),
+            "USER": os.getenv("PGUSER", "postgres"),
+            "PASSWORD": os.getenv("PGPASSWORD"),
+            "HOST": os.getenv("PGHOST"),
+            "PORT": os.getenv("PGPORT", "5432"),
+            "CONN_MAX_AGE": 600,
+        }
     }
 else:
     DATABASES = {
