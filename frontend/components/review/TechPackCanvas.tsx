@@ -152,6 +152,7 @@ export function TechPackCanvas({
       selection: false,
       preserveObjectStacking: true,
       backgroundColor: '#e5e7eb',
+      enableRetinaScaling: true,
     });
 
     fabricRef.current = canvas;
