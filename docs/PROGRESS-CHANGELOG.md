@@ -1,5 +1,58 @@
 # Fashion Production System - Progress Changelog
 
+**Last Updated:** 2026-02-22 (FIX-0222)
+
+---
+
+## FIX-0222：Railway 全面修復 — 上傳 / 服務架構 / Storage (2026-02-22)
+
+### 問題總覽
+Railway 連環 crash + 上傳失敗，根本原因是多個舊 project 殘留、服務架構混亂、storage 設定錯誤。
+
+### 修復清單
+
+| # | 問題 | 解法 |
+|---|------|------|
+| 1 | Railway OOM crash loop | gunicorn `--workers 2` → `--workers 1`（節省 ~250MB） |
+| 2 | 4 個廢棄 Railway project 佔額度 | 全部刪除，只保留 `appealing-reverence` |
+| 3 | Redis 沒注入 `efficient-charisma` | 加 `REDIS_URL = ${{Redis.REDIS_URL}}` reference variable |
+| 4 | DB 密碼硬碼在 `railway.json`（git 安全漏洞）| 移除 hardcoded credentials，改用 Railway 自動注入 |
+| 5 | `railway.json` startCommand 沒有執行 `start.sh` | 改成 `bash start.sh` |
+| 6 | S3Boto3Storage 被啟用但 bucket name 為 None → 500 | `production.py` else 分支明確設 `DEFAULT_FILE_STORAGE = FileSystemStorage` |
+| 7 | 本地 storage 的 `/app/media` 目錄不存在 | `start.sh` 加 `mkdir -p media` |
+| 8 | superuser 無法建立（custom User model）| `start.sh` 改用 Python shell 強制 create/update |
+| 9 | Vercel `NEXT_PUBLIC_API_URL` 指向 `efficient-charisma`（worker）| 改為 `appareltrack`（主服務）URL |
+| 10 | `NEXT_PUBLIC_*` 變數需重新 build 才生效 | 空 commit 強制 Vercel rebuild |
+| 11 | JWT token 是舊服務簽發的，新服務拒絕 | 重新登入取得新 token |
+
+### 架構澄清
+```
+appealing-reverence (Railway Project)
+├── appareltrack        ← 主服務 (Django + gunicorn) ← Vercel 指向這裡
+├── efficient-charisma  ← Celery Worker
+├── Redis               ← Broker + Cache
+└── Postgres            ← 資料庫
+```
+
+### 目前狀態
+- ✅ 上傳功能正常
+- ✅ AI 提取正常（Celery worker 運作）
+- ✅ 登入正常
+- ✅ 1 worker，記憶體穩定
+- ⚠️ `USE_R2=false`（本地儲存，重啟會清空）— demo 可用，正式上線前需修 R2
+- ⚠️ 舊 debug print 仍在 `manage.py`（待清除）
+
+### 待辦
+1. **修 R2** — 確認 `R2_BUCKET_NAME` / `R2_ENDPOINT_URL` 在 `appareltrack` 正確後改 `USE_R2=true`
+2. **清除 debug prints** — `manage.py` 的 `[STARTUP]` log
+
+### 相關檔案改動
+- `backend/railway.json` — `bash start.sh`，移除 hardcoded DB 密碼
+- `backend/start.sh` — 1 worker、`mkdir -p media`、Python shell superuser 建立
+- `backend/config/settings/production.py` — else 分支明確設 `DEFAULT_FILE_STORAGE`
+
+---
+
 **Last Updated:** 2026-02-21 (FIX-0221-B)
 
 此文檔記錄所有功能開發的詳細進度和技術實現細節。
