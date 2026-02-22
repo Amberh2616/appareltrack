@@ -91,6 +91,7 @@ if USE_R2:
     MEDIA_URL = os.getenv("R2_MEDIA_URL", "/media/")
 else:
     # Beta: local storage (files reset on redeploy — ok for demo)
+    DEFAULT_FILE_STORAGE = "django.core.files.storage.FileSystemStorage"
     STATIC_URL = "/static/"
     STATIC_ROOT = BASE_DIR / "staticfiles"
     MEDIA_URL = "/media/"
